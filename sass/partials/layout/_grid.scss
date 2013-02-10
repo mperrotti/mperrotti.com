@@ -1,0 +1,52 @@
+/*------------------------------------*\
+    WORK
+\*------------------------------------*/
+.grid{
+	@include clearfix;
+	position: relative;
+	.toggle{
+		@include toggle(right);
+	}
+}
+
+.grid-item{
+	@include one-thirds;
+	@include clearfix;
+	margin-bottom: $base-spacing;
+	&:nth-child(3n) { @include omega; }
+
+	img{
+		@include one-whole;
+	}
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+		.grid-item{
+			@include one-half;
+			&:nth-child(2n) { @include omega; }
+			&:nth-child(3n) { @include remove-omega; }
+			.work-preview & {
+				&:nth-child(3n) { display: none; }
+			}
+
+			&.is-thumb{
+				margin-bottom: $base-spacing/2;
+				margin-top: $base-spacing/2;
+			}
+
+		}
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+	.grid{
+		.toggle-swipe{ display: none; }
+	}
+}

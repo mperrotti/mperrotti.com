@@ -1,0 +1,76 @@
+/*------------------------------------*\
+    LAYOUT - GLOBAL
+\*------------------------------------*/
+@include setup-container;
+
+nav{
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	width: 100%;
+	z-index: 1000;
+
+	&[data-role="navigation"]{
+		width: 50%;
+	}
+
+	ul{
+		@include one-whole;
+		li{
+			&.home-btn{
+				position: absolute;
+				height: 100%;
+				background: #eee;
+			}
+			&.is-active{
+				@include container;
+				padding: 0;
+				a{ 
+					text-align: left;
+				}
+			}
+			&:first-child{
+				border-bottom: none;
+			}
+		}
+	
+		a{ 
+			display: block;
+			padding: $base-spacing;
+		}
+	}
+
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty
+	.latest-social{
+		@include one-col-center-pad;
+
+		div{
+			@include one-whole;
+			@include omega;
+		}
+	}
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+
+}

@@ -1,0 +1,58 @@
+/*------------------------------------*\
+    ABOUT
+\*------------------------------------*/
+.about{
+	@include clearfix;
+
+	.about__module{
+		@include one-half;
+		&:nth-child(2n) { @include omega; }
+	}
+}
+
+.about__module{
+	@include full-pad-box;
+}
+
+.about--lists{
+	.about__module{
+		@include one-thirds;
+		&:nth-child(3n) { @include omega; }
+	}
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+
+	.about--lists{
+		.about__module{
+			@include one-half;
+			&:nth-child(2n) { @include omega; }
+			&:nth-child(3n) { @include remove-omega; }
+		}
+	}
+
+	.about--contact{
+		.about__module{
+			@include one-whole;
+			@include omega;
+		}
+	}
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+}

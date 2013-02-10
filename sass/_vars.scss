@@ -1,0 +1,26 @@
+/*------------------------------------*\
+    VARS.CSS (mperrotti.com vars)
+\*------------------------------------*/
+
+//LAYOUT
+$base-measure: 2em;
+$base-spacing: $base-measure/2;
+
+//COLORS
+$light-muted-brown: rgb(103, 102, 89);
+$dark-muted-brown: rgb(43, 43, 35);
+$pink: rgb(241, 232, 237);
+$blue: rgb(24, 96, 140);
+$light-blue: rgb(220, 222, 238);
+
+$site-base-color: $light-blue;
+$site-main-color: whitesmoke; //lighten($site-base-color, 5%);
+$site-secondary-color: black; //$dark-muted-brown;
+$site-secondary-color-light: #444; //$light-muted-brown;
+$site-accent-main: #999; //$blue;
+$site-accent-light: #ccc;//$pink;
+$site-accent-dark: #666;//$light-blue;
+
+//TYPOGRAPHY
+$site-main-font: Lekton, TradeGothic, Helvetica, Arial, sans-serif;
+$site-secondary-font: Palatino, Didot, TimesNewRoman, serif;

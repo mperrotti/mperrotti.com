@@ -1,0 +1,11 @@
+/*--------------------*\
+    GLOBAL
+\*--------------------*/
+nav { cursor: pointer; }
+
+.toggle-nav {
+	@include single-transition(all, .25s, ease-in);
+	&:hover{
+		top: -45px;
+	}
+}
