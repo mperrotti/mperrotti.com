@@ -6,7 +6,11 @@
 	  THUMB (details on hover)
 	\*--------------------*/
 	.grid-item.is-thumb{
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
 		cursor: pointer;
+		padding: $base-spacing;
 		position: relative;
 
 		.grid-item__info{
@@ -15,7 +19,7 @@
 			position: relative;
 			top: $base-spacing;
 			width: 100%;
-			@include single-transition(opacity, .2s, ease-in);
+			@include single-transition(opacity, .2s, ease);
 		}
 
 		.grid-item__expanded-content{
@@ -47,7 +51,7 @@
 		cursor: default;
 
 		.grid-item__images,
-		.grid-item__info { @include single-transition(all, .25s, ease-in); }
+		.grid-item__info { @include single-transition(all, .25s, ease); }
 
 		.grid-item__info {
 		  @include span-columns($side omega);
@@ -156,6 +160,7 @@
 	.grid-item.is-thumb{
 		.grid-item__info{
 			position: absolute;
+			right: 0;
 		}
 	}
 

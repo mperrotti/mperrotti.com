@@ -17,8 +17,11 @@
 }
 
 .expanded-Proj-Nav {
-	top: 50%;
+	display: none;
 	margin-top: -40px; //height of prev/next links
+	top: 50%;
+
+	.is-expanded-view & { display: block; }
 
 	a {
 		@include inline-block;

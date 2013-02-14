@@ -236,11 +236,11 @@ var workPageLoaded = false,
 
         // Show all nav options on homepage
         if (page === 'home') {
-          $('nav li').slideDown();
+          $('nav li:not(.home-btn)').slideDown();
         }
 
         // When navigating to any page that is not a homepage
-        $('a[href=#'+page+']:not(.home-btn > a)').parent().slideUp('200', function(){
+        $('a[href=#'+page+']').parent().slideUp('200', function(){
 
           //Add a title if it isn't there
           if ($('#'+page+' .container').find('.title').length === 0) {
@@ -248,8 +248,8 @@ var workPageLoaded = false,
           }
 
           if(page === 'work'){
-            $('a[href="#about"]').parent().slideDown();
-          } else if (page === 'about'){
+            $('a[href="#home"]').parent().slideDown();
+          } else if (page === 'home'){
             $('a[href="#work"]').parent().slideDown();
           }
 
@@ -359,6 +359,9 @@ var workPageLoaded = false,
         if (show === '#show-nav'){
             body.toggleClass('show-nav');
         }
+        if (show === '#aboutme'){
+            body.toggleClass('show-about');
+        }
         return body.attr('class');
       },
       toggleText: function (triggers) {
@@ -398,6 +401,8 @@ var workPageLoaded = false,
       projectGrid.find('.is-expanded')
       .removeClass('is-expanded')
       .addClass('is-thumb');
+
+      $('body').addClass('is-expanded-view');
 
       project.removeClass('is-thumb').addClass('is-expanded');
 
@@ -557,7 +562,7 @@ var workPageLoaded = false,
       $('body').addClass('show-nav');
     });
 
-    $('nav li').on('click', 'a', function(e) {
+    $('a[data-nav-type="page"]').on('click', function(e) {
       var page = $(this).attr('href').replace('#', '');
 
       e.preventDefault();

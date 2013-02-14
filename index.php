@@ -23,7 +23,7 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
             <!-- NAV -->
-            <nav data-role="navigation" data-position="fixed">
+            <!-- <nav data-role="navigation" data-position="fixed">
                 <ul>
                     <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
                     <li><a href="#work" title="Work" data-nav-type="page">Work</a></li>
@@ -31,7 +31,15 @@
                     <li><a href="#about" title="About" data-nav-type="page">About</a></li>
                 </ul>
                 <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
-            </nav>
+            </nav> -->
+
+            
+<!--             <a href="#aboutme" class="toggle toggle-about">About</a>
+            <section id="aboutme" class="aboutme">
+                <h1>About Me</h1>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consectetur ipsa temporibus voluptates eaque provident at nisi eos explicabo molestiae quis illo architecto accusamus in deleniti fugit quidem totam minus!</p>
+            </section> 
+ -->            
 
             <!-- INTRO -->
             <section id="home" class="is-active" data-pulled="no">
@@ -40,66 +48,22 @@
                     <img src="img/bigimgtest.jpeg" alt="bigimgtest" />
                 </div>
                 <div class="wide-intro__over">
-                    <div class="logo">logo here</div>
+<!--                     <div class="logo">logo here</div> -->
                     <hgroup>
                         <h1>Michael Perrotti</h1><br />
                         <h2>Designer and front-end developer</h2>
                     </hgroup>
                 </div>
             </section>
-
-            <div class="container">
-
-                <!-- WORK GRID -->
-                <section class="work-preview">
-
-                    <div class="grid">
-                        <div class="grid-item is-thumb">
-                            <a href="" title=""></a>
-                            <img src="http://placehold.it/1200x800" alt="">
-                            <div class="grid-item__info">
-                                <h3>Sample Title</h3>
-                                <p>Sample body text</p>
-                            </div>
-                        </div>
-                        <div class="grid-item is-thumb">
-                            <a href="" title=""></a>
-                            <img src="http://placehold.it/1200x800" alt="">
-                            <div class="grid-item__info">
-                                <h3>Sample Title</h3>
-                                <p>Sample body text</p>
-                            </div>
-                        </div>
-                        <div class="grid-item is-thumb">
-                            <a href="" title=""></a>
-                            <img src="http://placehold.it/1200x800" alt="">
-                            <div class="grid-item__info">
-                                <h3>Sample Title</h3>
-                                <p>Sample body text</p>
-                            </div>
-                        </div>
-                    </div>
-                
-                </section>
-
-                <!-- LATEST SOCIAL -->
-                <section class="latest-social">
-                    <div>
-                        <h3>Song listened to</h3>
-                        <div class="mask"></div>
-                        <img src="" alt="">
-                        <p class="latest-social__latest-item-text">Song Artist &em; Song Title</p>
-                    </div>
-                    <div>
-                        <h3>Photo taken</h3>
-                        <div class="mask"></div>
-                        <img src="" alt="">
-                        <p>Post text &em; #omg #hashtags</p>
-                    </div>
-                </section>
-
-            </div>
             </section>
+
+            <nav class="main-nav">
+                <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
+                <ul>
+                    <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
+                    <li><a href="#work" title="Work" data-nav-type="page">Work</a></li>
+                </ul>
+            </nav>
 
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>

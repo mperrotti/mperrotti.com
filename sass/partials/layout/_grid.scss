@@ -12,7 +12,6 @@
 .grid-item{
 	@include one-thirds;
 	@include clearfix;
-	margin-bottom: $base-spacing;
 	&:nth-child(3n) { @include omega; }
 
 	img{

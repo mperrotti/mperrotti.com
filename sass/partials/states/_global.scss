@@ -6,6 +6,20 @@ nav { cursor: pointer; }
 .toggle-nav {
 	@include single-transition(all, .25s, ease-in);
 	&:hover{
-		top: -45px;
+		bottom: -45px;
 	}
+}
+
+.aboutme {
+	@include single-transition(all, .25s, ease-in);
+  @include span-columns($side omega);
+  background: white;
+  float: left;
+  margin-left: -100%;
+  padding: $base-spacing;
+  padding-left: $base-measure;
+  position: fixed;
+  z-index: 999;
+
+  .show-about & { margin-left: 0; }
 }
