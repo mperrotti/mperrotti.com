@@ -19,74 +19,88 @@
         <!--<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
     </head>
     <body class="show-page-home">
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-        <!-- NAV -->
-        <!-- <nav data-role="navigation" data-position="fixed">
-            <ul>
-                <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
-                <li class="divider"></li>
-                <li><a href="#about" title="About" data-nav-type="page">About</a></li>
-            </ul>
-            <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
-        </nav> -->
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+            <!-- NAV -->
+            <nav data-role="navigation" data-position="fixed">
+                <ul>
+                    <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
+                    <li><a href="#work" title="Work" data-nav-type="page">Work</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#about" title="About" data-nav-type="page">About</a></li>
+                </ul>
+                <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
+            </nav>
 
-        <section id="work" class="is-active" data-pulled="no">
-            <div class="container grid-container">
+            <!-- INTRO -->
+            <section id="home" class="is-active" data-pulled="no">
+            <section class="wide-intro">
+                <div class="wide-intro__video-container">
+                    <img src="img/bigimgtest.jpeg" alt="bigimgtest" />
+                </div>
+                <div class="wide-intro__over">
+                    <div class="logo">logo here</div>
+                    <hgroup>
+                        <h1>Michael Perrotti</h1><br />
+                        <h2>Designer and front-end developer</h2>
+                    </hgroup>
+                </div>
+            </section>
 
-                <nav class="expanded-Proj-Nav">
-                    <a href="#prev-proj"></a>
-                    <a href="#next-proj"></a>
-                </nav>
+            <div class="container">
 
-                <a href="#all-projects">SHOW ALL PROJECTS!</a>
+                <!-- WORK GRID -->
+                <section class="work-preview">
 
-                <section class="grid">
-                    <article class="grid-item is-thumb" id="project-1" data-nav-type="project">
-                        <a href="" title=""></a>
-                        <img src="http://placehold.it/1200x800" alt="">
-                        <section class="grid-item__info">
-                            <h3>Sample Title</h3>
-                            <p>Sample body text</p>
-                        </section>
-                        <div class="grid-item__expanded-content"></div>
-                        <a href="#show-info" class="toggle toggle-swipe">Show Info</a>
-                    </article>
-                    <article class="grid-item is-thumb" id="project-2" data-nav-type="project">
-                        <a href="" title=""></a>
-                        <img src="http://placehold.it/1200x800" alt="">
-                        <section class="grid-item__info">
-                            <h3>Sample Title</h3>
-                            <p>Sample body text</p>
-                        </section>
-                        <div class="grid-item__expanded-content"></div>
-                        <a href="#show-info" class="toggle toggle-swipe">Show Info</a>
-                    </article>
-                    <article class="grid-item is-thumb" id="project-3" data-nav-type="project">
-                        <a href="" title=""></a>
-                        <img src="http://placehold.it/1200x800" alt="">
-                        <section class="grid-item__info">
-                            <h3>Sample Title</h3>
-                            <p>Sample body text</p>
-                        </section>
-                        <div class="grid-item__expanded-content"></div>
-                        <a href="#show-info" class="toggle toggle-swipe">Show Info</a>
-                    </article>
-                    <article class="grid-item is-thumb" id="project-4" data-nav-type="project">
-                        <a href="" title=""></a>
-                        <img src="http://placehold.it/1200x800" alt="">
-                        <section class="grid-item__info">
-                            <h3>Sample Title</h3>
-                            <p>Sample body text</p>
-                        </section>
-                        <div class="grid-item__expanded-content"></div>
-                        <a href="#show-info" class="toggle toggle-swipe">Show Info</a>
-                    </article>
-
+                    <div class="grid">
+                        <div class="grid-item is-thumb">
+                            <a href="" title=""></a>
+                            <img src="http://placehold.it/1200x800" alt="">
+                            <div class="grid-item__info">
+                                <h3>Sample Title</h3>
+                                <p>Sample body text</p>
+                            </div>
+                        </div>
+                        <div class="grid-item is-thumb">
+                            <a href="" title=""></a>
+                            <img src="http://placehold.it/1200x800" alt="">
+                            <div class="grid-item__info">
+                                <h3>Sample Title</h3>
+                                <p>Sample body text</p>
+                            </div>
+                        </div>
+                        <div class="grid-item is-thumb">
+                            <a href="" title=""></a>
+                            <img src="http://placehold.it/1200x800" alt="">
+                            <div class="grid-item__info">
+                                <h3>Sample Title</h3>
+                                <p>Sample body text</p>
+                            </div>
+                        </div>
+                    </div>
+                
                 </section>
+
+                <!-- LATEST SOCIAL -->
+                <section class="latest-social">
+                    <div>
+                        <h3>Song listened to</h3>
+                        <div class="mask"></div>
+                        <img src="" alt="">
+                        <p class="latest-social__latest-item-text">Song Artist &em; Song Title</p>
+                    </div>
+                    <div>
+                        <h3>Photo taken</h3>
+                        <div class="mask"></div>
+                        <img src="" alt="">
+                        <p>Post text &em; #omg #hashtags</p>
+                    </div>
+                </section>
+
             </div>
-        </section>
+            </section>
+
         <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
         <script src="js/vendor/jquery.mobile/jquery.mobile.custom.js"></script>-->
