@@ -8,12 +8,12 @@ var workPageLoaded = false,
   FUNCTIONS AND VARS
 \*--------------------------------------------------------------*/
   /*------------------------------------------*\
-    FUNCTION: preloadWork
+    FUNCTION: preloadWorkPage
 
     Preload the work page
     
   \*------------------------------------------*/
-  function preloadWork (step) {
+  function preloadWorkPage (step) {
     switch (step) {
       case 0: $.ajax({
                 url    : 'work2.html',
@@ -29,7 +29,7 @@ var workPageLoaded = false,
                 complete: function(data) {
                   workPageLoaded = true;
                   workPageData = data.responseText;
-                  preloadWork(1);
+                  preloadWorkPage(1);
                 }
               }); break;
 
@@ -58,18 +58,18 @@ var workPageLoaded = false,
     
     Pages: Home, Work, About
   \*------------------------------------------*/
-  // function getUrlVars() {
-  //     var vars = [], hash;
-  //     var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+  function getUrlVars() {
+      var vars = [], hash;
+      var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 
-  //     for(var i = 0; i < hashes.length; i++)
-  //     {
-  //         hash = hashes[i].split('=');
-  //         vars.push(hash[0]);
-  //         vars[hash[0]] = hash[1];
-  //     }
-  //     return vars; //change to 'hash[1]' to return project ID
-  // }
+      for(var i = 0; i < hashes.length; i++)
+      {
+          hash = hashes[i].split('=');
+          vars.push(hash[0]);
+          vars[hash[0]] = hash[1];
+      }
+      return vars; //change to 'hash[1]' to return project ID
+  }
   //////////////////////////////////////////////END READ URL VARS
 
   /*------------------------------------------*\
@@ -292,7 +292,7 @@ var workPageLoaded = false,
               'margin-top' : 0,
               'margin-bottom' : 0
             });
-            //scrollToTop();
+            scrollToTop();
           });
         }
 
@@ -307,7 +307,7 @@ var workPageLoaded = false,
             if (transProp === 'margin-top' || transProp === 'margin-bottom') {
               $(this).hide();
             }
-            //scrollToTop();
+            scrollToTop();
           });
         }
 
@@ -322,7 +322,7 @@ var workPageLoaded = false,
             if (transProp === 'margin-top' || transProp === 'margin-bottom') {
               $(this).hide();
             }
-            //scrollToTop();
+            scrollToTop();
           });
         }
     }//end of 'else' statement to detect if page is not being shown
@@ -357,10 +357,7 @@ var workPageLoaded = false,
           body.toggleClass('show-grid-item__info');
         }
         if (show === '#show-nav'){
-          body.toggleClass('show-nav');
-        }
-        if (show === '#aboutme') {
-          body.toggleClass('show-about');
+            body.toggleClass('show-nav');
         }
         return body.attr('class');
       },
@@ -469,6 +466,56 @@ var workPageLoaded = false,
 
       });
   }//////////////////////////////////////////////END showAllProjects
+
+  /*------------------------------------------*\
+    THIS FUNCTION WAS GIVING ME TROUBLE.
+    JUST USING CSS UNLESS I FEEL LIKE I REALLY NEED IT
+
+    FUNCTION: hoverDetails
+    
+    Fancier/more controlled way to show
+    details than CSS :hover alone
+  \*------------------------------------------*/
+  // function hoverDetails() {
+  //   var li_cache, over = false;
+
+  //   $('.grid')
+  //     .delegate( '.grid-item.is-thumb', 'mouseenter', function ( e ) {
+  //       var $info = $( this ), speed;
+
+  //       if ( li_cache === this && over ) {
+  //         $.doTimeout( 'hoverOut' );
+  //         return;
+  //       }
+
+  //       if ( over ) {
+  //         console.log('mouseenter - over');
+  //         $.doTimeout( 'hoverOut', true );
+  //         speed = 0;
+  //       } else {
+  //         console.log('mouseenter - !over');
+  //         $.doTimeout( 'hoverOut' );
+  //         speed = 500;
+  //       }
+
+  //       $.doTimeout( 'hoverIn', speed, function () {
+  //         over = true;
+  //         $info.find('.grid-item__info').fadeTo( 200, 1.0 );
+  //       });
+  //     })
+  //     .delegate( '.grid-item.is-thumb', 'mouseleave', function ( e ) {
+  //       var $info = $( this );
+
+  //       $.doTimeout( 'hoverIn' );
+  //       $.doTimeout( 'hoverOut', 500, function () {
+  //         console.log('mouseleave');
+  //         over = false;
+  //         $info.find('.grid-item__info').stop( true ).fadeOut();
+  //       });
+  //     });
+  // }
+  //////////////////////////////////////////////END hoverDetails
+  //////////////////////////////////////////////////////////////////WORK PORTFOLIO SETUP: VARS AND FUNCTIONS
   
 /*--------------------------------------------------------------*\
   FRONT-END REALNESSSS - THE JS TO MAKE IT WERK
@@ -477,11 +524,9 @@ var workPageLoaded = false,
   /*------------------------------------------*\
     GLOBAL STUFF
   \*------------------------------------------*/
-
-    portfolioStuff();
     
     // Pre-load the work page with AJAX
-    preloadWork(0);
+    preloadWorkPage(0);
 
     //Init off-canvas toggling
     $(function () {
@@ -497,7 +542,7 @@ var workPageLoaded = false,
     }
 
     $('.toggle-nav').mouseenter(function(){
-      $.doTimeout( 'hover', 150, function(elem){
+      $.doTimeout( 'hover', 350, function(elem){
         $('body').addClass('show-nav');
       }, this);
     });
