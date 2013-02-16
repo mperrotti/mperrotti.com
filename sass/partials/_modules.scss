@@ -1,0 +1,91 @@
+/*------------------------------------*\
+    GLOBAL
+\*------------------------------------*/
+body{
+}
+
+[data-role="page"]{
+	background: whitesmoke;
+	// @include background(
+	// 	linear-gradient($site-accent-dark, $site-accent-light)
+	// );
+}
+
+body>section{
+}
+
+nav ul,
+.container { @include single-transition(all, .25s, ease-in-out); }
+
+nav ul{
+	background: $site-main-color;
+	border-bottom: 1px solid darken($site-main-color, 20%);
+	margin: 0 0 -100% 0;
+	position: relative;
+	z-index: 2;
+
+	.show-nav & { margin-bottom: 0; }
+
+	li{
+		background: $site-main-color;
+		&:hover{
+			background: $site-base-color;
+		}
+	}
+}
+
+#home,
+#work,
+#about{ @include single-transition(all, .5s, ease-in-out); }
+
+.toggle{
+	@include toggle();
+	padding: $base-spacing;
+	text-align: center;
+	width: 100%;
+}
+
+.toggle-nav{
+	@include replace-text('../apple-touch-icon-57x57-precomposed.png', center);
+	background: $site-main-color;
+	border: 1px solid black;
+	border-radius: 999px 999px 0 0;
+	height: 50px;
+	margin: 0 auto;
+	position: relative;
+	bottom: -60px;
+	width: 50px;
+	z-index: 1;
+}
+
+.show-page-home{
+	.divider{
+		border-bottom: 1px solid white;
+		border-top: 1px solid darken($site-main-color, 10%);
+		margin: 0 $base-spacing/2;
+	}
+}
+
+/*------------------------------------*\
+    HOME
+\*------------------------------------*/
+.wide-intro{
+	overflow: hidden;
+	img{
+		width: 100%;
+	}
+}
+
+.wide-intro__over{
+	.logo{
+		background: $site-main-color;
+	}	
+}
+
+.wide-intro__video-container{
+	position: absolute;
+	top: 0;
+	width: 100%;
+}
+
+@import 'modules/work';

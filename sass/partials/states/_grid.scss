@@ -1,0 +1,167 @@
+/*------------------------------------*\
+    GRID
+\*------------------------------------*/
+
+	/*--------------------*\
+	  THUMB (details on hover)
+	\*--------------------*/
+	.grid-item.is-thumb{
+		-webkit-box-sizing: border-box;
+		   -moz-box-sizing: border-box;
+		        box-sizing: border-box;
+		cursor: pointer;
+		padding: $base-spacing;
+		position: relative;
+
+		.grid-item__info{
+			display: block;
+			opacity: 0;
+			position: relative;
+			top: $base-spacing;
+			width: 100%;
+			@include single-transition(opacity, .2s, ease);
+		}
+
+		.grid-item__expanded-content{
+			display: none;
+		}
+
+	}
+
+	.no-touch {
+		.grid-item.is-thumb{
+			&:hover{
+				.grid-item__info{ 
+					display: block;
+					opacity: 1;
+				}
+			}
+		}
+	}
+
+
+	/*--------------------*\
+	  EXPANDED
+	\*--------------------*/
+	.grid-item.is-expanded {
+		@include one-whole;
+		border-bottom: 1px solid $site-accent-main;
+		padding-bottom: $base-spacing;
+		position: relative;
+		cursor: default;
+
+		.grid-item__images,
+		.grid-item__info { @include single-transition(all, .25s, ease); }
+
+		.grid-item__info {
+		  @include span-columns($side omega);
+		  .show-grid-item__info & { margin-right: 0; }
+		  margin-right: -100%;
+			position: absolute;
+			right: 0;
+			z-index: 999;
+		}
+
+		.grid-item__images {
+			@include one-whole;
+			@include remove-omega;
+			@include clearfix;
+			margin-top: 0;
+		  margin-right: 0;
+		  
+		  .show-grid-item__info & { @include two-thirds; }
+			
+			img { @include one-whole; }
+		}
+
+		//TODO: get rid of yucky !important
+		& > img,
+		& > .grid-item__info {
+			display: none !important; //Yucky way to override js and make sure this stuff is hidden
+		}
+	}
+
+/*--------------------*\
+  MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.grid-item.is-expanded{
+			.grid-item__images{
+			  .show-grid-item__info & { @include one-whole;}
+				li{
+					&:first-child {
+						@include one-whole;
+					}
+				}
+			}
+		}
+}
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+
+		.grid-item.is-expanded{
+			.grid-item__info, 
+			.grid-item__images{
+			  .show-grid-item__info & { @include one-whole; }					
+			}
+
+			.grid-item__info{
+				@include full-pad-box;
+			}
+
+			.grid-item__images{
+				li{
+					&:first-child {
+						@include one-whole;
+					}
+				}
+			}
+
+		}
+
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+		/*--------------------*\
+		  EXPANDED
+		\*--------------------*/
+		.grid-item.is-expanded{
+			.grid-item__images{
+			  .show-grid-item__info & { @include one-whole; }
+				img {
+					@include one-whole;
+					margin: ($base-spacing/2) 0;
+				  	&:first-child{
+			  			@include two-thirds;
+							margin-top: 0;
+			  		}
+						&:last-child{
+							margin-bottom: 0;
+						}
+				}
+			}
+
+			.grid-item__info{
+		  	margin-right: 0;
+			}
+		}
+
+	/*--------------------*\
+	  THUMB
+	\*--------------------*/
+	.grid-item.is-thumb{
+		.grid-item__info{
+			position: absolute;
+			right: 0;
+		}
+	}
+
+}

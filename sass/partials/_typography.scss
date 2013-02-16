@@ -1,0 +1,81 @@
+body{
+	font-family: $site-main-font;
+	color: $site-secondary-color-light;
+}
+
+h1, h2, h3,
+h4, h5, h6{	font-family: $site-secondary-font; font-weight: normal; color: $site-secondary-color; }
+
+nav{
+	ul, a{ text-align: center; }
+}
+
+a{
+	text-decoration: none;
+}
+
+.title{
+	text-transform: capitalize;
+}
+
+/*------------------------------------*\
+    HOME
+\*------------------------------------*/
+.wide-intro{
+	h1, h2{ @include callout-block; }
+}
+.grid-item{
+	h3{
+		margin-bottom: $base-spacing/2;
+	}
+	p{
+		margin-top: $base-spacing/2;
+	}
+}
+
+.latest-social{
+	text-align: center;
+}
+
+/*------------------------------------*\
+    WORK
+\*------------------------------------*/
+.grid{
+	.grid-item{
+		h3,
+		p{
+			text-align: center;
+		}
+		&.is-expanded{
+			h2,
+			p{
+				text-align: left;
+			}
+		}
+	}
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.wide-intro{ text-align: center; }
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+
+
+}
+

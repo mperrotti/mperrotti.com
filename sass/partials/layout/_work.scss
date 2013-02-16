@@ -1,0 +1,100 @@
+/*------------------------------------*\
+    WORK
+\*------------------------------------*/
+.grid{
+	@include clearfix;
+	position: relative;
+
+	.grid-item{
+		@include one-thirds;
+		
+		&:nth-child(3n) { @include omega; }
+
+		img{
+			@include one-whole;
+		}
+	}
+}
+
+.expanded-Proj-Nav {
+	display: none;
+	margin-top: -40px; //height of prev/next links
+	top: 50%;
+
+	.is-expanded-view & { display: block; }
+
+	a {
+		@include inline-block;
+		position: absolute;
+		&[href="#next-proj"] {
+			right: 0;
+		}
+		&[href="#prev-proj"] {
+			left: 0;
+		}
+	}
+
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.grid{		
+		
+		.grid-item{
+			@include one-half;
+					
+			&:nth-child(2n) { @include omega; }
+
+			&.is-expanded{
+				.grid-item__images{
+				  .show-grid-item__info & { @include one-whole; }
+					li{
+						&:first-child {
+							@include one-whole;
+						}
+					}
+				}
+			}
+
+		}
+	}
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+	.grid{
+		
+		.grid-item{
+			&.is-expanded{
+				.grid-item__images{
+				  .show-grid-item__info & { @include one-whole; }
+				  li{
+						&:first-child {
+							@include two-thirds;
+						}
+					}
+				}
+				
+				.grid-item__info{
+			  	margin-right: 0;
+				}
+			}
+
+		}
+
+	}
+
+}

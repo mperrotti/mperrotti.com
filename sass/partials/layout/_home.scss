@@ -1,0 +1,77 @@
+/*------------------------------------*\
+    HOME
+\*------------------------------------*/
+.wide-intro{
+	height: 100%;
+	min-height: 750px;
+	margin-bottom: $base-spacing;
+	position: relative;
+
+	.wide-intro__over{
+		@include container;
+		hgroup, .logo{
+			position: relative; 
+			z-index: 2; 
+		}
+		.logo{
+			@include one-thirds;
+			height: 600px;
+		}
+	}
+
+	h1, h2{
+		padding: $base-spacing;
+	}
+}
+
+.latest-social{
+	@include two-thirds;
+
+	div{
+		@include one-half;
+
+		&:nth-child(2n) { @include omega; }
+	}
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.wide-intro{
+		height: 200px;
+	}
+	
+	.latest-social{
+		div{
+			@include one-whole;
+		}
+	}
+
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+	.latest-social{
+		@include one-col-center-pad;
+	}
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+	.latest-social{
+		@include pre(2);
+		@include two-thirds;
+		div{
+			@include one-half;
+			&:nth-child(2n) { @include omega; }
+		}
+	}
+}
