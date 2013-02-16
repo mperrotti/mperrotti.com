@@ -520,66 +520,6 @@ var workPageLoaded = false,
   //     });
   // }
   //////////////////////////////////////////////END hoverDetails
-  //////////////////////////////////////////////////////////////////WORK PORTFOLIO SETUP: VARS AND FUNCTIONS
-  
-/*--------------------------------------------------------------*\
-  FRONT-END REALNESSSS - THE JS TO MAKE IT WERK
-\*--------------------------------------------------------------*/
-
-  /*------------------------------------------*\
-    GLOBAL STUFF
-  \*------------------------------------------*/
-    
-    // Pre-load the work page with AJAX
-    preloadWorkPage(0);
-
-    //Init off-canvas toggling
-    $(function () {
-        OBC.susyOffCanvasToggle.init($('.toggle'));
-    });
-
-    /*--------------------------*\
-      PAGE NAVIGATION
-    \*--------------------------*/
-    //On load, show the correct page...
-    if (pageTitleVar !== undefined) {
-      pageChange(pageTitleVar);
-    }
-
-    $('.toggle-nav').mouseenter(function(){
-      $.doTimeout( 'hover', 350, function(elem){
-        $('body').addClass('show-nav');
-      }, this);
-    });
-    $('nav').mouseleave(function(){
-      $.doTimeout( 'hover' );
-      $.doTimeout('unhover', 500, function (elem) {
-        $('body').removeClass('show-nav');
-      }, this);
-    });
-
-    $('nav:not(.show-nav > nav)').on('click', function(){
-      $('body').addClass('show-nav');
-    });
-
-    $('a[data-nav-type="page"]').on('click', function(e) {
-      var page = $(this).attr('href').replace('#', '');
-
-      e.preventDefault();
-
-      pageChange(page);
-
-    });
-
-    History.Adapter.bind(window,'statechange',function() {
-      if (getUrlVars()["page"] !== undefined) {
-        pageChange(getUrlVars()["page"]);
-      } else {
-        pageChange('home');
-      }
-    });
-    //////////////////////////////END PAGE NAVIGATION
-  //////////////////////////////////////////////END GLOBAL STUFF
 
   /*------------------------------------------*\
     PORTFOLIO STUFF
@@ -738,6 +678,67 @@ var workPageLoaded = false,
 
     }
   //////////////////////////////////////////////END PORTFOLIO STUFF
+
+  //////////////////////////////////////////////////////////////////WORK PORTFOLIO SETUP: VARS AND FUNCTIONS
+  
+/*--------------------------------------------------------------*\
+  FRONT-END REALNESSSS - THE JS TO MAKE IT WERK
+\*--------------------------------------------------------------*/
+
+  /*------------------------------------------*\
+    GLOBAL STUFF
+  \*------------------------------------------*/
+    
+    // Pre-load the work page with AJAX
+    preloadWorkPage(0);
+
+    //Init off-canvas toggling
+    $(function () {
+        OBC.susyOffCanvasToggle.init($('.toggle'));
+    });
+
+    /*--------------------------*\
+      PAGE NAVIGATION
+    \*--------------------------*/
+    //On load, show the correct page...
+    if (pageTitleVar !== undefined) {
+      pageChange(pageTitleVar);
+    }
+
+    $('.toggle-nav').mouseenter(function(){
+      $.doTimeout( 'hover', 350, function(elem){
+        $('body').addClass('show-nav');
+      }, this);
+    });
+    $('nav').mouseleave(function(){
+      $.doTimeout( 'hover' );
+      $.doTimeout('unhover', 500, function (elem) {
+        $('body').removeClass('show-nav');
+      }, this);
+    });
+
+    $('nav:not(.show-nav > nav)').on('click', function(){
+      $('body').addClass('show-nav');
+    });
+
+    $('a[data-nav-type="page"]').on('click', function(e) {
+      var page = $(this).attr('href').replace('#', '');
+
+      e.preventDefault();
+
+      pageChange(page);
+
+    });
+
+    History.Adapter.bind(window,'statechange',function() {
+      if (getUrlVars()["page"] !== undefined) {
+        pageChange(getUrlVars()["page"]);
+      } else {
+        pageChange('home');
+      }
+    });
+    //////////////////////////////END PAGE NAVIGATION
+  //////////////////////////////////////////////END GLOBAL STUFF
 
 //////////////////////////////////////////////////////////////////END FRONT-END REALNESSSS
 });
