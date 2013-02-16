@@ -76,8 +76,11 @@
         <script src="js/vendor/jquery.ba-bbq.min.js"></script>
         <script src="js/vendor/jquery.cycle2.min.js"></script>
         <script src="js/vendor/jquery.cycle2.swipe.min.js"></script>
+<<<<<<< HEAD
         <script src="js/work.js"></script>
         <script src="js/global.js"></script>
+=======
+>>>>>>> e58cb46a2879a6e8cd62e559b0a837e7da61d404
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         
