@@ -1,25 +1,56 @@
 /*--------------------*\
     GLOBAL
 \*--------------------*/
-nav { cursor: pointer; }
 
-.toggle-nav {
-	@include single-transition(all, .25s, ease-in);
-	&:hover{
-		bottom: -45px;
-	}
+.show-page-home {
+  #home { @include transform2d(translateY(0)); }
+  #work { margin-top: -200%; }
 }
 
-.aboutme {
-	@include single-transition(all, .25s, ease-in);
-  @include span-columns($side omega);
-  background: white;
-  float: left;
-  margin-left: -100%;
-  padding: $base-spacing;
-  padding-left: $base-measure;
-  position: fixed;
-  z-index: 999;
+.show-page-work {
+  
+  #home { @include transform2d(translateY(-100%)); }
 
-  .show-about & { margin-left: 0; }
+  .main-nav {
+    background: transparent;
+
+    &:hover {
+      .main-nav--new-page { margin-top: -2em; }
+    }
+
+    .main-nav--new-page {
+      @include transform2d(rotate(180deg));
+      margin-top: -10em;
+    }
+    
+    // .toggle-nav {
+    //   bottom: -5em;
+
+    //   &:before,
+    //   &:after {
+    //     top: 3em;
+    //   }
+
+    //   &:before {
+    //     @include transform2d(skew(0deg, -25deg));
+    //   }
+    //   &:after {
+    //     @include transform2d(skew(0deg, 25deg));
+    //   }
+
+    // }
+
+  }
+}
+
+.show-about {
+  .main-nav--more-info {
+    a[href="#aboutme"] { background: $site-accent-dark; }
+  }
+}
+
+.show-contact {
+  .main-nav--more-info {
+    a[href="#contactme"] { background: $site-accent-dark; }
+  }
 }

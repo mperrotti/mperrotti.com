@@ -22,46 +22,49 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
-            <!-- NAV -->
-            <!-- <nav data-role="navigation" data-position="fixed">
-                <ul>
-                    <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
-                    <li><a href="#work" title="Work" data-nav-type="page">Work</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#about" title="About" data-nav-type="page">About</a></li>
-                </ul>
-                <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
-            </nav> -->
+            <a href="#prev-proj" class="expanded-Proj-Nav"></a>
+            <a href="#next-proj" class="expanded-Proj-Nav"></a>
+
+            <nav class="info-nav">
+                <a href="#aboutme" class="info-nav--more-info toggler" title="About">About</a>
+                <a href="#contactme" class="info-nav--more-info" title="Contact">Contact</a>
+            </nav>
+
+            <nav class="project-view"> 
+                <a class="toggle-project-view" href="#all-projects">LIST VIEW</a>
+                <a class="toggle-project-view" href="#collapse-projects">THUMB VIEW</a>
+            </nav>
 
             
-<!--             <a href="#aboutme" class="toggle toggle-about">About</a>
-            <section id="aboutme" class="aboutme">
-                <h1>About Me</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati consectetur ipsa temporibus voluptates eaque provident at nisi eos explicabo molestiae quis illo architecto accusamus in deleniti fugit quidem totam minus!</p>
-            </section> 
- -->            
-
-            <!-- INTRO -->
-            <section id="home" class="is-active" data-pulled="no">
-            <section class="wide-intro">
-                <div class="wide-intro__video-container">
-                    <img src="img/bigimgtest.jpeg" alt="bigimgtest" />
-                </div>
-                <div class="wide-intro__over">
-<!--                     <div class="logo">logo here</div> -->
-                    <hgroup>
-                        <h1>Michael Perrotti</h1><br />
-                        <h2>Designer and front-end developer</h2>
-                    </hgroup>
-                </div>
+            <section class="aboutme">
+                <p>I'm Michael Perrotti. This is my about me section.</p>
             </section>
+            <!-- INTRO -->
+            <section id="home" class="is-active page home" data-pulled="no">
+                <section class="wide-intro">
+                    <div class="wide-intro__video-container">
+                        <!-- <img src="img/bigimgtest.jpeg" alt="bigimgtest" /> -->
+                    </div>
+                    <div class="wide-intro__over">
+    <!--                     <div class="logo">logo here</div> -->
+                        <hgroup>
+                            <h1>Michael Perrotti</h1>
+                            <h2>Designer and front-end developer</h2>
+                        </hgroup>
+<!--                         <div class="color-test color-test-1"></div>
+                        <div class="color-test color-test-2"></div>
+                        <div class="color-test color-test-3"></div>
+                        <div class="color-test color-test-4"></div>
+                        <div class="color-test color-test-5"></div> -->
+                    </div>
+                </section>
             </section>
 
             <nav class="main-nav">
-                <a href="#show-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a>
+                <!-- <a href="#toggle-nav" data-role="none" class="toggle toggle-nav">Toggle Nav</a> -->
                 <ul>
-                    <li class="home-btn"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
-                    <li><a href="#work" title="Work" data-nav-type="page">Work</a></li>
+                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
+                    <li class="main-nav--new-page"><a href="#work" title="Work" data-nav-type="page">Work</a></li>
                 </ul>
             </nav>
 
@@ -77,10 +80,15 @@
         <script src="js/vendor/jquery.cycle2.min.js"></script>
         <script src="js/vendor/jquery.cycle2.swipe.min.js"></script>
 <<<<<<< HEAD
+<<<<<<< HEAD
         <script src="js/work.js"></script>
         <script src="js/global.js"></script>
 =======
 >>>>>>> e58cb46a2879a6e8cd62e559b0a837e7da61d404
+=======
+        <script src="js/work.js"></script>
+        <script src="js/global.js"></script>
+>>>>>>> Basic layout and functionality updates
         <script src="js/plugins.js"></script>
         <script src="js/main.js"></script>
         

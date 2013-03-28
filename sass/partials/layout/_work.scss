@@ -1,6 +1,9 @@
 /*------------------------------------*\
     WORK
 \*------------------------------------*/
+#work {
+	top: 100px;
+}
 .grid{
 	@include clearfix;
 	position: relative;
@@ -9,6 +12,7 @@
 		@include one-thirds;
 		
 		&:nth-child(3n) { @include omega; }
+		&:last-child { float: left; }
 
 		img{
 			@include one-whole;
@@ -18,22 +22,26 @@
 
 .expanded-Proj-Nav {
 	display: none;
-	margin-top: -40px; //height of prev/next links
+	opacity: .5;
+	position: fixed;
+	right: -1em;
 	top: 50%;
-
-	.is-expanded-view & { display: block; }
-
-	a {
-		@include inline-block;
-		position: absolute;
-		&[href="#next-proj"] {
-			right: 0;
-		}
-		&[href="#prev-proj"] {
-			left: 0;
-		}
+	&[href="#next-proj"] {
+		margin-top: -2em; //height of prev/next links
 	}
+	&[href="#prev-proj"] {
+		margin-top: 2em;
+	}
+	.is-expanded-view & {	@include inline-block; }
 
+}
+.expanded-Proj-Info {
+	display: none;
+	opacity: .5;
+	position: absolute;
+	right: 0;
+	top: 0;
+	.is-expanded & {	@include inline-block; }
 }
 
 /*--------------------*\
@@ -68,6 +76,21 @@
 \*--------------------*/
 @include at-breakpoint($tablet) {
 	@include update-container;
+	.expanded-Proj-Nav {
+		right: auto;
+
+		&[href="#next-proj"] {
+			right: -1em;
+			margin-top: -40px;
+		}
+		&[href="#prev-proj"] {
+			left: -1em;
+			margin-top: -40px;
+		}
+
+		.is-expanded-view & { display: block; }
+
+	}
 }
 
 /*--------------------*\
@@ -75,26 +98,26 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
-	.grid{
+	// .grid{
 		
-		.grid-item{
-			&.is-expanded{
-				.grid-item__images{
-				  .show-grid-item__info & { @include one-whole; }
-				  li{
-						&:first-child {
-							@include two-thirds;
-						}
-					}
-				}
+	// 	.grid-item{
+	// 		&.is-expanded{
+	// 			.grid-item__images{
+	// 			  .show-grid-item__info & { @include one-whole; }
+	// 			  li{
+	// 					&:first-child {
+	// 						@include two-thirds;
+	// 					}
+	// 				}
+	// 			}
 				
-				.grid-item__info{
-			  	margin-right: 0;
-				}
-			}
+	// 			.grid-item__info{
+	// 		  	margin-right: 0;
+	// 			}
+	// 		}
 
-		}
+	// 	}
 
-	}
+	// }
 
 }

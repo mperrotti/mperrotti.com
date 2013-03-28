@@ -1,13 +1,17 @@
 body{
+	color: $light-muted-brown;
 	font-family: $site-main-font;
-	color: $site-secondary-color-light;
 }
 
 h1, h2, h3,
-h4, h5, h6{	font-family: $site-secondary-font; font-weight: normal; color: $site-secondary-color; }
+h4, h5, h6{	
+	color: $site-secondary-color;
+	font-family: $site-secondary-font; 
+	font-weight: normal;
+}
 
 nav{
-	ul, a{ text-align: center; }
+	li a { text-align: center; }
 }
 
 a{
@@ -22,19 +26,16 @@ a{
     HOME
 \*------------------------------------*/
 .wide-intro{
-	h1, h2{ @include callout-block; }
-}
-.grid-item{
-	h3{
-		margin-bottom: $base-spacing/2;
+	h1, h2, h3{ 
+		color: $site-base-color;
+		margin: 0;
+		text-align: center; 
 	}
-	p{
-		margin-top: $base-spacing/2;
-	}
-}
 
-.latest-social{
-	text-align: center;
+	h3 { 
+		font-family: $site-main-font; 
+		font-size: $base-font-size;
+	}
 }
 
 /*------------------------------------*\
@@ -42,16 +43,25 @@ a{
 \*------------------------------------*/
 .grid{
 	.grid-item{
+		
+		h3{
+			margin-bottom: $base-spacing/2;
+		}
+		
+		p{
+			margin-top: $base-spacing/2;
+		}
+
 		h3,
 		p{
 			text-align: center;
 		}
-		&.is-expanded{
+		
+		&.is-expanded {
 			h2,
-			p{
-				text-align: left;
-			}
+			p{ text-align: left; }
 		}
+
 	}
 }
 

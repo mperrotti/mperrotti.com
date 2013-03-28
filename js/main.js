@@ -1,5 +1,6 @@
 $(document).on('ready', function() {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 (function() {
   GlobalModule.init();
@@ -17,19 +18,15 @@ var workPageLoaded = false,
 \*--------------------------------------------------------------*/
   /*------------------------------------------*\
     FUNCTION: preloadWorkPage
+=======
+>>>>>>> Basic layout and functionality updates
 
-    Preload the work page
-    
-  \*------------------------------------------*/
-  function preloadWorkPage (step) {
-    switch (step) {
-      case 0: $.ajax({
-                url    : 'work2.html',
-                async  : true,
-                success: function(data) {
-                  $(data).find('.grid-item').each( function() {
-                    var projectID = $(this).attr('id');
+(function() {
+  GlobalModule.init();
+  WorkModule.init();
+}) ();
 
+<<<<<<< HEAD
                     //make an array of the project IDs
                     projects.push(projectID);
                   });
@@ -753,4 +750,6 @@ var workPageLoaded = false,
 
 >>>>>>> e58cb46a2879a6e8cd62e559b0a837e7da61d404
 //////////////////////////////////////////////////////////////////END FRONT-END REALNESSSS
+=======
+>>>>>>> Basic layout and functionality updates
 });

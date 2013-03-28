@@ -1,7 +1,214 @@
 .expanded-Proj-Nav {
-	a {
-		background: $site-secondary-color;
-		height: 40px;
-		width: 20px;
+	// @include single-transition(all, .25s, ease-in-out);
+  height: 1em;
+	opacity: .5;
+  padding: 12px;
+	right: .5em;
+  text-indent: -9999em;
+	width: 2em;
+  z-index: 2;
+
+	&:before,
+	&:after {
+	  background: $site-secondary-color;
+		border-color: $site-base-color;
+		border-style: solid;
+	  content: '';
+	  height: 100%;
+	  position: absolute;
+	  top: 0;
 	}
-} 
+	&:before {
+	  @include transform2d(skew(0deg, 25deg));
+		border-width: 2px 0 1px 1px;
+	  left: 0;
+	  width: 51%;
+	}
+	&:after {
+	  @include transform2d(skew(0deg, -25deg));
+		border-width: 2px 1px 1px 0;
+	  right: 0;
+	  width: 49%;
+	}
+	&[href="#next-proj"] {
+	  @include transform2d(rotate(-90deg));
+	}
+
+	&[href="#prev-proj"] {
+	  @include transform2d(rotate(90deg));
+	}
+}
+
+.expanded-Proj-Info {
+	background: url(../img/toggleprojects.svg) no-repeat;
+	background-position: -93px 2px;
+	color: $site-secondary-color;
+  height: 2em;
+	line-height: 2em;
+	opacity: .5;
+	padding: 12px;
+	right: .5em;
+	width: 2em;
+  z-index: 999;
+	&:hover{
+		opacity: 1;
+	}
+
+	.show-grid-item__info & {
+		background-position: -93px -53px;
+	}
+}
+
+.btn--arrow {
+	@include inline-block;
+	@include single-transition(all, .5s, ease-in-out);
+	@include transform2d(rotate(-90deg));
+	@include transform-origin(0, 0);
+	color: $site-secondary-color;
+	height: 8em;
+	margin-top: 2em;
+	width: 2em;
+	
+	&:before,
+	&:after {
+	  background: $site-accent-dark;
+		border-color: $site-secondary-color;
+		border-style: solid;
+	  content: '';
+	  height: 100%;
+	  position: absolute;
+	  top: 0;
+	}
+	&:before {
+		@include box-shadow($site-secondary-color 0px 0px 1px, $site-secondary-color -1px 1px 1px, $site-secondary-color -2px 2px 1px, $site-secondary-color -3px 3px 1px);
+	  @include transform2d(skew(0deg, 25deg));
+		border-radius: 4px 0 0 4px;
+		border-width: 3px 0 3px 3px;
+	  left: 0;
+	  width: 44%;
+	}
+	&:after {
+	  @include transform2d(skew(0deg, -25deg));
+		border-radius: 0 4px 4px 0;
+		border-width: 3px 3px 3px 0;
+	  right: 0;
+	  width: 36%;
+	}
+	&:hover {
+		&:before {
+			@include box-shadow($site-secondary-color 0px 0px 1px, 
+													$site-secondary-color -1px 1px 1px, 
+													$site-secondary-color -2px 2px 1px, 
+													$site-secondary-color -3px 3px 1px, 
+													$site-secondary-color -4px 4px 1px, 
+													$site-secondary-color -5px 5px 1px, 
+													$site-secondary-color -6px 6px 1px,
+													$site-secondary-color -7px 7px 1px);
+		}
+	}
+
+	span {
+		@include transform-origin(0, 100%);
+		@include transform2d(rotate(90deg));
+		display: inline-block;
+		line-height: 2em;
+		margin-top: -5px;
+		position: relative;
+		width: 8em;
+		z-index: 999;
+	}
+}
+
+.project-view {
+	height: 70px;
+	left: 50%;
+	margin-left: -47px;
+	overflow: hidden;
+	position: fixed;
+	top: 60px;
+
+	.toggle-project-view {
+		// border-color: $site-secondary-color-light;
+		// border-top-color: darken($site-accent-dark, 5%);
+		// border-left-color: darken($site-accent-dark, 5%);
+		// border-right-color: $site-secondary-color-light;
+		// border-style: solid;
+		// border-radius: 5px;
+		// border-width: 6px;
+		color: transparent;
+		float: right;
+		height: 47px;
+		margin-top: 2px;
+		text-indent: -999em;
+		width: 47px;
+
+		.svg & {
+			background: url(../img/toggleprojects.svg) no-repeat;
+		}
+		.no-svg &{
+				background: url(../img/toggleprojects.png) no-repeat;
+		}
+
+		&[href="#all-projects"] {
+			background-position: 0px -53.5px;
+			&:hover {
+				background-position: 0px 0px;
+				border-left-color: $site-secondary-color;
+				border-width: 8px;
+				margin-bottom: 2px;
+				margin-top: 0;
+			}
+			&.active {
+				border-color: $site-secondary-color;
+			}
+		}
+
+		&[href="#collapse-projects"] {
+			background-position: -46.5px 0px;
+			&:hover {
+				background-position: -46.5px -53.5px;
+				border-right-color: $site-secondary-color;
+				border-width: 8px 10px 10px 8px;
+				margin-bottom: 2px;
+				margin-top: 0;
+			}
+		}
+
+	}
+}
+
+.is-thumb {
+	img {
+		background: $site-accent-light;
+	}
+}
+
+/*--------------------*\
+    MQ - MOBILE
+\*--------------------*/
+@include at-breakpoint($mobile) {
+	@include update-container;
+	opacity: 1;
+}
+
+/*--------------------*\
+    MQ - TABLET
+\*--------------------*/
+@include at-breakpoint($tablet) {
+	@include update-container;
+	.expanded-Proj-Nav {
+		opacity: 1;
+	}
+}
+
+/*--------------------*\
+    MQ - DESKTOP
+\*--------------------*/
+@include at-breakpoint($desktop) {
+	@include update-container;
+	.expanded-Proj-Nav {
+		&:hover{
+			opacity: 1;
+		}
+  }
+}
