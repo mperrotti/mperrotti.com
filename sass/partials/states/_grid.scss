@@ -10,16 +10,14 @@
 		   -moz-box-sizing: border-box;
 		        box-sizing: border-box;
 		cursor: pointer;
-		padding: 0 $base-spacing $base-spacing $base-spacing;
+		padding: $base-spacing;
 		position: relative;
 
 		.grid-item__info {
 			display: block;
-			opacity: 0;
 			position: relative;
 			top: $base-spacing;
 			width: 100%;
-			@include single-transition(opacity, .2s, ease);
 		}
 
 		.grid-item__expanded-content, 
@@ -30,11 +28,18 @@
 	}
 
 	.no-touch {
-		.grid-item.is-thumb {
-			&:hover{
-				.grid-item__info { 
-					display: block;
+		.is-thumb{
+			&:hover {
+				background: lighten($background, 10%);
+				color: $accent;
+				left: -3px;
+				top: -3px;
+				&:before{
 					opacity: 1;
+					@include transform(translateX(10px) translateY(10px));
+				}
+				img {
+					@include box-shadow(none);
 				}
 			}
 		}
@@ -46,15 +51,18 @@
 	\*--------------------*/
 	.grid-item.is-expanded {
 		@include one-whole;
-		border-bottom: 1px solid $site-accent-main;
+		border-bottom: 1px solid $accent;
 		cursor: default;
 		position: relative;
 
 		.grid-item__images,
 		.grid-item__info {
-			@include single-transition(all, .25s, ease);
+			@include single-transition(all, .15s, ease-in-out);
 		}
-
+		
+		.expanded-Proj-Info{
+			@include single-transition(margin-right, .15s, ease-in-out);
+		}
 		.grid-item__info {
 		  @include span-columns($side omega);
 		  .show-grid-item__info & { margin-right: 0; }
@@ -71,7 +79,7 @@
 			margin-top: 0;
 		  margin-right: 0;
 
-		  .show-grid-item__info & { @include two-thirds; }
+		  // .show-grid-item__info & { @include two-thirds; }
 			
 			img { 
 				@include one-whole; 
@@ -90,17 +98,17 @@
   MQ - MOBILE
 \*--------------------*/
 @include at-breakpoint($mobile) {
-	@include update-container;
-	.grid-item.is-expanded{
-			.grid-item__images{
-			  .show-grid-item__info & { @include one-whole;}
-				li{
-					&:first-child {
-						@include one-whole;
-					}
-				}
-			}
-		}
+	// @include update-container;
+	// .grid-item.is-expanded{
+	// 		.grid-item__images{
+	// 		  .show-grid-item__info & { @include one-whole;}
+	// 			li{
+	// 				&:first-child {
+	// 					@include one-whole;
+	// 				}
+	// 			}
+	// 		}
+	// 	}
 }
 /*--------------------*\
     MQ - MOBILE
@@ -135,38 +143,12 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
-		/*--------------------*\
-		  EXPANDED
-		\*--------------------*/
-		// .grid-item.is-expanded{
-		// 	.grid-item__images{
-		// 	  .show-grid-item__info & { @include one-whole; }
-		// 		img {
-		// 			@include one-whole;
-		// 			margin: ($base-spacing/2) 0;
-		// 		  	&:first-child{
-		// 	  			@include two-thirds;
-		// 					margin-top: 0;
-		// 	  		}
-		// 				&:last-child{
-		// 					margin-bottom: 0;
-		// 				}
-		// 		}
-		// 	}
-
-		// 	.grid-item__info{
-		//   	margin-right: 0;
-		// 	}
-		// }
-
-	/*--------------------*\
-	  THUMB
-	\*--------------------*/
-	// .grid-item.is-thumb{
-	// 	.grid-item__info{
-	// 		position: absolute;
-	// 		right: 0;
-	// 	}
-	// }
-
+	.grid-item.is-expanded {
+		.grid-item__images {
+		  .show-grid-item__info & { @include two-thirds; }
+		}
+		.expanded-Proj-Info { 
+			.show-grid-item__info & { margin-right: space(($total-columns/3), $total-columns); }
+		}
+	}
 }

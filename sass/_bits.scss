@@ -1,0 +1,127 @@
+/*------------------------------------*\
+    VARS
+\*------------------------------------*/
+
+//LAYOUT
+$base-measure: 2em;
+$base-spacing: $base-measure/2;
+
+//COLORS
+$light-muted-brown: lighten(desaturate(rgb(102, 84, 58), 15%), 8%);
+$dark-muted-brown:  desaturate(lighten(rgb(53, 45, 34), 10%), 15%);
+$royal-blue: rgb(60, 40, 134);
+$cool-grey: rgb(239, 241, 242); //use if accent is warm color
+$warm-grey: lighten(rgb(184, 188, 180), 15%); //use if accent is cool color
+
+$background: $warm-grey;
+$dark: $dark-muted-brown;
+$light: $light-muted-brown;
+$accent: $royal-blue;
+
+//TYPOGRAPHY
+$site-main-font: 'Karla', sans-serif;
+$site-secondary-font: 'Karla', sans-serif;
+$base-font-size: 1em; //Overriding SUSY default, do not change or delete!
+
+/*------------------------------------*\
+    MIXINS
+\*------------------------------------*/
+
+/*--------------------*\
+  LAYOUT
+\*--------------------*/
+@mixin update-container {
+	.container {
+		@include set-container-width;
+	}
+}
+
+@mixin setup-container {
+	.container {
+		@include container;
+	}
+}
+
+@mixin full-container {
+	margin: 0;
+	max-width: none;
+	padding: 0;
+	width: 100%;
+}
+	/*--------------------*\
+	  WIDTHS/COLUMNS
+	\*--------------------*/
+	@mixin full-pad                                 { padding: $base-spacing; }
+	@mixin full-pad-box                             { padding: $base-spacing; @include box-sizing(border-box);}
+	@mixin half-pad                                 { padding: $base-spacing/2; }
+	@mixin mixed-pad ($top, $right, $bottom, $left) { padding: $top $right $bottom $left;	}
+	@mixin one-col-center-pad                       { @include span-columns(($total-columns - 2),$total-columns); @include pad(1, 1); @include omega; }
+
+	//Whole
+	@mixin one-whole 			{ @include span-columns($total-columns omega, $total-columns);	}
+	//Halves
+	@mixin one-half       {	@include span-columns(($total-columns/2), $total-columns);  }
+
+	//Thirds
+	@mixin one-thirds     {	@include span-columns(($total-columns/3), $total-columns);	 }
+	@mixin two-thirds     {	@include span-columns((($total-columns/3)*2), $total-columns);	 }
+
+	//Quarters
+	@mixin one-quarters   {	@include span-columns(($total-columns/4), $total-columns);  }
+	@mixin two-quarters   {	@include one-half;  }
+	@mixin three-quarters {	@include span-columns((($total-columns/4)*3), $total-columns);  }
+
+	/*--------------------*\
+	  TYPOGRAPHY
+	\*--------------------*/
+	//NOT USING THIS
+	// @mixin setHeadingSize ($from, $to, $base-size, $decrement) {
+
+	// 	$currentNumber: $from;
+	// 	$currentSize: $base-size;
+	// 	$to: $to + 1;
+
+	// 		@while $currentNumber != $to {
+
+	// 			h#{$currentNumber}{
+	// 				font-size: $currentSize;
+	// 			}
+			
+	// 			$currentNumber: $currentNumber + 1;
+	// 			$currentSize: $currentSize - $decrement;
+
+	// 		}
+
+	// }
+
+	/*--------------------*\
+	  BUTTONS
+	\*--------------------*/
+	@mixin toggle($dir: "", $cols: 1, $round: ""){
+		width: columns($cols);
+		display: block;
+		min-width: 50px;
+		z-index: 999;
+
+		@if $dir != ""{
+			position: absolute;
+			#{$dir}: 0;
+		}
+
+		@if $round == circle {
+			@include border-radius(999px);
+		}
+
+		@else if $round != ""{
+			@include border-radius($round);
+		}
+
+	}
+
+	/*--------------------*\
+	  MISC
+	\*--------------------*/
+	@mixin circle($padding: ""){
+		@include border-radius(999px);
+		padding: $padding;
+	}

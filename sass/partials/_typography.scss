@@ -1,14 +1,52 @@
+/*------------------------------------*\
+    GLOBAL
+\*------------------------------------*/
+html{ font-size: 100%; }
+
 body{
-	color: $light-muted-brown;
+	color: $light;
 	font-family: $site-main-font;
+	font-size: 100%;
+}
+
+//TODO: write a mixin!
+h1 {
+	font-size: 7.686em;
+	font-size: 7.686rem;
+	line-height: 6.854em;
+	line-height: 6.854rem;
+	font-weight: 700;
+}
+
+h2 {
+	font-size: 4.236em;
+	font-size: 4.236rem;
+	line-height: 6.854em;
+	line-height: 6.854rem;
+}
+
+h3 {
+	font-size: 1.618em;
+	font-size: 1.618rem;
+	line-height: 2.618em;
+	line-height: 2.618rem;
+}
+
+h4, p {
+	font-size: 1em;
+	font-size: 1rem;
+	line-height: 1.618em;
+	line-height: 1.618rem;
+}
+
+p {
+	font-family: $site-secondary-font;
 }
 
 h1, h2, h3,
-h4, h5, h6{	
-	color: $site-secondary-color;
-	font-family: $site-secondary-font; 
-	font-weight: normal;
-}
+h4, h5, h6 { font-family: $site-secondary-font; }
+
+h3, h4, h5, h6 { font-weight: normal; }
 
 nav{
 	li a { text-align: center; }
@@ -18,8 +56,12 @@ a{
 	text-decoration: none;
 }
 
-.title{
-	text-transform: capitalize;
+.toggle, .toggle-nav{
+  text-align: center;
+}
+
+.main-nav--new-page a {
+  color: $dark;
 }
 
 /*------------------------------------*\
@@ -27,42 +69,46 @@ a{
 \*------------------------------------*/
 .wide-intro{
 	h1, h2, h3{ 
-		color: $site-base-color;
+		color: $accent;
 		margin: 0;
 		text-align: center; 
-	}
-
-	h3 { 
-		font-family: $site-main-font; 
-		font-size: $base-font-size;
 	}
 }
 
 /*------------------------------------*\
     WORK
 \*------------------------------------*/
-.grid{
-	.grid-item{
+.grid {
+	
+	.grid-item {
 		
 		h3{
 			margin-bottom: $base-spacing/2;
+			color: $dark;
 		}
 		
 		p{
 			margin-top: $base-spacing/2;
-		}
-
-		h3,
-		p{
-			text-align: center;
-		}
-		
+		}		
 		&.is-expanded {
 			h2,
 			p{ text-align: left; }
 		}
 
 	}
+
+	.is-thumb { 
+		h4 {
+			font-weight: 700;
+			margin-bottom: 0;
+		}
+	}
+
+}
+
+.expanded-Proj-Info {
+	color: $dark;
+	line-height: $base-measure;
 }
 
 /*--------------------*\
@@ -70,7 +116,23 @@ a{
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.wide-intro{ text-align: center; }
+	h1 {
+		font-size: 2.75em;
+		font-size: 2.75rem;
+	}
+	h2 {
+		font-size: 1.7em;
+		font-size: 1.7rem;
+		line-height: 2.75em;
+		line-height: 2.75rem;
+	}
+
+	h3 {
+		font-size: 1.1em;
+		font-size: 1.1rem;
+		line-height: 1.7em;
+		line-height: 1.7rem;
+	}
 }
 
 /*--------------------*\

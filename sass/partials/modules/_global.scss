@@ -1,0 +1,25 @@
+/*------------------------------------*\
+    GLOBAL
+\*------------------------------------*/
+body {
+  background: $background;
+}
+
+.page {
+	@include single-transition(all, .5s, ease-in-out);
+}
+
+.toggle{
+	@include toggle();
+}
+
+.main-nav {
+	@include single-transition(all, .5s, ease-in-out);
+	background: $background;
+
+	.main-nav--new-page {
+		@include single-transition(all, .5s, ease-out);
+		background: url('../img/nav-btn.svg') no-repeat center;
+	}
+
+}

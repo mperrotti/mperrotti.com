@@ -22,7 +22,6 @@
 
 .expanded-Proj-Nav {
 	display: none;
-	opacity: .5;
 	position: fixed;
 	right: -1em;
 	top: 50%;
@@ -36,12 +35,31 @@
 
 }
 .expanded-Proj-Info {
-	display: none;
-	opacity: .5;
+  height: $base-measure;
+	padding: $base-spacing;
 	position: absolute;
-	right: 0;
-	top: 0;
-	.is-expanded & {	@include inline-block; }
+	right: $base-measure*(-1);
+	top: 50px;
+	width: $base-measure;
+  z-index: 4;
+}
+
+.project-view {
+	height: 70px;
+	left: 50%;
+	margin-left: -47px;
+	overflow: hidden;
+	position: fixed;
+	top: 60px;
+
+	.toggle-project-view {
+		color: transparent;
+		float: right;
+		height: 47px;
+		margin-top: 2px;
+		text-indent: -999em;
+		width: 47px;
+	}
 }
 
 /*--------------------*\
@@ -49,28 +67,7 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.grid{		
-		
-		.grid-item{
-			@include one-half;
-					
-			&:nth-child(2n) { @include omega; }
-
-			&.is-expanded{
-				.grid-item__images{
-				  .show-grid-item__info & { @include one-whole; }
-					li{
-						&:first-child {
-							@include one-whole;
-						}
-					}
-				}
-			}
-
-		}
-	}
 }
-
 /*--------------------*\
     MQ - TABLET
 \*--------------------*/
@@ -98,26 +95,5 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
-	// .grid{
-		
-	// 	.grid-item{
-	// 		&.is-expanded{
-	// 			.grid-item__images{
-	// 			  .show-grid-item__info & { @include one-whole; }
-	// 			  li{
-	// 					&:first-child {
-	// 						@include two-thirds;
-	// 					}
-	// 				}
-	// 			}
-				
-	// 			.grid-item__info{
-	// 		  	margin-right: 0;
-	// 			}
-	// 		}
-
-	// 	}
-
-	// }
 
 }

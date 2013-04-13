@@ -14,43 +14,24 @@
   .main-nav {
     background: transparent;
 
-    &:hover {
-      .main-nav--new-page { margin-top: -2em; }
-    }
-
     .main-nav--new-page {
       @include transform2d(rotate(180deg));
-      margin-top: -10em;
+      top: -1em;
+      &:hover { top: 3em; }
+
     }
-    
-    // .toggle-nav {
-    //   bottom: -5em;
-
-    //   &:before,
-    //   &:after {
-    //     top: 3em;
-    //   }
-
-    //   &:before {
-    //     @include transform2d(skew(0deg, -25deg));
-    //   }
-    //   &:after {
-    //     @include transform2d(skew(0deg, 25deg));
-    //   }
-
-    // }
 
   }
 }
 
 .show-about {
   .main-nav--more-info {
-    a[href="#aboutme"] { background: $site-accent-dark; }
+    a[href="#aboutme"] { background: $dark; }
   }
 }
 
 .show-contact {
   .main-nav--more-info {
-    a[href="#contactme"] { background: $site-accent-dark; }
+    a[href="#contactme"] { background: $dark; }
   }
 }

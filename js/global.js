@@ -4,8 +4,6 @@ var workPageLoaded = false,
     projects = [],
     projectData = {};
 
-<<<<<<< HEAD
-=======
 /*------------------------------------*\
     FUNCTION: susyOffCanvasToggle
 
@@ -53,14 +51,11 @@ var OBC = (function (OBC, $) {
 }(OBC || {}, jQuery));
 //////////////////////////////////////////////END OFF-CANVAS STATE TOGGLING
 
->>>>>>> Basic layout and functionality updates
 var GlobalModule = {
   init: function() {
     this.preloadWorkPage(0);
     this.getUrlVars();
     this.pageNavigation();
-<<<<<<< HEAD
-=======
     this.fullHeightPage();
     this.scrollPageChange();
     OBC.susyOffCanvasToggle.init($('.toggler'));
@@ -91,7 +86,6 @@ var GlobalModule = {
       }
 
     });
->>>>>>> Basic layout and functionality updates
   },
 
   /*------------------------------------------*\
@@ -110,13 +104,9 @@ var GlobalModule = {
                     var projectID = $(this).attr('id');
 
                     //make an array of the project IDs
-<<<<<<< HEAD
-                    projects.push(projectID);
-=======
                     if ($.inArray(projectID, projects) === -1) {
                       projects.push(projectID);
                     }
->>>>>>> Basic layout and functionality updates
                   });
                 },
                 complete: function(data) {
@@ -133,12 +123,6 @@ var GlobalModule = {
                     projectData[value] = {
                       projectHTML: data
                     };
-<<<<<<< HEAD
-                  },
-                  complete: function () {
-                    //console.log(projectData);
-=======
->>>>>>> Basic layout and functionality updates
                   }
                 });
               });
@@ -177,25 +161,7 @@ var GlobalModule = {
     var homeHeight  = $('#home').height(),
         workHeight  = $('#work').height(),
         aboutHeight = $('#about').height(),
-<<<<<<< HEAD
-        pushHeight  = $('nav').height();
-
-  /*------------------------------------------*\
-    FUNCTION: scrollToTop
-    
-    Used to scroll page back
-    to top after user has been
-    brought to a new section
-  \*------------------------------------------*/
-  function scrollToTop() {
-    if ($(window).scrollTop() > 100) {
-      $("html, body").animate({ scrollTop: 0 }, 200);
-    }
-  }
-  //////////////////////////////////////////////END SCROLLTOTOP FUNCTION
-=======
         pushHeight  = $('.main-nav li a').height();
->>>>>>> Basic layout and functionality updates
 
   /*----------------------------------------------*\
     MAKE SURE PAGE VAR ISN'T USING URL HASHES
@@ -217,6 +183,10 @@ var GlobalModule = {
     console.log('hashed page = ' + page);
   }
 
+  var State = History.getState();
+
+  console.log('PAGE TITLE = ' + State.title);
+
   /*------------------------------------------*\
     PAGE NAVIGATION STATE CHANGES
   \*------------------------------------------*/
@@ -227,12 +197,7 @@ var GlobalModule = {
     if ($('#'+page).hasClass('is-active')) {
       return;
     } else {
-<<<<<<< HEAD
-      
-      /*--------------------------*\
-=======
        /*--------------------------*\
->>>>>>> Basic layout and functionality updates
         TODO: See if I can add this under
         another section
 
@@ -241,17 +206,8 @@ var GlobalModule = {
         already there, add it to the DOM
       \*--------------------------*/
       if ($('#'+page).length === 0) {
-<<<<<<< HEAD
-        var newSection  = $('<section id="'+page+'"></section>').data('pulled', 'yes');
+        var newSection  = $('<section id="'+page+'" class="page '+page+'"></section>').data('pulled', 'yes');
 
-        // if (page === 'work' && workPageLoaded) {
-        //   newSection  = $('<section id="'+page+'"></section>').data('pulled', 'no');
-        // }
-        
-=======
-        var newSection  = $('<section id="'+page+'" class="page'+page+'"></section>').data('pulled', 'yes');
-
->>>>>>> Basic layout and functionality updates
         $(newSection).insertAfter('.is-active:not("nav li")');
       }
 
@@ -283,12 +239,8 @@ var GlobalModule = {
             complete: function() {
               console.log('AJAX complete');
               WorkModule.init();
-<<<<<<< HEAD
-              OBC.susyOffCanvasToggle.init($('.toggle-swipe'));
-=======
               // OBC.susyOffCanvasToggle.init($('.toggler'));
->>>>>>> Basic layout and functionality updates
-              initCycle();
+              // initCycle();
             }
           });
         }
@@ -296,12 +248,8 @@ var GlobalModule = {
         else if (page === 'work' && workPageLoaded && $('#work').data('pulled') === 'yes') {
           $('#work').html(workPageData).data('pulled', 'no');
           WorkModule.init();
-<<<<<<< HEAD
-          OBC.susyOffCanvasToggle.init($('.toggle-swipe'));
-=======
           // OBC.susyOffCanvasToggle.init($('.toggler'));
->>>>>>> Basic layout and functionality updates
-          initCycle();
+          // initCycle();
         }
 
       /*----------------------------------------------*\
@@ -309,15 +257,6 @@ var GlobalModule = {
       \*----------------------------------------------*/
         else {
           //CSS: Pull it up and show it
-<<<<<<< HEAD
-          $('#'+page).css({
-            'margin-top' : 0,
-            'margin-bottom' : 0
-          }).show();
-
-          //DOM manipulation: Throw it to the end
-          $('#'+page).insertAfter($('body>section').last());
-=======
           // $('#'+page).css({
           //   'top' : 0,
           //   'bottom' : 0
@@ -325,7 +264,6 @@ var GlobalModule = {
 
           //DOM manipulation: Throw it to the end
           // $('#'+page).insertAfter($('body>section').last());
->>>>>>> Basic layout and functionality updates
         }
 
       /*----------------------------------------------*\
@@ -340,16 +278,6 @@ var GlobalModule = {
 
         // Show all nav options on homepage
         if (page === 'home') {
-<<<<<<< HEAD
-          $('nav li:not(.home-btn)').slideDown();
-        }
-
-        // When navigating to any page that is not a homepage
-        $('a[href=#'+page+']').parent().slideUp('200', function(){
-
-          //Add a title if it isn't there
-          if ($('#'+page+' .container').find('.title').length === 0) {
-=======
           $('a[href="#home"]').parent('li').hide();
         }
 
@@ -358,45 +286,28 @@ var GlobalModule = {
 
           //Add a title if it isn't there
           if ($('#'+page+' .container').find('.title').length === 0 && page !== 'work') {
->>>>>>> Basic layout and functionality updates
             $('<h1 class="title">'+page+'</h1>').prependTo('#'+page+' .container');
           }
 
           if(page === 'work'){
-<<<<<<< HEAD
-            $('a[href="#home"]').parent().slideDown();
-          } else if (page === 'home'){
-            $('a[href="#work"]').parent().slideDown();
-          }
-
-        });
-
-=======
-            $('.toggle-nav').attr('href', '#home');
             $('nav li a[href="#home"]').parent().show();
           } else if (page === 'home'){
-            $('.toggle-nav').attr('href', '#work');
             $('nav li a[href="#work"]').parent().show();
           }
 
->>>>>>> Basic layout and functionality updates
         /*--------------------------*\
           Update states
         \*--------------------------*/
         var element = $("body"),
             classes = element.attr('class').split(/\s+/),
-<<<<<<< HEAD
-            pattern = /^show-page-/;
-=======
             pattern = /^show-page-/,
             pushIt = ((window.innerHeight - pushHeight)-$('.main-nav').height())*(-1);
->>>>>>> Basic layout and functionality updates
 
         for(var i = 0; i < classes.length; i++){
           var className = classes[i];
 
           if(className.match(pattern)){
-            element.removeClass(className)
+            element.removeClass(className + ' show-about show-contact')
             .addClass('show-page-'+page)
             .find('#'+page).addClass('is-active');
           }
@@ -405,67 +316,13 @@ var GlobalModule = {
 
         /*--------------------------*\
           Hide inactive pages
-<<<<<<< HEAD
-        \*--------------------------*/
-
-        //Hide home
-        if (page !== 'home'){
-          $('#home').css({
-            'margin-top' : homeHeight*(-1)-pushHeight,
-            'margin-bottom' : pushHeight
-          })
-          .on('transitionEnd transitionend webkitTransitionEnd MSTransitionEnd otransitionend', function(e) {
-            var transProp = e.originalEvent.propertyName;
-            if (transProp === 'margin-top' || transProp === 'margin-bottom') {
-              $(this).hide();
-            }
-            $(this).css({
-              'margin-top' : 0,
-              'margin-bottom' : 0
-            });
-            scrollToTop();
-          });
-        }
-
-        //Hide work
-        if (page !== 'work'){
-          $('#work').css({
-            'margin-top'    : workHeight*(-1)-pushHeight,
-            'margin-bottom' : pushHeight
-          })
-          .on('transitionEnd transitionend webkitTransitionEnd MSTransitionEnd otransitionend', function(e) {
-            var transProp = e.originalEvent.propertyName;
-            if (transProp === 'margin-top' || transProp === 'margin-bottom') {
-              $(this).hide();
-            }
-            scrollToTop();
-          });
-        }
-
-        //Hide about
-        if (page !== 'about'){
-          $('#about').css({
-            'margin-top'    : aboutHeight*(-1)-pushHeight,
-            'margin-bottom' : pushHeight
-          })
-          .on('transitionEnd transitionend webkitTransitionEnd MSTransitionEnd otransitionend', function(e) {
-            var transProp = e.originalEvent.propertyName;
-            if (transProp === 'margin-top' || transProp === 'margin-bottom') {
-              $(this).hide();
-            }
-            scrollToTop();
-          });
-        }
-    }//end of 'else' statement to detect if page is not being shown
-
-=======
           TODO: Clean this section up!
                 A lot of this should be in CSS
         \*--------------------------*/
 
         //Hide home
         if (page !== 'home') {
-
+          pushIt = (window.innerHeight - (pushHeight/2))*(-1);
           // resize <body> to prevent home from scrolling
           $('body').css('max-height', 'none');
 
@@ -477,20 +334,60 @@ var GlobalModule = {
             '-moz-transform'    : 'translateY(' + pushIt + 'px)' /* Firefox */
           });
 
+          // HACK
+          // Adjust position of "Home" .main-nav button 
+          // on Work page after window has been resized
+          // --------------------------------------------
+          // waitForFinalEvent taken from: http://stackoverflow.com/questions/2854407/javascript-jquery-window-resize-how-to-fire-after-the-resize-is-completed
+
+          // TODO: Do this for orientationchange as well
+
+          var waitForFinalEvent = (function () {
+            var timers = {};
+            return function (callback, ms, uniqueId) {
+              if (!uniqueId) {
+                uniqueId = 'Wait for window resized';
+              }
+              if (timers[uniqueId]) {
+                clearTimeout (timers[uniqueId]);
+              }
+              timers[uniqueId] = setTimeout(callback, ms);
+            };
+          })();
+
+          $(window).resize(function () {
+
+            waitForFinalEvent(function(){
+
+              pushIt = (window.innerHeight - (pushHeight/2))*(-1);
+
+              $('.show-page-work').find('.main-nav').css({
+                'transform'         : 'translateY(' + pushIt + 'px)',
+                '-ms-transform'     : 'translateY(' + pushIt + 'px)', /* IE 9 */
+                '-webkit-transform' : 'translateY(' + pushIt + 'px)', /* Safari and Chrome */
+                '-o-transform'      : 'translateY(' + pushIt + 'px)', /* Opera */
+                '-moz-transform'    : 'translateY(' + pushIt + 'px)' /* Firefox */
+              });
+            }, 100, 'window resized');
+
+          });
+          // END HACK
+
           $('#work').one('transitionEnd transitionend webkitTransitionEnd MSTransitionEnd otransitionend', function(e) {
             var transProp = e.originalEvent.propertyName;
             if ((transProp === 'transform' || transProp === '-ms-transform' || transProp === '-webkit-transform' || transProp === '-o-transform' || transProp === '-moz-transform') && $('.show-page-work').length) {
               $(this).css({
+                'top'                : '',
                 'margin-top'         : pushIt,
                 'transform'          : 'translateY(0)',
-                '-ms-transform'      : 'translateY(0)', /* IE 9 */
-                '-webkit-transform'  : 'translateY(0)', /* Safari and Chrome */
-                '-o-transform'       : 'translateY(0)', /* Opera */
-                '-moz-transform'     : 'translateY(0)', /* Firefox */
-                '-webkit-transition' : 'none 1s ease-in-out',
-                '-moz-transition'    : 'none 1s ease-in-out',
-                '-o-transition'      : 'none 1s ease-in-out',
-                'transition'         : 'none 1s ease-in-out'
+                '-ms-transform'      : 'translateY(0)',
+                '-webkit-transform'  : 'translateY(0)',
+                '-o-transform'       : 'translateY(0)',
+                '-moz-transform'     : 'translateY(0)',
+                '-webkit-transition' : 'none .65s ease-in-out',
+                '-moz-transition'    : 'none .65s ease-in-out',
+                '-o-transition'      : 'none .65s ease-in-out',
+                'transition'         : 'none .65s ease-in-out'
               });
             }
           });
@@ -517,15 +414,14 @@ var GlobalModule = {
             '-webkit-transform'  : 'translateY(-200%)', /* Safari and Chrome */
             '-o-transform'       : 'translateY(-200%)', /* Opera */
             '-moz-transform'     : 'translateY(-200%)', /* Firefox */
-            '-webkit-transition' : 'all 1s ease-in-out',
-            '-moz-transition'    : 'all 1s ease-in-out',
-            '-o-transition'      : 'all 1s ease-in-out',
-            'transition'         : 'all 1s ease-in-out'
+            '-webkit-transition' : 'all .65s ease-in-out',
+            '-moz-transition'    : 'all .65s ease-in-out',
+            '-o-transition'      : 'all .65s ease-in-out',
+            'transition'         : 'all .65s ease-in-out'
           });
 
         }
     }//end of 'else' statement to detect if page is not being shown
->>>>>>> Basic layout and functionality updates
   },
 
   pageNavigation: function () {
@@ -538,11 +434,6 @@ var GlobalModule = {
       GlobalModule.pageChange(pageTitleVar);
     }
 
-    $('.toggle-nav').mouseenter(function(){
-      $.doTimeout( 'hover', 350, function(elem){
-        $('body').addClass('show-nav');
-      }, this);
-    });
     $('nav').mouseleave(function(){
       $.doTimeout( 'hover' );
       $.doTimeout('unhover', 500, function (elem) {
@@ -563,8 +454,6 @@ var GlobalModule = {
 
     });
 
-<<<<<<< HEAD
-=======
     $(document).keydown(function (e) {
 
         // TODO: Make this function more robust. Right now this is not at all reusable code
@@ -584,7 +473,6 @@ var GlobalModule = {
         }
     });
 
->>>>>>> Basic layout and functionality updates
     History.Adapter.bind(window,'statechange',function() {
       if (GlobalModule.getUrlVars()["page"] !== undefined) {
         GlobalModule.pageChange(GlobalModule.getUrlVars()["page"]);
@@ -593,56 +481,4 @@ var GlobalModule = {
       }
     });
   }
-<<<<<<< HEAD
 };
-/*------------------------------------*\
-    FUNCTION: susyOffCanvasToggle
-
-    Triggers states to toggle off-canvas content
-
-    based on http://oddbird.net/demos/susy-off-canvas/
-\*------------------------------------*/
-var OBC = (function (OBC, $) {
-
-  'use strict';
-
-  OBC.susyOffCanvasToggle = {
-    init: function (triggers) {
-      $(triggers).click(function (e) {
-        e.preventDefault();
-        OBC.susyOffCanvasToggle.toggleClasses(this);
-        OBC.susyOffCanvasToggle.toggleText(triggers);
-      });
-      return triggers;
-    },
-    toggleClasses: function (el) {
-      var body = $('body');
-      var show = $(el).attr('href');
-
-      if (show === '#show-info'){
-        body.toggleClass('show-grid-item__info');
-      }
-      if (show === '#show-nav'){
-          body.toggleClass('show-nav');
-      }
-      if (show === '#aboutme'){
-          body.toggleClass('show-about');
-      }
-      return body.attr('class');
-    },
-    toggleText: function (triggers) {
-      var right = $(triggers).filter('[href="#show-info"]');
-      var body = $('body');
-      if (body.hasClass('show-grid-item__info')) {
-        right.text('hide right');
-      }
-    }
-  };
-
-  return OBC;
-
-}(OBC || {}, jQuery));
-//////////////////////////////////////////////END OFF-CANVAS STATE TOGGLING
-=======
-};
->>>>>>> Basic layout and functionality updates

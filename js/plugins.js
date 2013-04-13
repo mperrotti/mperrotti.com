@@ -23,28 +23,67 @@
 
 /*------------------------------------*\
     Slideshows for tablet/mobile
-    Using Cycle with swipe plugin
+    Using PhotoSwipe
+
+    depends: js/vendor/klass.min.js
+             js/vendor/code.photoswipe-3.0.5.min.js
 \*------------------------------------*/
-function initCycle() {
-  var winWidth  = document.documentElement.clientWidth;
-  
-  if (winWidth < 1024){
-    $('.grid-item__images').cycle();
-  }
-  else {
-    $('.grid-item__images').cycle('destroy');
-    $('.grid-item__images').find('img').removeAttr('style');
-  }
-}
+var initPhotoSwipe = function () {
 
-initCycle();
+    (function (window, Util, PhotoSwipe) {
+    // Util.Events.domReady(function (e) {
+        var indicators, galleryInstance, $gallery, $galleryImgs,
+            instances    = [],
+            $expandedGallery = $('.is-expanded').find('.grid-item__images');
 
-$(window).resize(function() {
-  initCycle();
-}).load(function() {
-  initCycle();
-});
+        $expandedGallery.each(function (n, gallery) {
+            $gallery       = $(this),
+            $galleryImgs   = $gallery.find('img');
+            galleryOptions = {
+                                target: $gallery[0],
+                                preventHide: true,
+                                preventDefaultTouchEvents: false,
+                                enableMouseWheel: false,
+                                captionAndToolbarHide: true,
+                                zIndex: 1,
+                                getImageSource: function(el){
+                                    return el.getAttribute('src');
+                                }
+                            };
+            instanceCode   = PhotoSwipe.attach($galleryImgs, galleryOptions);
 
+            // Create an instance for each project gallery
+            instances.push(instanceCode);
+
+            // console.log('initing on: ' + $($gallery[0]).parents('article').attr('id'));
+
+            //onDisplayImage - set the current indicator
+            instances[n].addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function (e) {
+
+                var i, len;
+                for (i = 0, len = indicators.length; i < len; i++) {
+                    indicators[i].setAttribute('class', '');
+                }
+                indicators[e.index].setAttribute('class', 'current');
+                var currentImage = instances[n].getCurrentImage();
+                $gallery.addClass('ps-inited');
+            });
+
+            instances[n].show(0);
+
+        });
+
+        $expandedGallery.find('img').each(function (i, e) {
+            $('.indicators').append("<span></span>");
+        });
+        indicators = window.document.querySelectorAll('.indicators span');
+
+    // });
+
+
+
+    }(window, window.Code.Util, window.Code.PhotoSwipe));
+};
 
 /*------------------------------------*\
     Updating URL using History API

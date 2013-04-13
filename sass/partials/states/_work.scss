@@ -1,0 +1,32 @@
+.expanded-Proj-Info {
+	display: none;
+
+	.is-expanded & {	@include inline-block; }
+}
+
+.project-view {
+	display: none;
+
+	.show-page-work & {	display: block; }
+}
+
+@include at-breakpoint($tablet) {
+	@include update-container;
+
+	.touch {
+
+		.gallery-container {
+			height: 500px;
+			width: 100%;
+
+			& > img {
+				display: none !important;
+				height: 0;
+				visibility: hidden;
+			}
+
+		}
+
+	}
+
+}

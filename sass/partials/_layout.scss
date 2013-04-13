@@ -17,6 +17,5 @@ $side 					: $total-columns - $anchor;
 @import 'layout/global';
 @import 'layout/home';
 @import 'layout/about';
-//TODO: Merge Grid and Work?
-@import 'layout/grid';
 @import 'layout/work';
+@import 'layout/grid';

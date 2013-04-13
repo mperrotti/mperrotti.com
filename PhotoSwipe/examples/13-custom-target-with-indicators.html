@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>PhotoSwipe</title>
+	<meta name="author" content="Ste Brennan - Code Computerlove - http://www.codecomputerlove.com/" />
+	<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<script type="text/javascript" src="../lib/klass.min.js"></script>
+	<script type="text/javascript" src="http://code.jquery.com/jquery-1.6.4.min.js"></script>
+
+	<script type="text/javascript" src="../code.photoswipe-3.0.5.min.js"></script>
+</head>
+
+<style>
+
+	.is-expanded .grid-item__images > img {
+		visibility: hidden;
+	}
+
+</style>
+
+<body>
+
+<div id="container">
+
+<!-- <article class="grid-item is-expanded" id="project-1" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<ul>
+		    <li><a href="images/thumb/001.jpg" data-related-url="images/full/001.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/002.jpg" data-related-url="images/full/002.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/003.jpg" data-related-url="images/full/003.jpg" class="ui-link"></a></li>
+		  </ul>
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article>
+
+<article class="grid-item is-expanded" id="project-2" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<ul>
+		    <li><a href="images/thumb/004.jpg" data-related-url="images/full/004.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/005.jpg" data-related-url="images/full/005.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/006.jpg" data-related-url="images/full/006.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/007.jpg" data-related-url="images/full/007.jpg" class="ui-link"></a></li>
+		  </ul>
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article>
+
+<article class="grid-item is-expanded" id="project-2" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<ul>
+		    <li><a href="images/thumb/004.jpg" data-related-url="images/full/004.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/005.jpg" data-related-url="images/full/005.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/006.jpg" data-related-url="images/full/006.jpg" class="ui-link"></a></li>
+				<li><a href="images/thumb/007.jpg" data-related-url="images/full/007.jpg" class="ui-link"></a></li>
+		  </ul>
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article> -->
+
+<article class="grid-item is-expanded" id="project-1" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<img src="images/thumb/001.jpg" alt="">
+			<img src="images/thumb/002.jpg" alt="">
+			
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article>
+
+<article class="grid-item is-expanded" id="project-2" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<img src="images/thumb/001.jpg" alt="">
+			<img src="images/thumb/002.jpg" alt="">
+			<img src="images/thumb/003.jpg" alt="">
+
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article>
+
+<article class="grid-item is-expanded" id="project-2" data-nav-type="project">
+  <div class="grid-item__expanded-content">
+		<div class="grid-item__images gallery">
+			<img src="images/thumb/001.jpg" alt="">
+			<img src="images/thumb/002.jpg" alt="">
+			<img src="images/thumb/003.jpg" alt="">
+			<img src="images/thumb/004.jpg" alt="">
+
+			<div class="indicators"></div>
+		</div>
+	</div>
+</article>
+
+</div>
+
+	<script type="text/javascript">
+		
+		/* 
+			Overview: 
+			---------
+			
+			Demonstrates inline functionality with indicators. This demo sets the images using an array.
+			There is nothing stopping you basing this on image dom elements like other examples.
+			
+			Also in this demo I "hardcode" the indicators into the markup. Again, there is nothing stopping
+			you creating them as needed in the JavaScript.
+		
+		*/
+
+var initPhotoSwipe = function() {
+	(function (window, Util, PhotoSwipe) {
+
+    // Util.Events.domReady(function (e) {
+
+        var indicators, galleryInstance, $gallery, $galleryImgs,
+    				instances       = [],
+    				$expandedGallery = $('.is-expanded').find('.grid-item__images');
+
+        $expandedGallery.each(function (n, gallery) {
+	  			$gallery       = $(this),
+	  			$galleryImgs   = $gallery.find('img'),
+	  			galleryOptions = {
+	  												target: $gallery[0],
+														preventHide: true,
+														preventDefaultTouchEvents: false,
+														enableMouseWheel: false,
+														captionAndToolbarHide: true,
+										        getImageSource: function(el){ 
+										            return el.getAttribute('src');
+										        }
+													};
+	  			instanceCode   = PhotoSwipe.attach($galleryImgs, galleryOptions);
+
+	  			// Create an instance for each gallery
+	  			instances.push(instanceCode);
+
+        //onDisplayImage - set the current indicator
+        instances[n].addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function (e) {
+
+            var i, len;
+            for (i = 0, len = indicators.length; i < len; i++) {
+                indicators[i].setAttribute('class', '');
+            }
+            indicators[e.index].setAttribute('class', 'current');
+            var currentImage = instances[n].getCurrentImage();
+
+        });
+
+        instances[n].show(0);
+
+        });
+
+        $expandedGallery.find('img').each(function (i, e) {
+            $('.indicators').append("<span></span>");
+	        });
+        indicators = window.document.querySelectorAll('.indicators span');
+
+    // });
+
+
+
+	}(window, window.Code.Util, window.Code.PhotoSwipe));
+};
+
+initPhotoSwipe();
+		
+	// (function (window, Util, PhotoSwipe) {
+
+ //    Util.Events.domReady(function (e) {
+
+ //        var indicators, galleryInstance, $gallery, $galleryImgs,
+ //    				instances    = []
+
+ //        $('.is-expanded').find('.grid-item__images').each(function (n, gallery) {
+	//   			$gallery       = $(this),
+	//   			$galleryImgs   = $gallery.find('a'),
+	//   			galleryOptions = {
+	//   												target: $gallery[0],
+	// 													preventHide: true,
+	// 													preventDefaultTouchEvents: false,
+	// 													enableMouseWheel: false,
+	// 													captionAndToolbarHide: true,
+	// 													getImageMetaData: function (el) {
+	// 												  	return {
+	// 										       		relatedUrl: $(el).attr('data-related-url'),
+	// 												      overlayText: $(el).html()
+	// 												  	}
+	// 													}
+	// 												};
+	//   			instanceCode = PhotoSwipe.attach($galleryImgs, galleryOptions);
+
+	//   			instances.push(instanceCode);
+
+ //        //onDisplayImage - set the current indicator
+ //        instances[n].addEventHandler(PhotoSwipe.EventTypes.onDisplayImage, function (e) {
+
+            
+ //            var i, len;
+ //            for (i = 0, len = indicators.length; i < len; i++) {
+ //                indicators[i].setAttribute('class', '');
+ //            }
+ //            indicators[e.index].setAttribute('class', 'current');
+ //            var currentImage = instances[n].getCurrentImage();
+ //            var container = $(currentImage.imageEl).parent();
+ //            container.prepend(currentImage.metaData.overlayText);
+
+           
+           
+
+ //        });
+ //        // instances[n].addEventHandler(PhotoSwipe.EventTypes.onTouch, function(e){
+
+ //        //    if (e.action === 'tap'){
+ //        //        var currentImage = instance.getCurrentImage();
+
+ //        //        if (currentImage.metaData.relatedUrl && (currentImage.metaData.relatedUrl != ""))
+ //        //            window.open(currentImage.metaData.relatedUrl);
+ //        //    }
+
+ //        // });
+
+ //        instances[n].show(0);
+
+ //        });
+
+ //        $('.gallery li a').each(function (i, e) {
+ //            $('.indicators').append("<span></span>");
+	//         });
+ //        indicators = window.document.querySelectorAll('.indicators span');
+
+ //    });
+
+
+
+	// }(window, window.Code.Util, window.Code.PhotoSwipe));
+		
+	</script>
+
+
+</body>
+</html>

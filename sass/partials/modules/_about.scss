@@ -1,0 +1,7 @@
+/*------------------------------------*\
+    ABOUT
+\*------------------------------------*/
+.aboutme {
+  @include single-transition(all, .25s, ease-in);
+  background: white;
+}

@@ -13,6 +13,7 @@
 	@include one-thirds;
 	@include clearfix;
 	&:nth-child(3n) { @include omega; }
+	margin-bottom: $base-spacing;
 
 	img{
 		@include one-whole;
@@ -29,20 +30,31 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
+	.grid {
 		.grid-item{
-			@include one-half;
-			&:nth-child(2n) { @include omega; }
-			&:nth-child(3n) { @include remove-omega; }
-			.work-preview & {
-				&:nth-child(3n) { display: none; }
-			}
+			@include one-whole;
 
+			&.is-expanded {
+				.grid-item__images{
+				  .show-grid-item__info & { @include one-whole; }
+					li{
+						&:first-child {
+							@include one-whole;
+						}
+					}
+				}
+			}
 			&.is-thumb{
 				margin-bottom: $base-spacing/2;
 				margin-top: $base-spacing/2;
+				img {
+					@include one-half;
+					float: left;
+					margin-right: $base-spacing
+				}
 			}
-
 		}
+	}
 }
 
 /*--------------------*\

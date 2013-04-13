@@ -3,6 +3,9 @@
 \*------------------------------------*/
 @include setup-container;
 
+/*--------------------*\
+    NAVIGATION
+\*--------------------*/
 .main-nav {
 	left: 0;
 	padding: 0;
@@ -10,10 +13,6 @@
 	right: 0;
 	bottom: 0;
 	z-index: 5;
-
-	&[data-role="navigation"] {
-		width: 50%;
-	}
 
 	ul {
 		@include one-whole;
@@ -47,35 +46,72 @@
 	left: 0;
 	position: fixed;
 	width: 100%;
-	z-index: 4;
+	z-index: 6;
+
+	ul { @include clearfix; margin: 0;}
 
 	.info-nav--more-info {
-		border: 3px solid $site-secondary-color;
-		-webkit-box-sizing: border-box;
-		   -moz-box-sizing: border-box;
-		        box-sizing: border-box;
-		background: $site-base-color;
 		display: block;
 		float: left;
-		padding: $base-spacing;
+		padding: $base-spacing/2;
 		position: relative;
 		text-align: center;
 		width: 50%;
+		
+		a {
+			@include single-transition(margin-top, .1s, ease-in);
+			display: block;
+			
+			.svg &    { background: url(../img/iconsprite.svg) no-repeat -97px -7px; }
+			.no-svg & { background: url(../img/iconsprite.png) no-repeat -97px -7px; }
+
+			&[href="#aboutme"] {
+				background-position: -142px -7px;
+				&:hover, .show-about & {
+					background-position: -142px -60px;
+				}
+
+			}
+
+			&:hover, .show-contact & {
+				background-position: -97px -60px;
+			}
+
+			.show-about &,
+			.show-contact & { margin-top: -1em; }
+		}
+
 	}
 
 }
 
-#home,
-#work {
-	background: $site-accent-light;
+.toggle {
+	padding: $base-spacing;
+	width: 100%;
+}
+
+.main-nav {
+
+	 ul {
+		margin: 0;
+		position: relative;
+		z-index: 2;
+	}
+
+	.main-nav--new-page {
+		position: relative;
+	}
+
+}
+
+.page {
+	background: $background;
 	position: relative;
 	z-index: 1;
 }
 
 .aboutme {
-	@include single-transition(all, .25s, ease-in);
   @include span-columns(12 omega);
-  background: white;
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
@@ -84,12 +120,12 @@
   margin-top: $base-measure;
   padding: $base-spacing 0 $base-spacing 0;
   position: fixed;
-	top: 15px;
+  top: 15px;
   z-index: 3;
 
   .show-about & { 
   	margin-left: 0; 
-	  padding: $base-spacing;
+	padding: $base-spacing;
   }
 }
 
@@ -129,12 +165,19 @@
 
 	.info-nav {
 		bottom: auto;
-		padding: $base-spacing;
 		width: auto;
 	
 		.info-nav--more-info {
-			margin: $base-spacing;
-			width: 94px;
+			margin: $base-spacing 0 $base-spacing $base-spacing;
+			width: $base-measure + .5em;
+			height: $base-measure;
+
+			a{
+				@include hide-text;
+				height: 100%;
+				width: 100%;			
+			}
+
 		}
 
 	}

@@ -10,9 +10,7 @@
 @import "frameworks/htmlbp/normalize";
 
 // Global mperrotti.com imports
-@import "vars";
-@import "mixins";
-@import "partials/shared";
+@import "bits";
 @import "partials/layout";
 @import "partials/modules";
 @import "partials/states";
