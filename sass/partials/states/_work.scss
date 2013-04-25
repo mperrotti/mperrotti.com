@@ -10,6 +10,24 @@
 	.show-page-work & {	display: block; }
 }
 
+.close-project {
+	display: none;
+	.is-expanded-view-single & { display: block; }
+}
+
+//TODO: Fix this ghetto-ass hack
+.ps-inited {
+	.gallery-container {
+		@include inline-block;
+		position: relative;
+		overflow: hidden;
+
+		img {
+			display: none !important;
+		}
+	}
+}
+
 @include at-breakpoint($tablet) {
 	@include update-container;
 

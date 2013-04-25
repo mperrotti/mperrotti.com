@@ -23,6 +23,9 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+            <a href="#next-proj" class="expanded-Proj-Nav"></a>
+            <a href="#prev-proj" class="expanded-Proj-Nav"></a>
+
             <nav class="info-nav">
                 <ul>
                     <li class="info-nav--more-info">
@@ -39,7 +42,6 @@
                 <a class="toggle-project-view" href="#collapse-projects">THUMB VIEW</a>
             </nav>
 
-            
             <section class="aboutme">
                 <p>I'm Michael Perrotti. This is my about me section.</p>
             </section>

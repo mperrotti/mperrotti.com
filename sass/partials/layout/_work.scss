@@ -9,14 +9,13 @@
 	position: relative;
 
 	.grid-item{
-		@include one-thirds;
-		
+		@include one-thirds;	
+
 		&:nth-child(3n) { @include omega; }
 		&:last-child { float: left; }
 
-		img{
-			@include one-whole;
-		}
+		img{ @include one-whole; }
+
 	}
 }
 
@@ -24,14 +23,14 @@
 	display: none;
 	position: fixed;
 	right: -1em;
-	top: 50%;
+	top: 20%;
 	&[href="#next-proj"] {
 		margin-top: -2em; //height of prev/next links
 	}
 	&[href="#prev-proj"] {
 		margin-top: 2em;
 	}
-	.is-expanded-view & {	@include inline-block; }
+	.is-expanded-view-single & {	@include inline-block; }
 
 }
 .expanded-Proj-Info {
@@ -39,9 +38,9 @@
 	padding: $base-spacing;
 	position: absolute;
 	right: $base-measure*(-1);
-	top: 50px;
+	top: 80px;
 	width: $base-measure;
-  z-index: 4;
+  z-index: 999;
 }
 
 .project-view {
@@ -67,6 +66,9 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
+	.project-view {
+		top: 100px;
+	}
 }
 /*--------------------*\
     MQ - TABLET
@@ -95,5 +97,9 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
+
+	.expanded-Proj-Info {
+		z-index: 4;
+	}
 
 }

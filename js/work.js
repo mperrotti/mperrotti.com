@@ -6,11 +6,19 @@
 \*--------------------------------------------------------------*/
   var WorkModule = {
     init: function() {
+      this.collapseAllProjects();
       this.createProjArray();
       this.showAllProjects();
       this.workNavigation();
       this.moveWithScroll();
       OBC.susyOffCanvasToggle.init($('a[href="#show-info"]'));
+    },
+
+    collapseAllProjects: function() {
+      $('#work').find('.is-expanded').removeClass('is-expanded').addClass('is-thumb');
+      $('body').removeClass('is-expanded-view')
+               .removeClass('is-expanded-view-single')
+               .removeClass('is-expanded-view-all');
     },
 
     createProjArray: function() {
@@ -31,7 +39,9 @@
       var showAllProjectsView = function showAllProjectsView() {
         //Class switch-up
         $('#work').find('.is-thumb').toggleClass('is-thumb').toggleClass('is-expanded');
-        $('body').addClass('is-expanded-view');
+        $('body').addClass('is-expanded-view')
+                 .addClass('is-expanded-view-all')
+                 .removeClass('is-expanded-view-single');
         var allProjectsShown = $('#work').find('.grid-item').map(function() {
           var project      = $(this),
               projectTitle = project.attr('id');
@@ -71,11 +81,6 @@
 
       };
 
-      var collapseAllProjects = function collapseAllProjects() {
-        $('#work').find('.is-expanded').removeClass('is-expanded').addClass('is-thumb');
-        $('body').removeClass('is-expanded-view');
-      };
-
       /*--------------------------*\
         SHOW ALL PROJECTS?
       \*--------------------------*/
@@ -89,69 +94,96 @@
 
       $('a[href="#collapse-projects"]').on('click', function(e) {
         e.preventDefault();
-        collapseAllProjects();
+        WorkModule.collapseAllProjects();
       });
 
       $(document).keydown(function (e) {
         if (e.keyCode === 27) {
           e.preventDefault();
-          collapseAllProjects();
+          WorkModule.collapseAllProjects();
         }
       });
 
     },
 
     moveWithScroll: function() {
-        $('.grid-item__expanded-content').each(function() {
-        var expandedProj  = $(this);
 
-        $(window).scroll( function() {
-          var info          = expandedProj.find('.grid-item__info'),
-              infoHeight    = info.height(),
-              projectHeight = expandedProj.find('.grid-item__images').length > 0 ? expandedProj.find('.grid-item__images').height() : 0, //TODO: take ternary off of this, won't need it after all content is in
+        function positionInfo() {
+          $('.grid-item__expanded-content').each(function() {
+            var expandedProj  = $(this),
+                info          = expandedProj.find('.grid-item__info'),
+                closeProject  = expandedProj.find('.close-project'),
+                infoHeight    = info.height(),
+                projectHeight = expandedProj.find('.grid-item__images').height(), //TODO: take ternary off of this, won't need it after all content is in
 
-              docViewTop    = $(window).scrollTop(),
-              docViewBottom = docViewTop + $(window).height(),
-              elemTop       = expandedProj.offset().top - docViewTop,
-              elemBottom    = expandedProj.offset().top + projectHeight,
+                docViewTop    = $(window).scrollTop(),
+                docViewBottom = docViewTop + $(window).height(),
+                elemTop       = expandedProj.offset().top - docViewTop,
+                elemBottom    = expandedProj.offset().top + projectHeight,
 
-              fromTop       = $(window).scrollTop() - expandedProj.offset().top;
+                fromTop       = $(window).scrollTop() - expandedProj.offset().top;
 
-          if ((elemBottom + infoHeight >= docViewBottom) && (elemTop <= docViewTop) && !Modernizr.touch) {
-            fromTop = fromTop < 0 ? 0 : fromTop;
-            // console.log(expandedProj.parent().attr('id'));
-            // console.log('window scrolltop' + $(window).scrollTop());
-            // console.log('fromTop= ' + fromTop);
-            // console.log('elemTop= ' + elemTop);
-            info.css('top', fromTop);
-            expandedProj.parent().find('a[href="#show-info"]').css('top', fromTop > 20 ? (fromTop + 50) : 50);
-          }
+            if ((elemBottom + infoHeight >= docViewBottom) && (elemTop <= docViewTop) && !Modernizr.touch) {
+
+              //fromTop cannot be below the height of the project
+              fromTop = fromTop > (projectHeight - infoHeight) ? projectHeight - infoHeight : fromTop;
+
+              //fromTop cannot be a negative value
+              fromTop = fromTop <= 0 ? 0 : fromTop;
+
+              console.log(fromTop);
+              console.log(projectHeight - infoHeight);
+
+              info.css('top', fromTop);
+              closeProject.css('top', fromTop);
+              expandedProj.parent().find('a[href="#show-info"]').css('top', fromTop > 20 ? (fromTop + 80) : 80);
+            }
+          });
+        }
+
+        $('a[href="#show-info"]').one('click', function() {
+
+          $('.grid-item__images').on('transitionEnd transitionend webkitTransitionEnd MSTransitionEnd otransitionend', function(e) {
+            var transProp = e.originalEvent.propertyName;
+            if (transProp === 'width') {
+              positionInfo();
+            }
+          });
+
         });
 
-      });
+        $(window).scroll( function() {
+          positionInfo();
+        });
 
     },
 
     workNavigation: function() {
       var expandedProjIndex = 0;
       function projectNav(project, event) {
-        console.log('projNav being called');
+
         var projectGrid  = project.parent(),
             projectTitle = project.attr('id'),
             projectPreloaded = projectData[projectTitle] !== undefined,
             projectInDom = $.trim( project.find('.grid-item__expanded-content').html() ).length;
 
           // expand project and update states
+          ////////////////////////////////////
+
+          // expand project and update states
           projectGrid.find('.is-expanded')
           .removeClass('is-expanded')
           .addClass('is-thumb');
 
-          $('body').addClass('is-expanded-view');
+          //Bring it to the top and blow it up
+          console.log(project.attr('id'));
 
-          project.removeClass('is-thumb').addClass('is-expanded');
+          project.removeClass('is-thumb')
+          .addClass('is-expanded');
 
-          //Bring it to the top
-          project.prependTo(projectGrid);
+          projectGrid.find('.is-thumb')
+          .insertAfter('.is-expanded');
+
 
           // If this was triggered by a click event,
           // make a hash in the URL
@@ -173,6 +205,14 @@
                   project.find('.grid-item__expanded-content').html(data);
                 },
                 complete: function() {
+                  var collapseAllProjects = function collapseAllProjects() {
+                    $('#work').find('.is-expanded').removeClass('is-expanded').addClass('is-thumb');
+                    $('body').removeClass('is-expanded-view');
+                  };
+                  $('a[href="#collapse-projects"]').on('click', function(e) {
+                    e.preventDefault();
+                    WorkModule.collapseAllProjects();
+                  });
                   if (Modernizr.touch && $(window).width() <= 1024) {
                     initPhotoSwipe();
                   }
@@ -180,6 +220,16 @@
               });
             } else if (projectPreloaded) {
               project.find('.grid-item__expanded-content').html(projectData[projectTitle].projectHTML);
+
+              var collapseAllProjects = function collapseAllProjects() {
+                $('#work').find('.is-expanded').removeClass('is-expanded').addClass('is-thumb');
+                $('body').removeClass('is-expanded-view');
+              };
+              $('a[href="#collapse-projects"]').on('click', function(e) {
+                e.preventDefault();
+                WorkModule.collapseAllProjects();
+              });
+
               if (Modernizr.touch && $(window).width() <= 1024) {
                 initPhotoSwipe();
               }
@@ -190,20 +240,31 @@
       //If the URL has a hash with the project in it, navigate to that project
       if (window.location.hash && window.location.hash !== '#all-projects') {
         projectNav($(window.location.hash), "load");
+        expandedProjIndex = $.inArray(window.location.hash.replace('#',''), projects);
+        console.log(expandedProjIndex);
+        $('body').addClass('is-expanded-view-single')
+                 .removeClass('is-expanded-view-all');
       }
 
       $(window).on('hashchange', function() {
         if (window.location.hash !== '#all-projects') {
-          //projectNav($(window.location.hash), "load");
+          projectNav($(window.location.hash), "load");
           expandedProjIndex = $.inArray(window.location.hash.replace('#',''), projects);
         }
       });
 
       //Expand thumb on click
       $('.grid-item').on('click', function(e) {
-        var clickedProject = $(this);
+        if( !e ) e = window.event;
+        var clickedProject = $(this),
+            target = $(e.target);
 
-        if (clickedProject.is('.is-thumb')) {
+        // Because collapseAllProjects(); removes the class 'is-expanded', we need to skip
+        // projectNav(); when clicking '.close-project' because it fires collapseAllProjects();
+
+        if (!clickedProject.hasClass('is-expanded') && !target.is('.close-project')) {
+          $('body').addClass('is-expanded-view-single')
+                   .removeClass('is-expanded-view-all');
           projectNav(clickedProject, "click");
         }
 
@@ -267,16 +328,18 @@
               // TODO: Make this function more robust. Right now this is not at all reusable code
               //       because I'm specificaly targetting '.show-page-work'
 
-            if ($(this).find('.is-expanded-view').length && $('.show-page-work').length) {
+            if ($(this).find('.is-expanded-view-single').length && $('.show-page-work').length) {
 
               if (e.keyCode == 37) {
                 projectNav($('#'+prevProj), "click");
                 expandedProjIndex = (expandedProjIndex !== 0) ? prevProjIndex : (projects.length - 1);
+                console.log(expandedProjIndex);
                 return false;
               }
               if (e.keyCode == 39) {
                 projectNav($('#'+nextProj), "click");
                 expandedProjIndex = (expandedProjIndex !== (projects.length - 1)) ? nextProjIndex : 0;
+                console.log(expandedProjIndex);
                 return false;
               }
 

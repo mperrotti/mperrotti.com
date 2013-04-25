@@ -7,11 +7,13 @@
     NAVIGATION
 \*--------------------*/
 .main-nav {
+	bottom: 0;
 	left: 0;
+	margin: 0 auto;
 	padding: 0;
 	position: fixed;
 	right: 0;
-	bottom: 0;
+	width: 200px;
 	z-index: 5;
 
 	ul {
@@ -42,10 +44,7 @@
 }
 
 .info-nav {
-	bottom: 0;
-	left: 0;
 	position: fixed;
-	width: 100%;
 	z-index: 6;
 
 	ul { @include clearfix; margin: 0;}
@@ -53,32 +52,46 @@
 	.info-nav--more-info {
 		display: block;
 		float: left;
+		height: $base-measure;
+		margin: $base-spacing 0 $base-spacing $base-spacing;
 		padding: $base-spacing/2;
 		position: relative;
 		text-align: center;
-		width: 50%;
+		width: $base-measure + .5em;
+
 		
 		a {
 			@include single-transition(margin-top, .1s, ease-in);
+			@include hide-text;
 			display: block;
+			height: 100%;
+			width: 100%;
 			
 			.svg &    { background: url(../img/iconsprite.svg) no-repeat -97px -7px; }
 			.no-svg & { background: url(../img/iconsprite.png) no-repeat -97px -7px; }
 
 			&[href="#aboutme"] {
 				background-position: -142px -7px;
-				&:hover, .show-about & {
+				&:hover {
 					background-position: -142px -60px;
 				}
-
+				.show-about & {
+					background-position: -142px -108px;					
+				}
 			}
 
-			&:hover, .show-contact & {
-				background-position: -97px -60px;
+			&[href="#contactme"] {
+				&:hover {
+					background-position: -97px -60px;
+				}
+				.show-contact & {
+					background-position: -142px -108px;
+				}
 			}
-
 			.show-about &,
-			.show-contact & { margin-top: -1em; }
+			.show-contact & { 
+				margin-top: -1em;
+			}
 		}
 
 	}
@@ -143,6 +156,25 @@
 			@include omega;
 		}
 	}
+
+	.page { z-index: 4; }
+
+	.info-nav {
+		width: 100%;
+		z-index: 3;
+
+		.info-nav--more-info {
+			margin: $base-spacing $base-spacing $base-spacing 0;
+			float: right;
+
+			&:first-child{
+				float: left;
+			}
+
+		}
+
+	}
+
 }
 
 /*--------------------*\
@@ -164,18 +196,18 @@
 	}
 
 	.info-nav {
-		bottom: auto;
-		width: auto;
+		// bottom: auto;
+		// width: auto;
 	
 		.info-nav--more-info {
-			margin: $base-spacing 0 $base-spacing $base-spacing;
-			width: $base-measure + .5em;
-			height: $base-measure;
+			// margin: $base-spacing 0 $base-spacing $base-spacing;
+			// width: $base-measure + .5em;
+			// height: $base-measure;
 
 			a{
-				@include hide-text;
-				height: 100%;
-				width: 100%;			
+				// @include hide-text;
+				// height: 100%;
+				// width: 100%;
 			}
 
 		}

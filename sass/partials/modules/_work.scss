@@ -1,40 +1,103 @@
+.grid-item {
+	@include transition(width .35s ease-in-out, height .35s ease-in-out);
+}
+
+.grid-item__info-block {
+
+	// .btn {
+	// 	@include inline-block;
+ //    background: $background;
+ //    border: $base-measure/8 solid $dark;
+	// 	height: $base-spacing;
+	// 	line-height: $base-spacing;
+ //    padding: $base-spacing;
+ //    position: relative;
+	// 	width: $base-measure*4;
+
+	// 	&:after {
+	// 		content: '';
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: 0;
+	// 		left: 100%;
+	// 		width: 0;
+	// 		height: 0;
+	// 		border-color: transparent transparent transparent $background;
+	// 		border-style: solid;
+	// 		border-width: $base-measure - ($base-measure/8) * 2;
+	// 	}
+	// 	&:before {
+	// 		content: '';
+	// 		display: block;
+	// 		position: absolute;
+	// 		top: -($base-measure/8 - ($base-measure/40));
+	// 		left: 100%;
+	// 		width: 0;
+	// 		height: 0;
+	// 		border-color: transparent transparent transparent $dark;
+	// 		border-style: solid;
+	// 		border-width: $base-measure - ($base-measure/8) - ($base-measure/40);
+	// 		margin-left: ($base-measure/8) - ($base-measure/40);
+	// 	}
+	// }
+
+}
+
+.grid-item__expanded-content, 
+.toggle {
+	@include transition(width .35s ease-in-out, height .35s ease-in-out);
+	height: 100%;
+}
+
+.close-project {
+	font-size: .5em;
+	position: absolute;
+	right: 0;
+	padding-right: 0px;
+	padding: $base-spacing;
+	padding-left: 25px;
+	line-height: $base-measure + .5em;
+	z-index: 6;
+
+	&:before {
+		@include transform(rotate(135deg));
+		content: '';
+		height: 50px;
+		position: absolute;
+		top: $base-spacing;
+		width: 50px;
+		left: 0px;
+		.svg &    {	background: url(../img/iconsprite.svg) -187px 20px no-repeat transparent; }
+		.no-svg & {	background: url(../img/iconsprite.png) -187px 20px no-repeat transparent; }
+
+	}
+	
+}
+
 .expanded-Proj-Nav {
-  height: 1em;
-  opacity: .5;
+	@include single-transition(background-position, .15s, ease-in);
+  height: 2em;
   padding: 12px;
   right: .5em;
   text-indent: -9999em;
   width: 2em;
   z-index: 2;
 
-	&:before,
-	&:after {
-	  background: $dark;
-	  border-color: lighten($background, 5%);
-	  border-style: solid;
-	  content: '';
-	  height: 100%;
-	  position: absolute;
-	  top: 0;
-	}
-	&:before {
-	  @include transform2d(skew(0deg, 25deg));
-	  border-width: 2px 0 1px 1px;
-	  left: 0;
-	  width: 51%;
-	}
-	&:after {
-	  @include transform2d(skew(0deg, -25deg));
-		border-width: 2px 1px 1px 0;
-	  right: 0;
-	  width: 49%;
-	}
+	.svg & { background: url('../img/iconsprite.svg'); }
+	.no-svg & { background: url('../img/iconsprite.png'); }
+
 	&[href="#next-proj"] {
-	  @include transform2d(rotate(-90deg));
+		background-position: -228px -46px;
+		&:hover {
+			background-position: -220px -46px;
+		}
 	}
 
 	&[href="#prev-proj"] {
-	  @include transform2d(rotate(90deg));
+		background-position: -274px -46px;
+		&:hover {
+			background-position: -282px -46px;
+		}
 	}
 }
 
@@ -46,7 +109,8 @@
 	border-bottom: 1px solid lighten($background, 5%);
 	color: $dark;
 
-	.svg &    {	background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
+	.csstransforms & { border-radius: 0 999px 0 0; }
+	.svg & { background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
 	.no-svg & {	background: url(../img/iconsprite.png) no-repeat $background -9999em -9999em; }
 
 	&:hover, 

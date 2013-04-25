@@ -11,6 +11,7 @@
 
 	.wide-intro__over{
 		@include container;
+		margin-top: $base-measure;
 	}
 }
 
@@ -29,7 +30,6 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-
 }
 
 /*--------------------*\

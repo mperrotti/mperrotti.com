@@ -5,6 +5,10 @@ body {
   background: $background;
 }
 
+img {
+	background: url('../img/hover-pattern.png') $accent;
+}
+
 .page {
 	@include single-transition(all, .5s, ease-in-out);
 }

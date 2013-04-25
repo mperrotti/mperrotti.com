@@ -67,6 +67,9 @@ var initPhotoSwipe = function () {
                 indicators[e.index].setAttribute('class', 'current');
                 var currentImage = instances[n].getCurrentImage();
                 $gallery.addClass('ps-inited');
+
+                //TODO: Fix this ghetto-ass hack
+                $gallery.find('.gallery-container, .ps-carousel').height($gallery.find('.ps-carousel-item:first-child img').height());
             });
 
             instances[n].show(0);
