@@ -1,18 +1,13 @@
 /*------------------------------------*\
     HOME
 \*------------------------------------*/
-#home {
+.home {
 	z-index: 2;
 }
 
 .wide-intro{
-	overflow: hidden;
+	height: 100%;
 	position: relative;
-
-	.wide-intro__over{
-		@include container;
-		margin-top: $base-measure;
-	}
 }
 
 .latest-social{

@@ -6,6 +6,18 @@
 /*--------------------*\
     NAVIGATION
 \*--------------------*/
+ body{
+	@include single-transition(opacity, .5s, ease-in);
+ }
+
+.show-page-none{
+	opacity: 0;
+	nav,
+	.home {
+		display: none;
+	}
+}
+
 .main-nav {
 	bottom: 0;
 	left: 0;
@@ -21,9 +33,6 @@
 		.main-nav--new-page {
 			margin: -2em auto 0 auto;
 			width: 9em;
-			&:first-child {
-				border-bottom: none;
-			}
 
 			a {
 				display: block;
@@ -123,6 +132,7 @@
 	z-index: 1;
 }
 
+.contactme,
 .aboutme {
   @include span-columns(12 omega);
 	-webkit-box-sizing: border-box;
@@ -133,12 +143,24 @@
   margin-top: $base-measure;
   padding: $base-spacing 0 $base-spacing 0;
   position: fixed;
-  top: 15px;
-  z-index: 3;
+  top: $base-measure;
+  z-index: 5;
+	p {
+		margin-top: 0;
+	}
 
+}
+
+.aboutme {
   .show-about & { 
-  	margin-left: 0; 
-	padding: $base-spacing;
+  	margin-left: 0;
+		padding: $base-spacing $base-measure $base-spacing $base-spacing;
+  }
+}
+.contactme {
+  .show-contact & { 
+  	margin-left: 0;
+		padding: $base-spacing $base-measure $base-spacing $base-spacing;
   }
 }
 
@@ -191,7 +213,8 @@
 @include at-breakpoint($desktop) {
 	@include update-container;
 
-	.aboutme {
+	.aboutme,
+	.contactme {
 	  @include span-columns($side omega);
 	}
 

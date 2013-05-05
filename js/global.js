@@ -29,15 +29,18 @@ var OBC = (function (OBC, $) {
       var show = $(el).attr('href');
 
       if (show === '#show-info'){
-        console.log('show info!!');
         body.toggleClass('show-grid-item__info');
       }
       if (show === '#show-nav'){
           body.toggleClass('show-nav');
       }
       if (show === '#aboutme'){
-          body.toggleClass('show-about');
+          body.toggleClass('show-about').removeClass('show-contact');
       }
+      if (show === '#contactme'){
+          body.toggleClass('show-contact').removeClass('show-about');
+      }
+
       return body.attr('class');
     },
     toggleText: function (triggers) {
@@ -97,7 +100,7 @@ var GlobalModule = {
   preloadWorkPage: function(step) {
     switch (step) {
       case 0: $.ajax({
-                url    : 'work2.html',
+                url    : 'work.html',
                 async  : true,
                 success: function(data) {
                   $(data).find('.grid-item').each( function() {
@@ -179,13 +182,13 @@ var GlobalModule = {
 
     page = hashData[0]; //Set page to be the page name without the hash
     projectID = hashData[1]; //Grab the project ID
-
-    console.log('hashed page = ' + page);
   }
 
   var State = History.getState();
 
-  console.log('PAGE TITLE = ' + State.title);
+  console.log(page);
+
+  console.log('PAGE STATE TITLE = ' + State.title);
 
   /*------------------------------------------*\
     PAGE NAVIGATION STATE CHANGES
@@ -208,7 +211,7 @@ var GlobalModule = {
       if ($('#'+page).length === 0) {
         var newSection  = $('<section id="'+page+'" class="page '+page+'"></section>').data('pulled', 'yes');
 
-        $(newSection).insertAfter('.is-active:not("nav li")');
+        $(newSection).appendTo('body');
       }
 
       /*----------------------------------------------*\
@@ -226,21 +229,15 @@ var GlobalModule = {
 
         if ($('#'+page).data('pulled') === 'yes' && page !== 'work' || !workPageLoaded) {
 
-          console.log('using AJAX');
-
           $.ajax({
-            url: page+'2.html',
+            url: page+'.html',
             success: function(data) {
-              console.log('AJAX success');
 
               $('#'+page).html(data).data('pulled', 'no');
 
             },
             complete: function() {
-              console.log('AJAX complete');
               WorkModule.init();
-              // OBC.susyOffCanvasToggle.init($('.toggler'));
-              // initCycle();
             }
           });
         }
@@ -248,22 +245,13 @@ var GlobalModule = {
         else if (page === 'work' && workPageLoaded && $('#work').data('pulled') === 'yes') {
           $('#work').html(workPageData).data('pulled', 'no');
           WorkModule.init();
-          // OBC.susyOffCanvasToggle.init($('.toggler'));
-          // initCycle();
         }
 
       /*----------------------------------------------*\
         ...if it's there : Just use CSS & DOM manipulation
       \*----------------------------------------------*/
         else {
-          //CSS: Pull it up and show it
-          // $('#'+page).css({
-          //   'top' : 0,
-          //   'bottom' : 0
-          // }).show();
 
-          //DOM manipulation: Throw it to the end
-          // $('#'+page).insertAfter($('body>section').last());
         }
 
       /*----------------------------------------------*\
@@ -430,7 +418,10 @@ var GlobalModule = {
       PAGE NAVIGATION
     \*--------------------------*/
     //On load, show the correct page...
-    if (pageTitleVar !== undefined) {
+    if (pageTitleVar === undefined) {
+      GlobalModule.pageChange('home');
+    }
+    else if (pageTitleVar !== undefined) {
       GlobalModule.pageChange(pageTitleVar);
     }
 

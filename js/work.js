@@ -101,6 +101,11 @@
         if (e.keyCode === 27) {
           e.preventDefault();
           WorkModule.collapseAllProjects();
+
+          //Remove hash completely
+          window.history.pushState({state:2}, "work", "?page=work");
+          $(this) = !(location.hash || location.href.slice(-1) == "#");
+
         }
       });
 
@@ -228,6 +233,11 @@
               $('a[href="#collapse-projects"]').on('click', function(e) {
                 e.preventDefault();
                 WorkModule.collapseAllProjects();
+
+                //Remove hash completely
+                window.history.pushState({state:2}, "work", "?page=work");
+                $(this) = !(location.hash || location.href.slice(-1) == "#");
+
               });
 
               if (Modernizr.touch && $(window).width() <= 1024) {

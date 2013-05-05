@@ -19,7 +19,7 @@
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
         <!--<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
     </head>
-    <body class="show-page-home">
+    <body class="show-page-none">
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -32,7 +32,7 @@
                         <a href="#aboutme" class="toggler" title="About"></a>
                     </li>
                     <li class="info-nav--more-info">
-                        <a href="#contactme" title="Contact"></a>
+                        <a href="#contactme" class="toggler" title="Contact"></a>
                     </li>
                 </ul>
             </nav>
@@ -45,15 +45,41 @@
             <section class="aboutme">
                 <p>I'm Michael Perrotti. This is my about me section.</p>
             </section>
+            <section class="contactme">
+                <!--     WUFOO CODE     -->
+                <div id="wufoo-q7x3s5">
+                Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
+                </div>
+                <script type="text/javascript">var q7x3s5;(function(d, t) {
+                var s = d.createElement(t), options = {
+                'userName':'mperrotti', 
+                'formHash':'q7x3s5', 
+                'autoResize':true,
+                'height':'438',
+                'async':true,
+                'header':'show'};
+                s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+                s.onload = s.onreadystatechange = function() {
+                var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+                try { q7x3s5 = new WufooForm();q7x3s5.initialize(options);q7x3s5.display(); } catch (e) {}};
+                var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+                })(document, 'script');</script>
+                <!--     END WUFOO CODE     -->
+            </section>
             <!-- INTRO -->
-            <section id="home" class="is-active page home" data-pulled="no">
+            <section id="home" class="page home" data-pulled="no">
                 <section class="wide-intro">
-                    <div class="wide-intro__video-container">
-                    </div>
-                    <div class="wide-intro__over">
-                        <h1>Michael Perrotti</h1>
-                        <h2>Designer and front-end developer</h2>
-                    </div>
+
+                        <div class="logo">
+                          <header>
+                            <h1>Mike Perrotti</h1>
+                            <h2>designer and front-end developer</h2>
+                          </header>
+                          <span class="stroke"></span>
+                          <span class="stroke stroke-chop"></span>
+                          <span class="stroke"></span>
+                        </div>
+                        
                 </section>
             </section>
 
@@ -64,9 +90,6 @@
                 </ul>
             </nav>
 
-        <!--<script src="//ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
-        <script src="js/vendor/jquery.mobile/jquery.mobile.custom.js"></script>-->
         <script>if ( typeof window.JSON === 'undefined' ) { document.write('<script src="js/vendor/historyAPI/json2.js"><\/script>'); }</script>
 
         <!-- Vendor JavaScript Plugins -->

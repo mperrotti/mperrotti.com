@@ -19,11 +19,30 @@ img {
 
 .main-nav {
 	@include single-transition(all, .5s, ease-in-out);
-	background: $background;
 
 	.main-nav--new-page {
 		@include single-transition(all, .5s, ease-out);
 		background: url('../img/nav-btn.svg') no-repeat center;
 	}
 
+}
+
+.aboutme,
+.contactme {
+  @include single-transition(all, .25s, ease-in);
+	background: url('../../img/hover-pattern.png') $accent; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+
+	&:before{
+		@include transform(translateX(0) translateY(0));
+	  background: white; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+		bottom: 10px;
+		content: ' ';
+		display: block;
+		opacity: 1;
+		height: 100%;
+		position: absolute;
+		right: 10px;
+		width: 100%;
+		z-index: -1;
+	}
 }

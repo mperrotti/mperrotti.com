@@ -2,47 +2,6 @@
 	@include transition(width .35s ease-in-out, height .35s ease-in-out);
 }
 
-.grid-item__info-block {
-
-	// .btn {
-	// 	@include inline-block;
- //    background: $background;
- //    border: $base-measure/8 solid $dark;
-	// 	height: $base-spacing;
-	// 	line-height: $base-spacing;
- //    padding: $base-spacing;
- //    position: relative;
-	// 	width: $base-measure*4;
-
-	// 	&:after {
-	// 		content: '';
-	// 		display: block;
-	// 		position: absolute;
-	// 		top: 0;
-	// 		left: 100%;
-	// 		width: 0;
-	// 		height: 0;
-	// 		border-color: transparent transparent transparent $background;
-	// 		border-style: solid;
-	// 		border-width: $base-measure - ($base-measure/8) * 2;
-	// 	}
-	// 	&:before {
-	// 		content: '';
-	// 		display: block;
-	// 		position: absolute;
-	// 		top: -($base-measure/8 - ($base-measure/40));
-	// 		left: 100%;
-	// 		width: 0;
-	// 		height: 0;
-	// 		border-color: transparent transparent transparent $dark;
-	// 		border-style: solid;
-	// 		border-width: $base-measure - ($base-measure/8) - ($base-measure/40);
-	// 		margin-left: ($base-measure/8) - ($base-measure/40);
-	// 	}
-	// }
-
-}
-
 .grid-item__expanded-content, 
 .toggle {
 	@include transition(width .35s ease-in-out, height .35s ease-in-out);
@@ -75,7 +34,6 @@
 }
 
 .expanded-Proj-Nav {
-	@include single-transition(background-position, .15s, ease-in);
   height: 2em;
   padding: 12px;
   right: .5em;
@@ -87,18 +45,15 @@
 	.no-svg & { background: url('../img/iconsprite.png'); }
 
 	&[href="#next-proj"] {
-		background-position: -228px -46px;
-		&:hover {
-			background-position: -220px -46px;
-		}
+		background-position: -274px 0;
+		&:hover {  background-position: -274px -58px;  }
 	}
 
 	&[href="#prev-proj"] {
-		background-position: -274px -46px;
-		&:hover {
-			background-position: -282px -46px;
-		}
+		background-position: -333px 0; 
+		&:hover {  background-position: -333px -58px;  }
 	}
+
 }
 
 .expanded-Proj-Info {
@@ -168,27 +123,29 @@
 	overflow: visible;
 	position: relative;
 
+	&:before{
+		// @include box-shadow($background -3px -3px 12px inset, $background 3px 3px 10px inset);
+		// @include box-shadow($background 3px 3px 10px inset);
+		@include transform(translateX(0) translateY(0));
+		background: url('../../img/hover-pattern.png') $accent;
+		border-radius: 0 0 11px 0;
+		bottom: 0;
+		content: ' ';
+		display: block;
+		opacity: 0;
+		height: 100%;
+		position: absolute;
+		right: 0;
+		width: 100%;
+		z-index: -1;
+	}
+
 	img {
 		@include box-shadow(darken($background, 15%) 2px 2px 5px);
 		background: $background;
 		border-radius: 2px;
 	}
-		&:before{
-			// @include box-shadow($background -3px -3px 12px inset, $background 3px 3px 10px inset);
-			// @include box-shadow($background 3px 3px 10px inset);
-			@include transform(translateX(0) translateY(0));
-			background: url('../../img/hover-pattern.png') $accent;
-			border-radius: 0 0 11px 0;
-			bottom: 0;
-			content: ' ';
-			display: block;
-			opacity: 0;
-			height: 100%;
-			position: absolute;
-			right: 0;
-			width: 100%;
-			z-index: -1;
-		}
+
 }
 
 /*--------------------*\
