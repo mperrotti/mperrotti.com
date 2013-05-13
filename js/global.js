@@ -60,7 +60,8 @@ var GlobalModule = {
     this.getUrlVars();
     this.pageNavigation();
     this.fullHeightPage();
-    this.scrollPageChange();
+    // this.scrollReveal();
+    // this.scrollPageChange();
     OBC.susyOffCanvasToggle.init($('.toggler'));
   },
 
@@ -80,15 +81,71 @@ var GlobalModule = {
     Navigate pages using scroll
     
   \*------------------------------------------*/
-  scrollPageChange: function() {
-    $(window).scroll(function() {
-      if ($(window).scrollTop() + $(window).height() == $(document).height() && $('#home').offset().top >= 0 ) {
-        GlobalModule.pageChange('work');
-        console.log('changing to work');
-        History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
+  // scrollPageChange: function() {
+  //   $(window).scroll(function() {
+  //     if ($(window).scrollTop() + $(window).height() == $(document).height() && $('#home').offset().top >= 0 ) {
+  //       GlobalModule.pageChange('work');
+  //       console.log('changing to work');
+  //       History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
+  //     }
+
+  //   });
+  // },
+
+  /*------------------------------------------*\
+    FUNCTION: scrollReveal
+
+    Curtain-y effect on scroll
+    
+  \*------------------------------------------*/
+  scrollReveal: function() {
+    /*  Basic vars and setup  */
+    var $body = $('body'),
+        $pnl1 = $('.home'),
+        $pnl2 = $('.work'),
+        $cntnr = $('.container'),
+        pnl2fromTop = $(window).scrollTop();
+
+    $body.css('min-height', $pnl1.outerHeight() + $pnl2.outerHeight() + 'px');
+
+    // See where things are scrolled and toggle stuff
+    function scrollCheck(pnlFromTop) {
+
+      if(pnlFromTop >= $pnl1.outerHeight()) {
+        $body.addClass('show-page-work').removeClass('show-page-home');
+      } else {
+        $body.removeClass('show-page-work').addClass('show-page-home');
       }
 
+    }
+
+    /*  Scrolly stuff  */
+    $(window).scroll(function() {
+      var pnl2fromTop    = $(window).scrollTop(),
+          percentFromTop = parseFloat(parseInt(pnl2fromTop, 10) / parseInt($pnl1.outerHeight(), 10))*100,
+          fromTop        = percentFromTop <= 100 ? parseInt(percentFromTop, 10) + parseInt(-100, 10) : 0;
+
+      pnl2fromTop = pnl2fromTop < $pnl1.outerHeight() ? pnl2fromTop : $pnl1.outerHeight();
+
+      $pnl2.css({
+        'transform'         : 'translateY('+fromTop+'%)',
+        '-moz-transform'    : 'translateY('+fromTop+'%)',
+        '-ms-transform'     : 'translateY('+fromTop+'%)',
+        '-webkit-transform' : 'translateY('+fromTop+'%)'
+      });
+
+      scrollCheck(pnl2fromTop);
+
     });
+
+    /*  Clicky stuff  */
+    $('main-nav--new-page a').on('click', function(e) {
+      var whereToScroll = $('body').hasClass('show-page-work') ? 0 : $pnl1.outerHeight();
+      e.preventDefault();
+      //$('.panel').removeAttr('style');
+      $('html, body').animate({ scrollTop: whereToScroll });
+    });
+
   },
 
   /*------------------------------------------*\
@@ -116,6 +173,8 @@ var GlobalModule = {
                   workPageLoaded = true;
                   workPageData = data.responseText;
                   GlobalModule.preloadWorkPage(1);
+                  $('#work').html(workPageData).data('pulled', 'yes');
+                  WorkModule.init();
                 }
               }); break;
 
@@ -208,11 +267,11 @@ var GlobalModule = {
         requested page's content isn't
         already there, add it to the DOM
       \*--------------------------*/
-      if ($('#'+page).length === 0) {
-        var newSection  = $('<section id="'+page+'" class="page '+page+'"></section>').data('pulled', 'yes');
+      // if ($('#'+page).length === 0) {
+      //   var newSection  = $('<section id="'+page+'" class="page '+page+'"></section>').data('pulled', 'yes');
 
-        $(newSection).appendTo('body');
-      }
+      //   $(newSection).appendTo('body');
+      // }
 
       /*----------------------------------------------*\
         SHOW PAGE CONTENT
@@ -251,7 +310,6 @@ var GlobalModule = {
         ...if it's there : Just use CSS & DOM manipulation
       \*----------------------------------------------*/
         else {
-
         }
 
       /*----------------------------------------------*\
@@ -312,7 +370,7 @@ var GlobalModule = {
         if (page !== 'home') {
           pushIt = (window.innerHeight - (pushHeight/2))*(-1);
           // resize <body> to prevent home from scrolling
-          $('body').css('max-height', 'none');
+          // $('body').css('max-height', 'none');
 
           $('.main-nav, #work').css({
             'transform'         : 'translateY(' + pushIt + 'px)',
@@ -389,19 +447,19 @@ var GlobalModule = {
 
           $('.main-nav').css({
             'transform'         : 'translateY(0)',
-            '-ms-transform'     : 'translateY(0)', /* IE 9 */
-            '-webkit-transform' : 'translateY(0)', /* Safari and Chrome */
-            '-o-transform'      : 'translateY(0)', /* Opera */
-            '-moz-transform'    : 'translateY(0)' /* Firefox */
+            '-ms-transform'     : 'translateY(0)',
+            '-webkit-transform' : 'translateY(0)',
+            '-o-transform'      : 'translateY(0)',
+            '-moz-transform'    : 'translateY(0)'
           });
 
           $('#work').css({
             'margin-top'         : '',
             'transform'          : 'translateY(-200%)',
-            '-ms-transform'      : 'translateY(-200%)', /* IE 9 */
-            '-webkit-transform'  : 'translateY(-200%)', /* Safari and Chrome */
-            '-o-transform'       : 'translateY(-200%)', /* Opera */
-            '-moz-transform'     : 'translateY(-200%)', /* Firefox */
+            '-ms-transform'      : 'translateY(-200%)',
+            '-webkit-transform'  : 'translateY(-200%)',
+            '-o-transform'       : 'translateY(-200%)',
+            '-moz-transform'     : 'translateY(-200%)',
             '-webkit-transition' : 'all .65s ease-in-out',
             '-moz-transition'    : 'all .65s ease-in-out',
             '-o-transition'      : 'all .65s ease-in-out',

@@ -1,9 +1,6 @@
 /*------------------------------------*\
     WORK
 \*------------------------------------*/
-#work {
-	top: 100px;
-}
 .grid{
 	@include clearfix;
 	position: relative;
@@ -76,18 +73,19 @@
 @include at-breakpoint($tablet) {
 	@include update-container;
 	.expanded-Proj-Nav {
-		right: auto;
+	.is-expanded-view-single & {	display: none; }
+	// 	right: auto;
 
-		&[href="#next-proj"] {
-			right: -1em;
-			margin-top: -40px;
-		}
-		&[href="#prev-proj"] {
-			left: -1em;
-			margin-top: -40px;
-		}
+	// 	&[href="#next-proj"] {
+	// 		right: -1em;
+	// 		margin-top: -40px;
+	// 	}
+	// 	&[href="#prev-proj"] {
+	// 		left: -1em;
+	// 		margin-top: -40px;
+	// 	}
 
-		.is-expanded-view & { display: block; }
+	// 	.is-expanded-view & { display: block; }
 
 	}
 }
@@ -100,6 +98,7 @@
 
 	.expanded-Proj-Info {
 		z-index: 4;
+		.is-expanded-view-single & {	display: none; }		
 	}
 
 }

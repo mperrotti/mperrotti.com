@@ -30,7 +30,7 @@ img {
 .aboutme,
 .contactme {
   @include single-transition(all, .25s, ease-in);
-	background: url('../../img/hover-pattern.png') $accent; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+	background: url('../img/hover-pattern.png') $accent; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
 
 	&:before{
 		@include transform(translateX(0) translateY(0));

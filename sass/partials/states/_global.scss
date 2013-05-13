@@ -1,15 +1,21 @@
 /*--------------------*\
     GLOBAL
 \*--------------------*/
-
 .show-page-home {
-  #home { @include transform2d(translateY(0)); }
-  #work { margin-top: -200%; }
+  .home { @include transform2d(translateY(0)); }
+  .work {
+    @include transform2d(translateY(-100%));
+    // margin-top: -200%;
+  }
 }
 
 .show-page-work {
-  
-  #home { @include transform2d(translateY(-100%)); }
+
+  .home { @include transform2d(translateY(-100%)); }
+  .work { 
+    // @include transform2d(translateY(0));
+    top: 100px;
+  }
 
   .main-nav {
     background: transparent;

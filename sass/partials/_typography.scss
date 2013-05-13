@@ -69,9 +69,25 @@ a{
 \*------------------------------------*/
 .wide-intro{
 	h1, h2, h3{ 
-		color: $accent;
+		color: white;
 		margin: 0;
 		text-align: center; 
+	}
+
+	h1{
+		font-size: 4.236em;
+		font-size: 4.236rem;
+		line-height: 5.854em;
+		line-height: 5.854rem;
+		margin-top: .75em;
+	}
+
+	h2{
+		font-size: 1.618em;
+		font-size: 1.618rem;
+		font-weight: normal;
+		line-height: 2.618em;
+		line-height: 2.618rem;
 	}
 }
 

@@ -7,8 +7,8 @@ $base-measure: 2em;
 $base-spacing: $base-measure/2;
 
 //COLORS
-$light-muted-brown: lighten(desaturate(rgb(102, 84, 58), 15%), 8%);
-$dark-muted-brown:  desaturate(lighten(rgb(53, 45, 34), 10%), 15%);
+$light-muted-brown: desaturate(lighten(rgb(53, 45, 34), 15%), 35%); //lighten(desaturate(rgb(102, 84, 58), 15%), 8%)
+$dark-muted-brown:  desaturate(lighten(rgb(53, 45, 34), 5%), 35%);
 $royal-blue: rgb(60, 40, 134);
 $cool-grey: rgb(239, 241, 242); //use if accent is warm color
 $warm-grey: lighten(rgb(184, 188, 180), 15%); //use if accent is cool color

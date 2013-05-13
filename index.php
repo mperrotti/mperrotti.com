@@ -9,7 +9,7 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Michael Perrotti</title>
         <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
@@ -70,18 +70,18 @@
             <section id="home" class="page home" data-pulled="no">
                 <section class="wide-intro">
 
-                        <div class="logo">
-                          <header>
-                            <h1>Mike Perrotti</h1>
-                            <h2>designer and front-end developer</h2>
-                          </header>
-                          <span class="stroke"></span>
-                          <span class="stroke stroke-chop"></span>
-                          <span class="stroke"></span>
-                        </div>
-                        
+                    <div class="logo">
+                        <span class="stroke"></span>
+                        <span class="stroke stroke-chop"></span>
+                        <span class="stroke"></span>
+                        <header>
+                            <h1>Designer and front-end developer</h1>
+                        </header>
+                    </div>
+
                 </section>
             </section>
+            <section id="work" class="page work"></section>
 
             <nav class="main-nav show-keyboard-nav">
                 <ul>

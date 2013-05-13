@@ -113,18 +113,13 @@
 /*--------------------*\
   MQ - MOBILE
 \*--------------------*/
-@include at-breakpoint($mobile) {
-	// @include update-container;
-	// .grid-item.is-expanded{
-	// 		.grid-item__images{
-	// 		  .show-grid-item__info & { @include one-whole;}
-	// 			li{
-	// 				&:first-child {
-	// 					@include one-whole;
-	// 				}
-	// 			}
-	// 		}
-	// 	}
+@include at-breakpoint($tablet) {
+	@include update-container;
+	.grid-item.is-expanded {
+		.grid-item__info {
+		  .show-grid-item__info & { @include one-whole;}
+		}
+	}
 }
 /*--------------------*\
     MQ - MOBILE
@@ -141,6 +136,8 @@
 
 			.grid-item__info{
 				@include full-pad-box;
+				max-height: 100%;
+				overflow: scroll;
 			}
 
 			.grid-item__images{
