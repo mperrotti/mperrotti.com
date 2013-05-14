@@ -1,18 +1,24 @@
 /*------------------------------------*\
     HOME
 \*------------------------------------*/
+$homeBg: $background;
+$logoBg: $accent;
+
+
+.show-page-none {
+	.home {
+	  background: $dark;
+	}
+}
+
 .home {
-	// border: $base-measure solid $background;
-	// -webkit-box-sizing: border-box;
-	//    -moz-box-sizing: border-box;
-	//         box-sizing: border-box;
-  background: #4355a5;
+  background: $homeBg;
 }
 
 .logo {
   @include rotate(-20deg);
-  border: .5em solid #3270b2;
-  border-radius: 999em;
+  // border: .5em solid $logoBg;
+  // border-radius: 999em;
 	height: 12em;
 	margin: 0 auto;
 	position: relative;
@@ -22,7 +28,7 @@
   
   .stroke{
     @include skew(-20deg, 0);
-    background: #3270b2;
+    background: $logoBg;
     display: inline-block;
 		height: 7em;
 		margin: 2em 0 0 1.25em;
@@ -33,7 +39,7 @@
     
     &:before{
       @include skew(55deg, 0);
-	    background: #3270b2;
+	    background: $logoBg;
 			border-radius: 0 0 .25em 0;
 			content: ' ';
 			display: inline-block;

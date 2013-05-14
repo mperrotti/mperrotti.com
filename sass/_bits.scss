@@ -14,9 +14,13 @@ $cool-grey: rgb(239, 241, 242); //use if accent is warm color
 $warm-grey: lighten(rgb(184, 188, 180), 15%); //use if accent is cool color
 
 $background: $warm-grey;
-$dark: $dark-muted-brown;
+$dark: rgb(20, 24, 38); //$dark-muted-brown 
 $light: $light-muted-brown;
-$accent: $royal-blue;
+$accent: rgb(39, 236, 158); //$royal-blue
+
+
+//dark dark blue rgb(20, 24, 38)
+//bright green: rgb(38, 255, 115)
 
 //TYPOGRAPHY
 $site-main-font: 'Karla', sans-serif;
