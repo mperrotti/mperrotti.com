@@ -21,9 +21,7 @@
 		}
 
 		.grid-item__images,
-		.grid-item__expanded-content .grid-item__info {
-			opacity: 0;
-		}
+		.grid-item__expanded-content .grid-item__info { opacity: 0; }
 
 		.grid-item__expanded-content, 
 		.toggle {
@@ -37,17 +35,17 @@
 	.no-touch {
 		.is-thumb{
 			&:hover {
-				background: lighten($background, 10%);
+				background: white;
 				color: $accent;
 				left: -3px;
 				top: -3px;
+
 				&:before{
-					opacity: 1;
 					@include transform(translateX(10px) translateY(10px));
+					opacity: 1;
 				}
-				img {
-					@include box-shadow(none);
-				}
+
+				img { @include box-shadow(none); }
 			}
 		}
 	}
@@ -60,32 +58,30 @@
 		float: left;
 		clear: both;
 		cursor: default;
-		margin-bottom: $base-spacing;
+		margin-bottom: 4em;
 		margin-right: 100%;
 		position: relative;
 
 		.grid-item__images,
-		.grid-item__info {
-			@include transition(width .15s ease-in-out, margin-right .15s ease-in-out, opacity 1s ease);
-		}
+		.grid-item__info { @include transition(width .15s ease-in-out, margin-right .15s ease-in-out, opacity 1s ease); }
 
-		.grid-item__expanded-content, 
-		.toggle {
+		.toggle,
+		.grid-item__expanded-content {
 			opacity: 1;
 			max-height: 100%;
 			max-width: 100%
 		}
 		
-		.expanded-Proj-Info{
-			@include single-transition(margin-right, .15s, ease-in-out);
-		}
+		.expanded-Proj-Info{ @include single-transition(margin-right, .15s, ease-in-out); }
+
 		.grid-item__info {
-		  @include span-columns($side omega);
-		  .show-grid-item__info & { margin-right: 0; }
-		  margin-right: -100%;
+			@include span-columns($side omega);
+		 	margin-right: -100%;
 			position: absolute;
 			right: 0;
 			z-index: 5;
+
+			.show-grid-item__info & { margin-right: 0; }
 		}
 
 		.grid-item__images {
@@ -93,9 +89,7 @@
 			@include remove-omega;
 			@include clearfix;
 			margin-top: 0;
-		  margin-right: 0;
-
-		  // .show-grid-item__info & { @include two-thirds; }
+			margin-right: 0;
 			
 			img { 
 				@include one-whole; 
@@ -136,6 +130,7 @@
 
 			.grid-item__info{
 				@include full-pad-box;
+				background: rgba(235,235,235,.75);
 				max-height: 100%;
 				overflow: scroll;
 			}
@@ -164,5 +159,11 @@
 		.expanded-Proj-Info { 
 			.show-grid-item__info & { margin-right: space(($total-columns/3), $total-columns); }
 		}
+	}
+}
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.grid-item.is-thumb {
+		.grid-item__info { top: 0; }
 	}
 }

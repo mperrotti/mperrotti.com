@@ -1,7 +1,7 @@
 .expanded-Proj-Info {
 	display: none;
 
-	.is-expanded & {	@include inline-block; }
+	.is-expanded & {  @include inline-block; }
 }
 
 .project-view {
@@ -12,20 +12,21 @@
 
 .close-project {
 	display: none;
+
 	.is-expanded-view-single & { display: block; }
 }
 
 //TODO: Fix this ghetto-ass hack
 .ps-inited {
+
 	.gallery-container {
 		@include inline-block;
 		position: relative;
 		overflow: hidden;
 
-		img {
-			display: none !important;
-		}
+		img { display: none !important; }
 	}
+
 }
 
 @include at-breakpoint($tablet) {
@@ -35,6 +36,7 @@
 
 		.gallery-container {
 			height: 500px;
+			opacity: 0;
 			width: 100%;
 
 			& > img {

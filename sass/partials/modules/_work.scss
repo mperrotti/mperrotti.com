@@ -2,13 +2,14 @@
 	@include transition(width .35s ease-in-out, height .35s ease-in-out);
 }
 
-.grid-item__expanded-content, 
+.grid-item__expanded-content,
 .toggle {
 	@include transition(width .35s ease-in-out, height .35s ease-in-out);
 	height: 100%;
 }
 
 .close-project {
+	color: $accent;
 	font-size: .5em;
 	position: absolute;
 	right: 0;
@@ -26,6 +27,7 @@
 		top: $base-spacing;
 		width: 50px;
 		left: 0px;
+
 		.svg &    {	background: url(../img/iconsprite.svg) -187px 20px no-repeat transparent; }
 		.no-svg & {	background: url(../img/iconsprite.png) -187px 20px no-repeat transparent; }
 
@@ -34,12 +36,12 @@
 }
 
 .expanded-Proj-Nav {
-  height: 2em;
-  padding: 12px;
-  right: .5em;
-  text-indent: -9999em;
-  width: 2em;
-  z-index: 2;
+	height: 2em;
+	padding: 12px;
+	right: .5em;
+	text-indent: -9999em;
+	width: 2em;
+	z-index: 2;
 
 	.svg & { background: url('../img/iconsprite.svg'); }
 	.no-svg & { background: url('../img/iconsprite.png'); }
@@ -57,7 +59,6 @@
 }
 
 .expanded-Proj-Info {
-	@include single-box-shadow(fade-out(darken($background, 10%), .3), -3px, 2px, 4px);
 	@include transform(rotate(45deg));
 	background: $background;
 	border-left: 1px solid lighten($background, 5%);
@@ -65,24 +66,49 @@
 	color: $dark;
 
 	.csstransforms & { border-radius: 0 999px 0 0; }
-	.svg & { background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
-	.no-svg & {	background: url(../img/iconsprite.png) no-repeat $background -9999em -9999em; }
+	// .svg & { background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
+	// .no-svg & {	background: url(../img/iconsprite.png) no-repeat $background -9999em -9999em; }
 
-	&:hover, 
-	.show-grid-item__info & {
-		&:hover {
-			@include single-box-shadow(fade-out(darken($background, 10%), 0), -3px, 6px, 4px);
-			border-left: 1px solid lighten($background, 20%);
-			border-bottom: 1px solid lighten($background, 20%);
-		}
+	&:hover {
+		border-left: 1px solid lighten($background, 20%);
+		border-bottom: 1px solid lighten($background, 20%);
 	}
 
+	&:before {
+		content: '+';
+		@include transform(rotate(45deg));
+		display: block;
+	}
+	
 	.show-grid-item__info & {
-		background-position: -187px 20px;
-	
-		&:hover { background-position: -187px -34px; }
-	
+		
+		&:before {
+			@include transform(rotate(0deg) translateX(-5px));
+		}
+
 	}		
+
+}
+
+.indicators {
+	margin: 0 auto;
+	position: relative;
+	top: -1.5em;
+	z-index: 9;
+
+	span {
+		background: rgba(235, 235, 235, .5);
+		border: none;
+		border-radius: 999em;
+		display: inline-block;
+		height: 5px;
+		margin: 0 2px;
+		width: 5px;
+		&.current {
+			background: rgba(235, 235, 235, 1);
+			border: 1px solid white;
+		}
+	}
 
 }
 
@@ -95,22 +121,15 @@
 	&[href="#all-projects"] {
 		background-position: 0 0;
 		
-		&:hover, .is-expanded-view & {
-			background-position: 0 -54px;
-		}
+		&:hover, .is-expanded-view & { background-position: 0 -54px; }
 
 	}
 
 	&[href="#collapse-projects"] { 
 		background-position: -46.5px -53.5px;
 
-		.is-expanded-view & {
-			background-position: -46.5px 0px;
-		}
-
-		&:hover {
-			background-position: -46.5px -53.5px;
-		}
+		.is-expanded-view & { background-position: -46.5px 0px; }
+		&:hover { background-position: -46.5px -53.5px; }
 
 	}
 
@@ -124,10 +143,8 @@
 	position: relative;
 
 	&:before{
-		// @include box-shadow($background -3px -3px 12px inset, $background 3px 3px 10px inset);
-		// @include box-shadow($background 3px 3px 10px inset);
 		@include transform(translateX(0) translateY(0));
-		background: url('../../img/hover-pattern.png') $accent;
+		background: url('../img/hover-pattern.png') $accent;
 		border-radius: 0 0 11px 0;
 		bottom: 0;
 		content: ' ';
@@ -153,17 +170,6 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	opacity: 1;
-}
-
-/*--------------------*\
-    MQ - TABLET
-\*--------------------*/
-@include at-breakpoint($tablet) {
-	@include update-container;
-	.expanded-Proj-Nav {
-		opacity: 1;
-	}
 }
 
 /*--------------------*\
@@ -171,12 +177,7 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
-	.expanded-Proj-Nav {
-		&:hover{
-			opacity: 1;
-		}
-  }
-  .grid {
-  	padding: 10px; //to allow for shadows to show;
-  }
+	.grid {
+		padding: 10px; //to allow for shadows to show;
+	}
 }

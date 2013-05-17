@@ -1,50 +1,50 @@
-/*------------------------------------*\
-    LAYOUT - GLOBAL
-\*------------------------------------*/
 @include setup-container;
 
 /*--------------------*\
     NAVIGATION
 \*--------------------*/
- body{
-	@include single-transition(opacity, .5s, ease-in);
- }
-
-.show-page-none{
-	opacity: 0;
-	nav,
-	.home {
-		display: none;
-	}
-}
-
 .main-nav {
-	bottom: 0;
-	left: 0;
+	height: 100%;
 	margin: 0 auto;
 	padding: 0;
 	position: fixed;
 	right: 0;
-	width: 200px;
+	width: 4em;
 	z-index: 5;
 
 	ul {
 		@include one-whole;
+		height: 100%;
+		margin: 0;
+		position: relative;
+		z-index: 2;
+
 		.main-nav--new-page {
-			bottom: 1em;
+			height: 100%;
 			margin: -2em auto 0 auto;
+			position: relative;
 			width: 100%;
 
 			a {
 				display: block;
-				height: $base-measure*2;
+				height: 100%;
 				line-height: $base-measure*2;
 				margin: 0 auto;
 				position: relative;
+				z-index: 1;
+			}
+
+			span {
+				position: absolute;
+				top: 50%;
+				text-align: center;
+				width: 100%;
 			}
 
 			a[href="#home"] {
+				
 				.show-page-home & { display: none; }
+			
 			}
 
 		}	
@@ -61,14 +61,14 @@
 
 	.info-nav--more-info {
 		display: block;
-		float: left;
 		height: $base-measure;
-		margin: $base-spacing 0 $base-spacing $base-spacing;
+		margin: $base-spacing 0 $base-spacing $base-spacing/2;
 		padding: $base-spacing/2;
 		position: relative;
 		text-align: center;
 		width: $base-measure + .5em;
-
+		.show-contact &,
+		.show-about & { float: left; }
 		
 		a {
 			@include single-transition(margin-top, .1s, ease-in);
@@ -82,26 +82,20 @@
 
 			&[href="#aboutme"] {
 				background-position: -142px -7px;
-				&:hover {
-					background-position: -142px -60px;
-				}
-				.show-about & {
-					background-position: -142px -108px;					
-				}
+				
+				.touch & { &:hover { background-position: -142px -60px; } }
+				.show-about & { background-position: -142px -108px; }
+
 			}
 
 			&[href="#contactme"] {
-				&:hover {
-					background-position: -97px -60px;
-				}
-				.show-contact & {
-					background-position: -142px -108px;
-				}
+				.touch { &:hover { background-position: -97px -60px; } }
+				.show-contact & { background-position: -142px -108px; }
 			}
+
 			.show-about &,
-			.show-contact & { 
-				margin-top: -1em;
-			}
+			.show-contact & { margin-top: -1em; }
+
 		}
 
 	}
@@ -113,23 +107,10 @@
 	width: 100%;
 }
 
-.main-nav {
-
-	 ul {
-		margin: 0;
-		position: relative;
-		z-index: 2;
-	}
-
-	.main-nav--new-page {
-		position: relative;
-	}
-
-}
-
 .page {
 	background: $background;
-	position: relative;
+	position: absolute;
+	width: 100%;
 	z-index: 1;
 }
 
@@ -145,16 +126,15 @@
   padding: $base-spacing 0 $base-spacing 0;
   position: fixed;
   top: $base-measure;
-  z-index: 5;
-	p {
-		margin-top: 0;
-	}
+  z-index: 6;
+
+	p { margin-top: 0; }
 
 }
 
 .aboutme {
   .show-about & { 
-  	margin-left: 0;
+		margin-left: 0;
 		padding: $base-spacing $base-measure $base-spacing $base-spacing;
   }
 }
@@ -170,31 +150,17 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty
-	.latest-social{
-		@include one-col-center-pad;
-
-		div{
-			@include one-whole;
-			@include omega;
-		}
+	.main-nav { 
+		width: 2em;
 	}
 
-	.page { z-index: 4; }
+	.page { z-index: 1; }
+
+	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty
 
 	.info-nav {
-		width: 100%;
-		z-index: 3;
 
-		.info-nav--more-info {
-			margin: $base-spacing $base-spacing $base-spacing 0;
-			float: right;
-
-			&:first-child{
-				float: left;
-			}
-
-		}
+		.info-nav--more-info { margin: $base-spacing $base-spacing $base-spacing $base-measure; }
 
 	}
 
@@ -217,25 +183,6 @@
 	.aboutme,
 	.contactme {
 	  @include span-columns($side omega);
-	}
-
-	.info-nav {
-		// bottom: auto;
-		// width: auto;
-	
-		.info-nav--more-info {
-			// margin: $base-spacing 0 $base-spacing $base-spacing;
-			// width: $base-measure + .5em;
-			// height: $base-measure;
-
-			a{
-				// @include hide-text;
-				// height: 100%;
-				// width: 100%;
-			}
-
-		}
-
 	}
 
 }

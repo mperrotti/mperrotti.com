@@ -1,8 +1,7 @@
 /*--------------------------------------------------------------*\
-  PORTFOLIO SETUP:
-  FUNCTIONS AND VARS
+  PORTFOLIO
 
-  Anything to do with viewing a project goes here.
+  Anything to do with opening or viewing a project goes here.
 \*--------------------------------------------------------------*/
   var WorkModule = {
     init: function() {
@@ -98,7 +97,7 @@
       });
 
       $(document).keydown(function (e) {
-        if (e.keyCode === 27) {
+        if (e.keyCode === 27) { //esc key
           e.preventDefault();
           WorkModule.collapseAllProjects();
 
@@ -136,9 +135,6 @@
               //fromTop cannot be a negative value
               fromTop = fromTop <= 0 ? 0 : fromTop;
 
-              console.log(fromTop);
-              console.log(projectHeight - infoHeight);
-
               info.css('top', fromTop);
               closeProject.css('top', fromTop);
               expandedProj.parent().find('a[href="#show-info"]').css('top', fromTop > 20 ? (fromTop + 80) : 80);
@@ -164,7 +160,11 @@
     },
 
     workNavigation: function() {
+      // TODO: Pass in the event parameter dynamically.
+      //       Right now I have to type it in...yuck
+
       var expandedProjIndex = 0;
+
       function projectNav(project, event) {
 
         var projectGrid  = project.parent(),
@@ -192,8 +192,9 @@
 
           // If this was triggered by a click event,
           // make a hash in the URL
-          if (event === "click") {
+          if (event !== "load") {
             window.location.hash = projectTitle;
+            console.log(projectTitle);
           }
 
           /*--------------------------*\
@@ -341,13 +342,13 @@
             if ($(this).find('.is-expanded-view-single').length && $('.show-page-work').length) {
 
               if (e.keyCode == 37) {
-                projectNav($('#'+prevProj), "click");
+                projectNav($('#'+prevProj), "keydown");
                 expandedProjIndex = (expandedProjIndex !== 0) ? prevProjIndex : (projects.length - 1);
                 console.log(expandedProjIndex);
                 return false;
               }
               if (e.keyCode == 39) {
-                projectNav($('#'+nextProj), "click");
+                projectNav($('#'+nextProj), "keydown");
                 expandedProjIndex = (expandedProjIndex !== (projects.length - 1)) ? nextProjIndex : 0;
                 console.log(expandedProjIndex);
                 return false;

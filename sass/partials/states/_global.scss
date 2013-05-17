@@ -2,42 +2,34 @@
     GLOBAL
 \*--------------------*/
 .show-page-home {
-  .home { @include transform2d(translateY(0)); }
-  .work {
-    @include transform2d(translateY(-100%));
-    // margin-top: -200%;
-  }
+
+  .home { @include transform2d(translateX(0)); }
+  .work { @include transform2d(translateX(-100%)); width: 0; overflow: hidden; } //height and overflow hack to deal with FF bug - http://stackoverflow.com/questions/13626412/firefox-transitions-breaking-when-parent-overflow-is-changed
+
 }
 
 .show-page-work {
+  overflow: visible;
 
-  .home { @include transform2d(translateY(-100%)); }
-  .work { 
-    // @include transform2d(translateY(0));
-    top: 100px;
-  }
+  .home { @include transform2d(translateX(-100%)); }
 
   .main-nav {
-    background: transparent;
+    background: $dark;
+    color: $background;
 
-    .main-nav--new-page {
-      @include transform2d(rotate(180deg));
-      top: -1em;
-      &:hover { top: 3em; }
-
-    }
+    span { @include transform2d(rotate(90deg)); }
 
   }
 }
 
-.show-about {
-  .main-nav--more-info {
-    a[href="#aboutme"] { background: $dark; }
-  }
-}
+// .show-about {
+//   .main-nav--more-info {
+//     a[href="#aboutme"] { background: $dark; }
+//   }
+// }
 
-.show-contact {
-  .main-nav--more-info {
-    a[href="#contactme"] { background: $dark; }
-  }
-}
+// .show-contact {
+//   .main-nav--more-info {
+//     a[href="#contactme"] { background: $dark; }
+//   }
+// }

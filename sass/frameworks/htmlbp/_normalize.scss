@@ -148,7 +148,7 @@ body {
  */
 
 a:focus {
-    outline: thin dotted;
+    outline: 0; /* added by mperrotti */
 }
 
 /**
@@ -482,6 +482,12 @@ input[type="submit"] {
     @if $legacy-support-for-ie7 {
         *overflow: visible; /* 4 */
     }
+}
+
+/* added by mperrotti */
+a {
+    border: 0;
+    outline: 0;
 }
 
 /**

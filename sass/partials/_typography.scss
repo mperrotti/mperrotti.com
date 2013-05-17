@@ -37,6 +37,7 @@ h4, p {
 	font-size: 1rem;
 	line-height: 1.618em;
 	line-height: 1.618rem;
+	margin-top: 0;
 }
 
 p {
@@ -60,10 +61,6 @@ a{
   text-align: center;
 }
 
-.main-nav--new-page a {
-  color: $dark;
-}
-
 /*------------------------------------*\
     HOME
 \*------------------------------------*/
@@ -71,7 +68,7 @@ a{
 	h1, h2, h3{ 
 		color: white;
 		margin: 0;
-		text-align: center; 
+		text-align: center;
 	}
 
 	h1{
@@ -130,12 +127,12 @@ a{
 .grid-item__info-block {
 
 	.btn {
-		color: $accent;
+		background: $dark;
+		color: $background;
 		padding: .25em;
-		border-bottom: 1px solid $accent;
 		&:hover{
 			background: $accent;
-			color: $background;
+			color: $dark;
 		}
 	}
 

@@ -16,6 +16,8 @@
 	}
 }
 
+.work { top: 100px; }
+
 .expanded-Proj-Nav {
 	display: none;
 	position: fixed;
@@ -31,12 +33,12 @@
 
 }
 .expanded-Proj-Info {
-  height: $base-measure;
+  height: $base-spacing;
 	padding: $base-spacing;
 	position: absolute;
-	right: $base-measure*(-1);
+	right: -1.5em;
 	top: 80px;
-	width: $base-measure;
+	width: $base-spacing;
   z-index: 999;
 }
 
@@ -63,31 +65,10 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.project-view {
-		top: 100px;
-	}
-}
-/*--------------------*\
-    MQ - TABLET
-\*--------------------*/
-@include at-breakpoint($tablet) {
-	@include update-container;
-	.expanded-Proj-Nav {
-	.is-expanded-view-single & {	display: none; }
-	// 	right: auto;
+	.work { top: 180px; }
+	.project-view { top: 100px; }
+	.is-expanded-view-single .expanded-Proj-Nav { display: none; }
 
-	// 	&[href="#next-proj"] {
-	// 		right: -1em;
-	// 		margin-top: -40px;
-	// 	}
-	// 	&[href="#prev-proj"] {
-	// 		left: -1em;
-	// 		margin-top: -40px;
-	// 	}
-
-	// 	.is-expanded-view & { display: block; }
-
-	}
 }
 
 /*--------------------*\

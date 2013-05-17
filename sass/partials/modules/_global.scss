@@ -1,17 +1,22 @@
-/*------------------------------------*\
-    GLOBAL
-\*------------------------------------*/
 body {
+  @include transition(opacity .5s ease-out, background .5s ease-in);
   background: $background;
+}
+
+.show-page-none{
+	opacity: 0;
+
+	nav,
+	.home {
+		display: none;
+	}
 }
 
 img {
 	background: url('../img/hover-pattern.png') $accent;
 }
 
-.page {
-	@include single-transition(all, .5s, ease-in-out);
-}
+.page { @include single-transition(all, .5s, ease-in-out); }
 
 .toggle{
 	@include toggle();
@@ -19,10 +24,10 @@ img {
 
 .main-nav {
 	@include single-transition(all, .5s, ease-in-out);
+	background: $accent;
 
-	.main-nav--new-page {
-		@include single-transition(all, .5s, ease-out);
-		background: url('../img/nav-btn.svg') no-repeat center;
+	span { 
+		@include transform2d(rotate(-90deg));
 	}
 
 }
@@ -34,7 +39,7 @@ img {
 
 	&:before{
 		@include transform(translateX(0) translateY(0));
-	  background: white; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+  	background: white; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
 		bottom: 10px;
 		content: ' ';
 		display: block;
@@ -45,4 +50,24 @@ img {
 		width: 100%;
 		z-index: -1;
 	}
+}
+
+
+@include at-breakpoint($mobile) {
+	@include update-container;		
+
+	nav.main-nav {
+		.show-page-work & { 
+			background: transparent; 
+			
+			span { 
+				background: $dark;
+				display: block;
+				padding: .25em;
+				width: auto;
+			}
+
+		}
+	}
+
 }

@@ -210,7 +210,8 @@ var GlobalModule = {
 
     var homeHeight  = $('#home').height(),
         workHeight  = $('#work').height(),
-        aboutHeight = $('#about').height();
+        aboutHeight = $('#about').height(),
+        pushHeight  = $('.main-nav li a').height();
 
   /*----------------------------------------------*\
     MAKE SURE PAGE VAR ISN'T USING URL HASHES
@@ -316,7 +317,7 @@ var GlobalModule = {
         var element = $("body"),
             classes = element.attr('class').split(/\s+/),
             pattern = /^show-page-/,
-            pushIt = parseInt((window.innerWidth*(-1)) + $('.main-nav').width(), 10);
+            pushIt = ((window.innerHeight - pushHeight)-$('.main-nav').height())*(-1);
 
         for(var i = 0; i < classes.length; i++){
           var className = classes[i];
@@ -337,23 +338,16 @@ var GlobalModule = {
 
         //Hide home
         if (page !== 'home') {
+          pushIt = (window.innerHeight - (pushHeight/2))*(-1);
           // resize <body> to prevent home from scrolling
-          $('body').css('max-height', 'none');
+          // $('body').css('max-height', 'none');
 
-          $('.main-nav').css({
-            'transform'         : 'translateX(' + pushIt + 'px)',
-            '-ms-transform'     : 'translateX(' + pushIt + 'px)', /* IE 9 */
-            '-webkit-transform' : 'translateX(' + pushIt + 'px)', /* Safari and Chrome */
-            '-o-transform'      : 'translateX(' + pushIt + 'px)', /* Opera */
-            '-moz-transform'    : 'translateX(' + pushIt + 'px)' /* Firefox */
-          });
-
-          $('#work').css({
-            'transform'         : 'translateX(0)',
-            '-ms-transform'     : 'translateX(0)', /* IE 9 */
-            '-webkit-transform' : 'translateX(0)', /* Safari and Chrome */
-            '-o-transform'      : 'translateX(0)', /* Opera */
-            '-moz-transform'    : 'translateX(0)' /* Firefox */            
+          $('.main-nav, #work').css({
+            'transform'         : 'translateY(' + pushIt + 'px)',
+            '-ms-transform'     : 'translateY(' + pushIt + 'px)', /* IE 9 */
+            '-webkit-transform' : 'translateY(' + pushIt + 'px)', /* Safari and Chrome */
+            '-o-transform'      : 'translateY(' + pushIt + 'px)', /* Opera */
+            '-moz-transform'    : 'translateY(' + pushIt + 'px)' /* Firefox */
           });
 
           // HACK
@@ -375,27 +369,18 @@ var GlobalModule = {
               };
             })();
 
-            // Detect whether device supports orientationchange event, otherwise fall back to
-            // the resize event.
-            var supportsOrientationChange = "onorientationchange" in window,
-                orientationEvent = supportsOrientationChange ? "orientationchange" : "resize";
-
-            window.addEventListener(orientationEvent, function() {
-              $('body').height(window.innerheight);
-            }, false);
-
             $(window).resize(function () {
 
               waitForFinalEvent(function(){
 
-                pushIt = parseInt((window.innerWidth*(-1)) + $('.main-nav').width(), 10);
+                pushIt = (window.innerHeight - (pushHeight/2))*(-1);
 
                 $('.show-page-work').find('.main-nav').css({
-                  'transform'         : 'translateX(' + pushIt + 'px)',
-                  '-ms-transform'     : 'translateX(' + pushIt + 'px)',
-                  '-webkit-transform' : 'translateX(' + pushIt + 'px)',
-                  '-o-transform'      : 'translateX(' + pushIt + 'px)',
-                  '-moz-transform'    : 'translateX(' + pushIt + 'px)' 
+                  'transform'         : 'translateY(' + pushIt + 'px)',
+                  '-ms-transform'     : 'translateY(' + pushIt + 'px)', /* IE 9 */
+                  '-webkit-transform' : 'translateY(' + pushIt + 'px)', /* Safari and Chrome */
+                  '-o-transform'      : 'translateY(' + pushIt + 'px)', /* Opera */
+                  '-moz-transform'    : 'translateY(' + pushIt + 'px)' /* Firefox */
                 });
               }, 100, 'window resized');
 
@@ -407,15 +392,17 @@ var GlobalModule = {
             var transProp = e.originalEvent.propertyName;
             if ((transProp === 'transform' || transProp === '-ms-transform' || transProp === '-webkit-transform' || transProp === '-o-transform' || transProp === '-moz-transform') && $('.show-page-work').length) {
               $(this).css({
-                'transform'          : 'translateX(0)',
-                '-ms-transform'      : 'translateX(0)',
-                '-webkit-transform'  : 'translateX(0)',
-                '-o-transform'       : 'translateX(0)',
-                '-moz-transform'     : 'translateX(0)',
-                // '-webkit-transition' : 'none .65s ease-in-out',
-                // '-moz-transition'    : 'none .65s ease-in-out',
-                // '-o-transition'      : 'none .65s ease-in-out',
-                // 'transition'         : 'none .65s ease-in-out'
+                'top'                : '',
+                'margin-top'         : pushIt,
+                'transform'          : 'translateY(0)',
+                '-ms-transform'      : 'translateY(0)',
+                '-webkit-transform'  : 'translateY(0)',
+                '-o-transform'       : 'translateY(0)',
+                '-moz-transform'     : 'translateY(0)',
+                '-webkit-transition' : 'none .65s ease-in-out',
+                '-moz-transition'    : 'none .65s ease-in-out',
+                '-o-transition'      : 'none .65s ease-in-out',
+                'transition'         : 'none .65s ease-in-out'
               });
             }
           });
@@ -425,26 +412,27 @@ var GlobalModule = {
         if (page !== 'work') {
 
           // resize <body> to prevent home from scrolling
-          $('body').css({'max-height' : window.innerHeight});
+          $('body').css('max-height', window.innerHeight);
 
           $('.main-nav').css({
-            'transform'         : 'translateX(0)',
-            '-ms-transform'     : 'translateX(0)',
-            '-webkit-transform' : 'translateX(0)',
-            '-o-transform'      : 'translateX(0)',
-            '-moz-transform'    : 'translateX(0)'
+            'transform'         : 'translateY(0)',
+            '-ms-transform'     : 'translateY(0)',
+            '-webkit-transform' : 'translateY(0)',
+            '-o-transform'      : 'translateY(0)',
+            '-moz-transform'    : 'translateY(0)'
           });
 
           $('#work').css({
-            'transform'          : 'translateX(-100%)',
-            '-ms-transform'      : 'translateX(-100%)',
-            '-webkit-transform'  : 'translateX(-100%)',
-            '-o-transform'       : 'translateX(-100%)',
-            '-moz-transform'     : 'translateX(-100%)',
-            '-webkit-transition' : 'all .5s ease-in-out',
-            '-moz-transition'    : 'all .5s ease-in-out',
-            '-o-transition'      : 'all .5s ease-in-out',
-            'transition'         : 'all .5s ease-in-out'
+            'margin-top'         : '',
+            'transform'          : 'translateY(-200%)',
+            '-ms-transform'      : 'translateY(-200%)',
+            '-webkit-transform'  : 'translateY(-200%)',
+            '-o-transform'       : 'translateY(-200%)',
+            '-moz-transform'     : 'translateY(-200%)',
+            '-webkit-transition' : 'all .65s ease-in-out',
+            '-moz-transition'    : 'all .65s ease-in-out',
+            '-o-transition'      : 'all .65s ease-in-out',
+            'transition'         : 'all .65s ease-in-out'
           });
 
         }
@@ -474,14 +462,14 @@ var GlobalModule = {
 
         // TODO: Make this function more robust. Right now this is not at all reusable code
         //       because I'm specificaly targetting '.show-page-work'/'.show-page-home'
-        if ($('.show-page-work').length && !$('.is-expanded-view-single').length ) {
-          if (e.keyCode == 37) {
+        if ($('.show-page-work').length) {
+          if (e.keyCode == 38) {
             History.pushState({state:1}, "home", "?page=home"); //TODO: Move this to the pagechange function
             GlobalModule.pageChange('home');
             return false;
           }
-        } else if ($('.show-page-home').length && !$('.is-expanded-view-single').length) {
-          if (e.keyCode == 39) {
+        } else if ($('.show-page-home').length) {
+          if (e.keyCode == 40) {
             History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
             GlobalModule.pageChange('work');
             return false;

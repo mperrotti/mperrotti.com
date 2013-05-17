@@ -64,22 +64,31 @@ var initPhotoSwipe = function () {
                 for (i = 0, len = indicators.length; i < len; i++) {
                     indicators[i].setAttribute('class', '');
                 }
+                $(instances[n].carousel.el).parents('.grid-item__images')
+                .find('.indicators')
+                .width(
+                    parseInt($(instances[n].getCurrentImage().imageEl).width()-20, 10)
+                );
                 indicators[e.index].setAttribute('class', 'current');
                 var currentImage = instances[n].getCurrentImage();
-                $gallery.addClass('ps-inited');
+                $(instances[n].carousel.el).parents('.grid-item__images').addClass('ps-inited');
 
                 //TODO: Fix this ghetto-ass hack
-                $gallery.find('.gallery-container, .ps-carousel').height($gallery.find('.ps-carousel-item:first-child img').height());
+                $('.gallery-container, .ps-carousel, .ps-carousel-content').height($(instances[n].carousel.el).find('.ps-carousel-item:first-child img').height());
+
             });
 
             instances[n].show(0);
 
-        });
+            var imgs, lng;
+            for (img = 0, lng = $(this).find('.gallery-container img').length; img < lng; img++) {
+                $(this).find('.indicators').append('<span></span>');
+            }
 
-        $expandedGallery.find('img').each(function (i, e) {
-            $('.indicators').append("<span></span>");
+            indicators = window.document.querySelectorAll('.indicators span');
+
+
         });
-        indicators = window.document.querySelectorAll('.indicators span');
 
     // });
 
@@ -90,29 +99,30 @@ var initPhotoSwipe = function () {
 
 /*------------------------------------*\
     Updating URL using History API
+
+    depends: js/vendor/historyAPI/jquery.history.js
+             js/vendor/historyAPI/json2.js
 \*------------------------------------*/
 (function(window,undefined){
 
-    // Check Location
-    if ( document.location.protocol === 'file:' ) {
-        alert('The HTML5 History API (and thus History.js) do not work on files, please upload it to a server.');
-    }
-
     // Establish Variables
-    var
-        History = window.History, // Note: We are using a capital H instead of a lower h
+    var History = window.History, // Note: We are using a capital H instead of a lower h
         State = History.getState(),
         $log = $('#log');
 
-    // Log Initial State
-    History.log('initial:', State.data, State.title, State.url);
+    /*--------------------------*\
+      Good for debugging 
+      History API
+    \*--------------------------*/
+        // // Log Initial State
+        // History.log('initial:', State.data, State.title, State.url);
 
-    // Bind to State Change
-    History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate
-        // Log the State
-        var State = History.getState(); // Note: We are using History.getState() instead of event.state
-        History.log('statechange:', State.data, State.title, State.url);
-    });
+        // // Bind to State Change // Log the State after statechange
+        // History.Adapter.bind(window,'statechange',function(){ // Note: We are using statechange instead of popstate       
+        //     var State = History.getState(); // Note: We are using History.getState() instead of event.state
+        //     History.log('statechange:', State.data, State.title, State.url);
+        // });
+    //-------------------------
 
     $('a[href="#home"]').on('click', function(){
         History.pushState({state:1}, "home", "?page=home"); //TODO: Move this to the pagechange function
@@ -121,9 +131,5 @@ var initPhotoSwipe = function () {
     $('a[href="#work"]').on('click', function(){
         History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
     });
-
-    // $('a[href="#about"]').on('click', function(){
-    //     History.pushState({state:3}, "about", "?page=about");
-    // });
 
 })(window);

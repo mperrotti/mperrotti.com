@@ -85,8 +85,8 @@
 
             <nav class="main-nav show-keyboard-nav">
                 <ul>
-                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page">Home</a></li>
-                    <li class="main-nav--new-page"><a href="#work" title="Work" data-nav-type="page">Work</a></li>
+                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page"></a><span>Home</span></li>
+                    <li class="main-nav--new-page"><a href="#work" title="Work" data-nav-type="page"></a><span>Work</span></li>
                 </ul>
             </nav>
 

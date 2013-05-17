@@ -64,7 +64,4 @@
 \*--------------------*/
 @include at-breakpoint($desktop) {
 	@include update-container;
-	// .grid{
-	// 	.toggler{ display: none; }
-	// }
 }
