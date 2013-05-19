@@ -23,19 +23,22 @@
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
+
+            <a href="#aboutme" class="toggler" title="About">About and Contact</a>
+
             <a href="#next-proj" class="expanded-Proj-Nav"></a>
             <a href="#prev-proj" class="expanded-Proj-Nav"></a>
 
-            <nav class="info-nav">
+            <!-- <nav class="info-nav">
                 <ul>
                     <li class="info-nav--more-info">
-                        <a href="#aboutme" class="toggler" title="About"></a>
+                        <a href="#aboutme" class="toggler" title="About">About and Contact</a>
                     </li>
                     <li class="info-nav--more-info">
                         <a href="#contactme" class="toggler" title="Contact"></a>
                     </li>
                 </ul>
-            </nav>
+            </nav> -->
 
             <nav class="project-view"> 
                 <a class="toggle-project-view" href="#all-projects">LIST VIEW</a>
@@ -44,8 +47,6 @@
 
             <section class="aboutme">
                 <p>I'm Michael Perrotti. This is my about me section.</p>
-            </section>
-            <section class="contactme">
                 <!--     WUFOO CODE     -->
                 <div id="wufoo-q7x3s5">
                 Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
@@ -65,6 +66,29 @@
                 var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
                 })(document, 'script');</script>
                 <!--     END WUFOO CODE     -->
+            </section>
+            <section class="contactme">
+                <!--     WUFOO CODE
+
+                <div id="wufoo-q7x3s5">
+                Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
+                </div>
+                <script type="text/javascript">var q7x3s5;(function(d, t) {
+                var s = d.createElement(t), options = {
+                'userName':'mperrotti', 
+                'formHash':'q7x3s5', 
+                'autoResize':true,
+                'height':'438',
+                'async':true,
+                'header':'show'};
+                s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
+                s.onload = s.onreadystatechange = function() {
+                var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
+                try { q7x3s5 = new WufooForm();q7x3s5.initialize(options);q7x3s5.display(); } catch (e) {}};
+                var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
+                })(document, 'script');</script>
+                        
+                        END WUFOO CODE     -->
             </section>
             <!-- INTRO -->
             <section id="home" class="page home" data-pulled="no">

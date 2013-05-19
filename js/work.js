@@ -172,6 +172,7 @@
             projectPreloaded = projectData[projectTitle] !== undefined,
             projectInDom = $.trim( project.find('.grid-item__expanded-content').html() ).length;
 
+
           // expand project and update states
           ////////////////////////////////////
 
@@ -194,7 +195,6 @@
           // make a hash in the URL
           if (event !== "load") {
             window.location.hash = projectTitle;
-            console.log(projectTitle);
           }
 
           /*--------------------------*\
@@ -249,7 +249,7 @@
       }
 
       //If the URL has a hash with the project in it, navigate to that project
-      if (window.location.hash && window.location.hash !== '#all-projects') {
+      if (window.location.hash && window.location.hash !== '#all-projects' && Modernizr.history) {
         projectNav($(window.location.hash), "load");
         expandedProjIndex = $.inArray(window.location.hash.replace('#',''), projects);
         console.log(expandedProjIndex);
