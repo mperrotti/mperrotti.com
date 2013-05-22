@@ -2,5 +2,5 @@ require 'susy'
 
 css_dir = "/css"
 scss_dir = "/sass"
-output_style = :nested
+output_style = :compressed
 relative_assets = true

@@ -4,15 +4,14 @@ $base-spacing: $base-measure/2;
 
 //COLORS
 $light-muted-brown: lighten(desaturate(rgb(102, 84, 58), 15%), 8%);
-$dark-muted-brown:  desaturate(lighten(rgb(53, 45, 34), 10%), 15%);
-$royal-blue: rgb(60, 40, 134);
-$cool-grey: rgb(239, 241, 242); //use if accent is warm color
+$midnight: rgb(20, 24, 38);
+$bright-green: rgb(39, 236, 158);
 $warm-grey: lighten(rgb(184, 188, 180), 15%); //use if accent is cool color
 
 $background: $warm-grey;
-$dark: $dark-muted-brown;
-$light: $light-muted-brown;
-$accent: $royal-blue;
+$dark: $midnight;
+$light: lighten($midnight, 10%);
+$accent: $bright-green;
 
 //TYPOGRAPHY
 $site-main-font: 'Karla', sans-serif;
@@ -171,8 +170,14 @@ form span.req {
 color: $accent !important;
 }
 
+.wufoo .contactme--email,
+.wufoo .contactme--name {
+	float: left;
+	clear: none;
+}
+
 /*Hack to hide default textarea expand tag*/
-.contactme--message div {
+.wufoo .contactme--message div {
 	height: 80px;
 	overflow: hidden;
 }

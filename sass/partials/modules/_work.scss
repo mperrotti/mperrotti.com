@@ -11,16 +11,17 @@
 .close-project {
 	color: $accent;
 	font-size: .5em;
+	line-height: 3.5em;
+	overflow: hidden;
 	position: absolute;
-	right: 0;
-	padding-right: 0px;
+	padding-right: 0;
 	padding: $base-spacing;
-	padding-left: 25px;
-	line-height: $base-measure + .5em;
+	padding-left: 35px;
+	top: 3em;
+	right: 0;
 	z-index: 6;
 
 	&:before {
-		@include transform(rotate(135deg));
 		content: '';
 		height: 50px;
 		position: absolute;
@@ -28,8 +29,8 @@
 		width: 50px;
 		left: 0px;
 
-		.svg &    {	background: url(../img/iconsprite.svg) -187px 20px no-repeat transparent; }
-		.no-svg & {	background: url(../img/iconsprite.png) -187px 20px no-repeat transparent; }
+		.svg &    {	background: url(../img/iconsprite.svg) -148px -108px no-repeat transparent; }
+		.no-svg & {	background: url(../img/iconsprite.png) -148px -108px no-repeat transparent; }
 
 	}
 	
@@ -64,6 +65,7 @@
 	border-left: 1px solid lighten($background, 5%);
 	border-bottom: 1px solid lighten($background, 5%);
 	color: $dark;
+	opacity: .5;
 
 	.csstransforms & { border-radius: 0 999px 0 0; }
 	// .svg & { background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
@@ -75,15 +77,23 @@
 	}
 
 	&:before {
-		content: '+';
-		@include transform(rotate(45deg));
-		display: block;
+		@include transform(rotate(-45deg));
+		content: '';
+		height: 50px;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 50px;
+		.svg & { background: url(../img/iconsprite.svg) no-repeat transparent -136px -55px; }
+		.no-svg & {	background: url(../img/iconsprite.png) no-repeat transparent -136px -55px; }	
 	}
 	
 	.show-grid-item__info & {
-		
+	opacity: 1;
+
 		&:before {
-			@include transform(rotate(0deg) translateX(-5px));
+			.svg & { background: url(../img/iconsprite.svg) no-repeat transparent -92px -55px; }
+			.no-svg & {	background: url(../img/iconsprite.png) no-repeat transparent -92px -55px; }
 		}
 
 	}		
@@ -137,7 +147,6 @@
 
 .is-thumb {
 	background: $background;
-	border-radius: 5px;
 	border: 1px solid transparent;
 	overflow: visible;
 	position: relative;
@@ -145,7 +154,6 @@
 	&:before{
 		@include transform(translateX(0) translateY(0));
 		background: url('../img/hover-pattern.png') $accent;
-		border-radius: 0 0 11px 0;
 		bottom: 0;
 		content: ' ';
 		display: block;
@@ -170,6 +178,34 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
+	.close-project {
+		color: transparent;
+		height: 2em;
+		top: 0;
+	}
+
+	.expanded-Proj-Info {
+			height: $base-measure;
+			width: $base-measure;
+		&:before {
+			height: 0;
+			padding: 1.5em;
+			overflow: hidden;
+			width: 2em;
+			.svg &    {	background: url(../img/iconsprite.svg) -150px -140px no-repeat transparent; }
+			.no-svg & {	background: url(../img/iconsprite.png) -150px -140px no-repeat transparent; }
+
+		}
+		.show-grid-item__info & {
+
+			&:before {
+				.svg & { background: url(../img/iconsprite.svg) -150px -99px no-repeat transparent; }
+				.no-svg & {	background: url(../img/iconsprite.png) -150px -99px no-repeat transparent; }
+			}
+
+		}		
+
+	}
 }
 
 /*--------------------*\

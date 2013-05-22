@@ -1,6 +1,9 @@
 /*--------------------*\
     GLOBAL
 \*--------------------*/
+
+a[href="#aboutme"] { color: $dark; }
+
 .show-page-home {
 
   .home { @include transform2d(translateX(0)); }
@@ -20,10 +23,7 @@
     span { @include transform2d(rotate(90deg)); }
 
   }
-}
 
-// .show-about {
-//   .main-nav--more-info {
-//     a[href="#aboutme"] { background: $dark; }
-//   }
-// }
+  a[href="#aboutme"] { color: $dark; }
+
+}

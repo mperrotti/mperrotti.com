@@ -11,16 +11,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
-
-        <link rel="stylesheet" href="js/vendor/jquery.mobile/jquery.mobile.custom.structure.css">
         <link rel="stylesheet" href="css/main.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
-        <!--<script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>-->
     </head>
     <body class="show-page-none">
-        <!--[if lt IE 7]>
+        <!--[if lte IE 8]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
@@ -29,24 +24,22 @@
             <a href="#next-proj" class="expanded-Proj-Nav"></a>
             <a href="#prev-proj" class="expanded-Proj-Nav"></a>
 
-            <!-- <nav class="info-nav">
-                <ul>
-                    <li class="info-nav--more-info">
-                        <a href="#aboutme" class="toggler" title="About">About and Contact</a>
-                    </li>
-                    <li class="info-nav--more-info">
-                        <a href="#contactme" class="toggler" title="Contact"></a>
-                    </li>
-                </ul>
-            </nav> -->
-
             <nav class="project-view"> 
                 <a class="toggle-project-view" href="#all-projects">LIST VIEW</a>
                 <a class="toggle-project-view" href="#collapse-projects">THUMB VIEW</a>
             </nav>
 
             <section class="aboutme">
-                <p>I'm Michael Perrotti. This is my about me section.</p>
+                <p><b>My name is Michael Perrotti</b>, I'm a designer/develolper living in Brooklyn, NY. I've got three lizards and a fire escape garden, and in my free time I like to see shows, make prints, play with PureData, and fiddle with electronics.</p>
+
+                <p><a href="img/Michael-Perrotti-Resume.pdf">View my Resume</a></p>
+                
+                <ul class="aboutme--social">
+                    <li><a href="http://dribbble.com/mperrotti" alt="mperrotti Dribbble">Dribbble</a></li>
+                    <li><a href="https://github.com/mperrotti" alt="mperrotti GitHub">Github</a></li>
+                    <li><a href="https://twitter.com/mperrotti" alt="mperrotti Twitter">Twitter</a></li>
+                    <li><a href="https://last.fm/mperrotti_" alt="mperrotti Last.fm">Last.fm</a></li>
+                </ul>
                 <!--     WUFOO CODE     -->
                 <div id="wufoo-q7x3s5">
                 Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
@@ -66,29 +59,6 @@
                 var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
                 })(document, 'script');</script>
                 <!--     END WUFOO CODE     -->
-            </section>
-            <section class="contactme">
-                <!--     WUFOO CODE
-
-                <div id="wufoo-q7x3s5">
-                Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
-                </div>
-                <script type="text/javascript">var q7x3s5;(function(d, t) {
-                var s = d.createElement(t), options = {
-                'userName':'mperrotti', 
-                'formHash':'q7x3s5', 
-                'autoResize':true,
-                'height':'438',
-                'async':true,
-                'header':'show'};
-                s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
-                s.onload = s.onreadystatechange = function() {
-                var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-                try { q7x3s5 = new WufooForm();q7x3s5.initialize(options);q7x3s5.display(); } catch (e) {}};
-                var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-                })(document, 'script');</script>
-                        
-                        END WUFOO CODE     -->
             </section>
             <!-- INTRO -->
             <section id="home" class="page home" data-pulled="no">
@@ -123,17 +93,16 @@
         <!-- Vendor jQuery Plugins -->
         <script src="js/vendor/jquery.ba-dotimeout.min.js"></script>
         <script src="js/vendor/historyAPI/jquery.history.js"></script>
-        <script src="js/vendor/code.photoswipe-3.0.5.min.js"></script>
 
         <!-- Site JavaScript/jQuery -->
-        <script src="js/work.js"></script>
-        <script src="js/global.js"></script>
-        <script src="js/plugins.js"></script>
-        <script src="js/main.js"></script>
+        <script src="js/work.min.js"></script>
+        <script src="js/global.min.js"></script>
+        <script src="js/plugins.min.js"></script>
+        <script src="js/main.min.js"></script>
        
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+        <!-- Google Analytics -->
         <script>
-            var _gaq=[['_setAccount','UA-XXXXX-X'],['_trackPageview']];
+            var _gaq=[['_setAccount','UA-41107362-1'],['_trackPageview']];
             (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];
             g.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';
             s.parentNode.insertBefore(g,s)}(document,'script'));

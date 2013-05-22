@@ -53,53 +53,11 @@
 
 }
 
-.info-nav {
-	position: fixed;
-	z-index: 6;
-
-	ul { @include clearfix; margin: 0;}
-
-	.info-nav--more-info {
-		display: block;
-		height: $base-measure;
-		margin: $base-spacing 0 $base-spacing $base-spacing/2;
-		padding: $base-spacing/2;
-		position: relative;
-		text-align: center;
-		width: $base-measure + .5em;
-		.show-contact &,
-		.show-about & { float: left; }
-		
-		a {
-			@include single-transition(margin-top, .1s, ease-in);
-			@include hide-text;
-			display: block;
-			height: 100%;
-			width: 100%;
-			
-			.svg &    { background: url(../img/iconsprite.svg) no-repeat -97px -7px; }
-			.no-svg & { background: url(../img/iconsprite.png) no-repeat -97px -7px; }
-
-			&[href="#aboutme"] {
-				background-position: -142px -7px;
-				
-				.touch & { &:hover { background-position: -142px -60px; } }
-				.show-about & { background-position: -142px -108px; }
-
-			}
-
-			&[href="#contactme"] {
-				.touch { &:hover { background-position: -97px -60px; } }
-				.show-contact & { background-position: -142px -108px; }
-			}
-
-			.show-about &,
-			.show-contact & { margin-top: -1em; }
-
-		}
-
-	}
-
+a[href="#aboutme"] {
+	position: absolute;
+	text-align: center;
+	width: 100%;
+	z-index: 4;
 }
 
 .toggle {
@@ -120,29 +78,46 @@
 	-webkit-box-sizing: border-box;
 	   -moz-box-sizing: border-box;
 	        box-sizing: border-box;
-  float: left;
-  margin-left: -100%;
-  margin-top: $base-measure;
+  margin-top: -200%;
   padding: $base-spacing 0 $base-spacing 0;
-  position: fixed;
+  position: absolute;
   top: $base-measure;
   z-index: 6;
 
-	p { margin-top: 0; }
+	p { 
+		margin-top: 0; 
+		width: 75%;
+	}
 
 }
 
 .aboutme {
   .show-about & { 
-		margin-left: 0;
+		margin-top: 0;
 		padding: $base-spacing $base-measure $base-spacing $base-spacing;
   }
 }
-.contactme {
-  .show-contact & { 
-  	margin-left: 0;
-		padding: $base-spacing $base-measure $base-spacing $base-spacing;
-  }
+
+.aboutme {
+	h3, ul { margin: 0; }
+	ul { @include clearfix; margin-bottom: $base-spacing; }
+	li {
+		float: left;
+		height: 25px;
+		margin-right: $base-spacing;
+		a {
+			border: 0;
+			color: $dark;
+			display: block;
+			height: 100%;
+			padding-left: 30px;
+			width: 100%;
+			&[href*="dribbble"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -152px; }
+			&[href*="github"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -188px; }
+			&[href*="twitter"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -223px; }
+			&[href*="last.fm"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -256px; }
+		}
+	}
 }
 
 /*--------------------*\
@@ -158,10 +133,12 @@
 
 	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty
 
-	.info-nav {
-
-		.info-nav--more-info { margin: $base-spacing $base-spacing $base-spacing $base-measure; }
-
+	.aboutme {
+		p { width: 100%; }
+		li { 
+			overflow: hidden;
+			width: 25px; 
+		}
 	}
 
 }
@@ -182,7 +159,8 @@
 
 	.aboutme,
 	.contactme {
-	  @include span-columns($side omega);
+		margin: -100% 10% auto 10%;
+	  width: 80%;
 	}
 
 }

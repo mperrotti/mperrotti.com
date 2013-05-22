@@ -45,7 +45,10 @@
 					opacity: 1;
 				}
 
-				img { @include box-shadow(none); }
+				img { 
+					@include box-shadow(none); 
+					border-radius: 0;
+				}
 			}
 		}
 	}
@@ -69,7 +72,7 @@
 		.grid-item__expanded-content {
 			opacity: 1;
 			max-height: 100%;
-			max-width: 100%
+			max-width: 100%;
 		}
 		
 		.expanded-Proj-Info{ @include single-transition(margin-right, .15s, ease-in-out); }
@@ -165,5 +168,12 @@
 	@include update-container;
 	.grid-item.is-thumb {
 		.grid-item__info { top: 0; }
+	}
+	.grid-item.is-expanded {
+		.toggle,
+		.grid-item__expanded-content {
+			margin: 0 auto;
+			max-width: 90%;
+		}
 	}
 }

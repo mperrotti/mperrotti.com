@@ -32,17 +32,18 @@ img {
 
 }
 
-.aboutme,
-.contactme {
+a[href="#aboutme"] { @include single-transition(color, .25s, ease-in); }
+
+.aboutme {
   @include single-transition(all, .25s, ease-in);
-	background: url('../img/hover-pattern.png') $accent; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+	background: white;
 
 	&:before{
 		@include transform(translateX(0) translateY(0));
   	background: white; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
 		bottom: 10px;
 		content: ' ';
-		display: block;
+		display: none;
 		opacity: 1;
 		height: 100%;
 		position: absolute;
@@ -52,6 +53,38 @@ img {
 	}
 }
 
+@include at-breakpoint($desktop) {
+	@include update-container;
+	
+	.aboutme {
+	  @include single-transition(all, .25s, ease-in);
+		background: url('../img/hover-pattern.png') $accent; //HACK. not sure why I can't get the ':before' bg to show up below the actual element
+
+		&:before{
+			display: block;
+		}
+	}
+
+}
+
+@include at-breakpoint($tablet) {
+	@include update-container;		
+
+	nav.main-nav {
+		.show-page-work & { 
+			background: transparent; 
+			
+			span { 
+				background: $dark;
+				display: block;
+				padding: .25em;
+				width: auto;
+			}
+
+		}
+	}
+
+}
 
 @include at-breakpoint($mobile) {
 	@include update-container;		
@@ -67,6 +100,13 @@ img {
 				width: auto;
 			}
 
+		}
+	}
+
+	.aboutme {
+		iframe { 
+			display: none;
+			.show-about & { display: block; }
 		}
 	}
 
