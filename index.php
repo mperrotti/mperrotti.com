@@ -88,17 +88,14 @@
 
         <!-- Vendor JavaScript Plugins -->
         <script type="text/javascript" src="js/vendor/klass.min.js"></script>
-        <script src="js/vendor/jquery-1.8.3.min.js"></script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
         <!-- Vendor jQuery Plugins -->
         <script src="js/vendor/jquery.ba-dotimeout.min.js"></script>
         <script src="js/vendor/historyAPI/jquery.history.js"></script>
 
         <!-- Site JavaScript/jQuery -->
-        <script src="js/work.min.js"></script>
-        <script src="js/global.min.js"></script>
-        <script src="js/plugins.min.js"></script>
-        <script src="js/main.min.js"></script>
+        <script src="js/site.min.js"></script>
        
         <!-- Google Analytics -->
         <script>

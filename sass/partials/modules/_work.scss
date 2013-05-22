@@ -68,8 +68,6 @@
 	opacity: .5;
 
 	.csstransforms & { border-radius: 0 999px 0 0; }
-	// .svg & { background: url(../img/iconsprite.svg) no-repeat $background -9999em -9999em; }
-	// .no-svg & {	background: url(../img/iconsprite.png) no-repeat $background -9999em -9999em; }
 
 	&:hover {
 		border-left: 1px solid lighten($background, 20%);
@@ -84,8 +82,8 @@
 		position: absolute;
 		top: 0;
 		width: 50px;
-		.svg & { background: url(../img/iconsprite.svg) no-repeat transparent -136px -55px; }
-		.no-svg & {	background: url(../img/iconsprite.png) no-repeat transparent -136px -55px; }	
+		.svg & { background: url(../img/iconsprite.svg) no-repeat transparent -140px -55px; }
+		.no-svg & {	background: url(../img/iconsprite.png) no-repeat transparent -140px -55px; }	
 	}
 	
 	.show-grid-item__info & {
