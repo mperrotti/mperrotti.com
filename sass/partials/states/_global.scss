@@ -18,10 +18,7 @@ a[href="#aboutme"] { color: $dark; }
 
   .main-nav {
     background: $dark;
-    color: $background;
-
-    span { @include transform2d(rotate(90deg)); }
-
+    color: $accent;
   }
 
   a[href="#aboutme"] { color: $dark; }

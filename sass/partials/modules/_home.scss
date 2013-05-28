@@ -13,8 +13,6 @@ $logoBg: $accent;
 
 .logo {
   @include rotate(-20deg);
-  // border: .5em solid $logoBg;
-  // border-radius: 999em;
 	height: 12em;
 	margin: 0 auto;
 	position: relative;
@@ -80,8 +78,6 @@ $logoBg: $accent;
 	}
 	.logo {
 	  @include rotate(-20deg);
-	  border: .25em solid white;
-	  border-radius: 999em;
 		height: 7em;
 		margin: 0 auto;
 		position: relative;

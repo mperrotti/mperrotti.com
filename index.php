@@ -21,16 +21,9 @@
 
             <a href="#aboutme" class="toggler" title="About">About and Contact</a>
 
-            <a href="#next-proj" class="expanded-Proj-Nav"></a>
-            <a href="#prev-proj" class="expanded-Proj-Nav"></a>
-
-            <nav class="project-view"> 
-                <a class="toggle-project-view" href="#all-projects">LIST VIEW</a>
-                <a class="toggle-project-view" href="#collapse-projects">THUMB VIEW</a>
-            </nav>
-
             <section class="aboutme">
-                <p><b>My name is Michael Perrotti</b>, I'm a designer/develolper living in Brooklyn, NY. I've got three lizards and a fire escape garden, and in my free time I like to see shows, make prints, play with PureData, and fiddle with electronics.</p>
+                <p><strong>My name is Michael Perrotti</strong>, I'm a designer/develolper living in Brooklyn, NY. 
+                Design is my passion, but I also enjoy printmaking, sound synthesis, listening to podcasts, bike rides, digital photography and traveling.</p>
 
                 <p><a href="img/Michael-Perrotti-Resume.pdf">View my Resume</a></p>
                 
@@ -69,17 +62,18 @@
                         <span class="stroke stroke-chop"></span>
                         <span class="stroke"></span>
                         <header>
-                            <h1>Designer and front-end developer</h1>
+                            <h1>Designer and <br/> front-end developer</h1>
                         </header>
                     </div>
 
                 </section>
             </section>
-            <section id="work" class="page work"></section>
+            <section id="work" class="page work">             
+            </section>
 
             <nav class="main-nav show-keyboard-nav">
                 <ul>
-                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page"></a><span>Home</span></li>
+                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page"></a></li>
                     <li class="main-nav--new-page"><a href="#work" title="Work" data-nav-type="page"></a><span>Work</span></li>
                 </ul>
             </nav>

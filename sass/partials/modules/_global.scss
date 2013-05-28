@@ -18,18 +18,19 @@ img {
 
 .page { @include single-transition(all, .5s, ease-in-out); }
 
-.toggle{
-	@include toggle();
-}
+.toggle { @include toggle(); }
 
 .main-nav {
 	@include single-transition(all, .5s, ease-in-out);
 	background: $accent;
 
-	span { 
-		@include transform2d(rotate(-90deg));
-	}
+	span { @include transform2d(rotate(-90deg)); }
 
+	a[href="#home"] { 
+		.svg & { background: url('../img/iconsprite.svg') no-repeat transparent 0 -286px; }
+		.no-svg & { background: url('../img/iconsprite.png') no-repeat transparent 0 -286px; }
+	}
+	
 }
 
 a[href="#aboutme"] { @include single-transition(color, .25s, ease-in); }
@@ -71,8 +72,7 @@ a[href="#aboutme"] { @include single-transition(color, .25s, ease-in); }
 	@include update-container;		
 
 	nav.main-nav {
-		.show-page-work & { 
-			background: transparent; 
+		.show-page-work & {
 			
 			span { 
 				background: $dark;
@@ -91,7 +91,6 @@ a[href="#aboutme"] { @include single-transition(color, .25s, ease-in); }
 
 	nav.main-nav {
 		.show-page-work & { 
-			background: transparent; 
 			
 			span { 
 				background: $dark;

@@ -29,7 +29,7 @@
 	&[href="#prev-proj"] {
 		margin-top: 2em;
 	}
-	.is-expanded-view-single & {	@include inline-block; }
+	.is-expanded-view-single & {	display: none; }
 
 }
 .expanded-Proj-Info {
@@ -44,11 +44,9 @@
 
 .project-view {
 	height: 70px;
-	left: 50%;
-	margin-left: -47px;
+	margin: 0 auto;
 	overflow: hidden;
-	position: fixed;
-	top: 60px;
+	width: 100px;
 
 	.toggle-project-view {
 		color: transparent;
@@ -58,6 +56,7 @@
 		text-indent: -999em;
 		width: 47px;
 	}
+
 }
 
 /*--------------------*\
@@ -65,10 +64,8 @@
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.work { top: 180px; }
+	// .work { top: 180px; }
 	.project-view { top: 100px; }
-	.is-expanded-view-single .expanded-Proj-Nav { display: none; }
-
 }
 
 /*--------------------*\
@@ -77,9 +74,11 @@
 @include at-breakpoint($desktop) {
 	@include update-container;
 
+	.is-expanded-view-single .expanded-Proj-Nav {	@include inline-block; }
+
 	.expanded-Proj-Info {
 		z-index: 4;
-		.is-expanded-view-single & {	display: none; }		
+		.is-expanded-view-single .is-expanded & {	display: block; }
 	}
 
 }

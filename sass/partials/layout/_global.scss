@@ -7,10 +7,11 @@
 	height: 100%;
 	margin: 0 auto;
 	padding: 0;
-	position: fixed;
+	position: absolute;
 	right: 0;
 	width: 4em;
 	z-index: 5;
+	.show-page-work & { height: 140px; }
 
 	ul {
 		@include one-whole;
@@ -21,9 +22,11 @@
 
 		.main-nav--new-page {
 			height: 100%;
-			margin: -2em auto 0 auto;
+			margin: 0 auto;
 			position: relative;
 			width: 100%;
+
+			.show-page-work & { margin: 2em 0 0 0; }
 
 			a {
 				display: block;
@@ -86,7 +89,7 @@ a[href="#aboutme"] {
 
 	p { 
 		margin-top: 0; 
-		width: 75%;
+		width: 80%;
 	}
 
 }
@@ -125,10 +128,13 @@ a[href="#aboutme"] {
 \*--------------------*/
 @include at-breakpoint($mobile) {
 	@include update-container;
-	.main-nav { 
-		width: 2em;
-	}
 
+	.main-nav {
+		height: 140px;
+		top: 50%;
+		.show-page-work & { top: 0; }
+	}
+	
 	.page { z-index: 1; }
 
 	.container.grid-container{ @include full-container; } //Yucky, but I needed the chained class for specificty

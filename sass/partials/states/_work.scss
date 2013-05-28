@@ -32,6 +32,12 @@
 @include at-breakpoint($tablet) {
 	@include update-container;
 
+	.project-view {
+	
+		.is-expanded & {  display: none; }
+	
+	}
+	
 	.touch {
 
 		.gallery-container {

@@ -13,23 +13,23 @@ body{
 h1 {
 	font-size: 7.686em;
 	font-size: 7.686rem;
-	line-height: 6.854em;
-	line-height: 6.854rem;
+	line-height: 6em;
+	line-height: 6rem;
 	font-weight: 700;
 }
 
 h2 {
 	font-size: 4.236em;
 	font-size: 4.236rem;
-	line-height: 6.854em;
-	line-height: 6.854rem;
+	line-height: 5em;
+	line-height: 5rem;
 }
 
 h3 {
 	font-size: 1.618em;
 	font-size: 1.618rem;
-	line-height: 2.618em;
-	line-height: 2.618rem;
+	line-height: 2em;
+	line-height: 2rem;
 }
 
 h4, p {
@@ -47,15 +47,18 @@ p {
 h1, h2, h3,
 h4, h5, h6 { font-family: $site-secondary-font; }
 
-h3, h4, h5, h6 { font-weight: normal; }
+h1, h2, h3, h4, strong { 
+	font-weight: 700;
+	letter-spacing: -0.04em;
+}
 
-nav{
+h4, h5, h6 { font-weight: normal; }
+
+nav {
 	li a { text-align: center; }
 }
 
-a{
-	text-decoration: none;
-}
+a { text-decoration: none; }
 
 a[href="#aboutme"] {
 	color: white;
@@ -63,8 +66,9 @@ a[href="#aboutme"] {
 
 .aboutme { 
 	h4 {
+		line-height: 1.3em;
+		line-height: 1.3rem;
 		margin-bottom: $base-spacing;
-		font-weight: bold;
 	}
 	a {
 		color: $accent;
@@ -72,6 +76,10 @@ a[href="#aboutme"] {
 		border-bottom: 1px solid $accent;
 		margin-bottom: 2px;
 	}
+}
+
+.main-nav span {
+	font-weight: 700;
 }
 
 
@@ -88,8 +96,8 @@ a[href="#aboutme"] {
 	h1{
 		font-size: 4.236em;
 		font-size: 4.236rem;
-		line-height: 5.854em;
-		line-height: 5.854rem;
+		line-height: 5em;
+		line-height: 5rem;
 		margin-top: .75em;
 	}
 
@@ -150,6 +158,12 @@ a[href="#aboutme"] {
 		}
 	}
 
+}
+
+::selection,
+::-moz-selection {
+	background-color: $accent; 
+	color: $dark;
 }
 
 /*--------------------*\
