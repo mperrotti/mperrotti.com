@@ -1,0 +1,191 @@
+/*------------------------------------*\
+    VARS
+\*------------------------------------*/
+
+//LAYOUT
+$base-spacing: 1em;
+
+//COLORS
+$light-muted-brown: desaturate(lighten(rgb(53, 45, 34), 15%), 35%); //lighten(desaturate(rgb(102, 84, 58), 15%), 8%)
+$dark-muted-brown:  desaturate(lighten(rgb(53, 45, 34), 5%), 35%);
+$midnight: rgb(20, 24, 38);
+$royal-blue: rgb(60, 40, 134);
+// $bright-green: rgb(39, 236, 158);
+// $bright-green: rgb(103, 194, 158);
+// $bright-green: #27eb9e;
+$bright-green: #2AF2C6;
+$cool-grey: rgb(239, 241, 242); //use if accent is warm color
+$warm-grey: lighten(rgb(184, 188, 180), 15%); //use if accent is cool color
+
+$background: #efeff4;
+$dark: $midnight;
+$light: transparentize($midnight, .1);
+$light-secondary: transparentize($midnight, .45);
+$accent: $bright-green;
+
+
+//TYPOGRAPHY
+$site-main-font: 'Karla', sans-serif;
+$site-secondary-font: 'Karla', sans-serif;
+$base-font-size: 1em; //Overriding SUSY default, do not change or delete!
+$root-font-px: 16;
+
+//BREAKPOINTS
+$breakpoint-l : 65em;
+$breakpoint-m : 40em;
+$breakpoint-s : 25em;
+
+/*------------------------------------*\
+    MIXINS
+\*------------------------------------*/
+
+/*--------------------*\
+  LAYOUT
+\*--------------------*/
+@mixin full-container {
+	margin: 0;
+	max-width: none;
+	padding: 0;
+	width: 100%;
+}
+
+/*--------------------*\
+  WIDTHS/COLUMNS
+\*--------------------*/
+@mixin full-pad                                 { padding: $base-spacing; }
+@mixin full-pad-box                             { padding: $base-spacing; @include box-sizing(border-box);}
+@mixin half-pad                                 { padding: $base-spacing/2; }
+@mixin mixed-pad ($top, $right, $bottom, $left) { padding: $top $right $bottom $left;	}
+@mixin one-col-center-pad                       { @include span-columns(($total-columns - 2),$total-columns); @include pad(1, 1); @include omega; }
+
+// last column
+@mixin omega {
+	float: right;
+	margin-right: 0;
+	display: inline-block;
+}
+
+// //Whole
+// @mixin one-whole      { @include span-columns($total-columns omega, $total-columns);	}
+// //Halves
+// @mixin one-half       {	@include span-columns(($total-columns/2), $total-columns);  }
+
+// //Thirds
+// @mixin one-thirds     {	@include span-columns(($total-columns/3), $total-columns);	 }
+// @mixin two-thirds     {	@include span-columns((($total-columns/3)*2), $total-columns);	 }
+
+// //Quarters
+// @mixin one-quarters   {	@include span-columns(($total-columns/4), $total-columns);  }
+// @mixin two-quarters   {	@include one-half;  }
+// @mixin three-quarters {	@include span-columns((($total-columns/4)*3), $total-columns);  }
+
+/*--------------------*\
+  BUTTONS
+\*--------------------*/
+// @mixin toggle($dir: "", $cols: 1, $round: ""){
+// 	width: columns($cols);
+// 	display: block;
+// 	min-width: 50px;
+// 	z-index: 999;
+
+// 	@if $dir != ""{
+// 		position: absolute;
+// 		#{$dir}: 0;
+// 	}
+
+// 	@if $round == circle {
+// 		@include border-radius(999px);
+// 	}
+
+// 	@else if $round != ""{
+// 		@include border-radius($round);
+// 	}
+
+// }
+
+/*--------------------*\
+  MISC
+\*--------------------*/
+@mixin circle($padding: ""){
+	@include border-radius(999px);
+	padding: $padding;
+}
+
+/*--------------------*\
+  MISC
+\*--------------------*/
+@mixin rem-fallback($property, $values...) {
+  $max: length($values);
+  $pxValues: '';
+  $remValues: '';
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $pxValues: #{$pxValues + $value*$root-font-px}px;
+
+    @if $i < $max {
+      $pxValues: #{$pxValues + " "};
+    }
+  }
+
+  @for $i from 1 through $max {
+    $value: strip-units(nth($values, $i));
+    $remValues: #{$remValues + $value}rem;
+
+    @if $i < $max {
+      $remValues: #{$remValues + " "};
+    }
+  }
+
+  #{$property}: $pxValues;
+  #{$property}: $remValues;
+}
+
+/*--------------------*\
+  MEDIAQUERIES
+\*--------------------*/
+@mixin _wrapMediaQuery( $breakpoint, $mqList ) {
+	@each $query in $mqList {
+		@if $breakpoint == nth($query, 1) {
+			@media #{nth($query, 2)} {
+				@content;
+			}
+		}
+	}
+}
+
+$breakpoints_minWidth:
+	(
+		small "only screen and (min-width: #{$breakpoint-s})"
+	),
+	(
+		medium "only screen and (min-width: #{$breakpoint-m})"
+	),
+	(
+		large "only screen and (min-width: #{$breakpoint-l})"
+	)
+;
+
+$breakpoints_maxWidth:
+	(
+		small "only screen and (max-width: #{$breakpoint-s})"
+	),
+	(
+		medium "only screen and (max-width: #{$breakpoint-m})"
+	),
+	(
+		large "only screen and (max-width: #{$breakpoint-l})"
+	)
+;
+
+@mixin atMediaUp($breakpoint: "") {
+	@include _wrapMediaQuery( $breakpoint, $breakpoints_minWidth ) {
+		@content;
+	}
+}
+
+@mixin atMediaDown($breakpoint: "") {
+	@include _wrapMediaQuery( $breakpoint, $breakpoints_maxWidth ) {
+		@content;
+	}
+}

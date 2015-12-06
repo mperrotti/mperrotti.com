@@ -1,0 +1,59 @@
+/*------------------------------------*\
+    BIO
+\*------------------------------------*/
+.bio.bio-hidden {
+  @include transform(translateY(-60px));
+  max-height: 0;
+  opacity: 0;
+}
+
+.more-bio.more-bio--bio-hidden {
+  color: $background;
+  &:visited {
+    color: $background;
+  }
+  // height: 0;
+}
+
+/*------------------------------------*\
+    PROJECT
+\*------------------------------------*/
+
+/*------------------------------------*\
+    GRID
+\*------------------------------------*/
+
+/*--------------------*\
+  THUMB (details on hover)
+\*--------------------*/
+.is-thumb {
+  position: relative;
+}
+
+.no-touch {
+  .is-thumb{
+    &:hover {
+      background: white;
+      color: $accent;
+      left: -3px;
+      top: -3px;
+
+      &:before{
+        @include transform(translateX(10px) translateY(10px));
+        opacity: 1;
+      }
+
+      img {
+        box-shadow: none;
+        border-radius: 0;
+      }
+    }
+  }
+}
+
+/*--------------------*\
+  EXPANDED
+\*--------------------*/
+.grid-item.is-expanded {
+  opacity: .33;
+}

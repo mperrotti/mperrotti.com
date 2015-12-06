@@ -4,93 +4,244 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
     <head>
-        <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900|Karla:700,400' rel='stylesheet' type='text/css'>
+        <link href='http://fonts.googleapis.com/css?family=Karla:700,400' rel='stylesheet' type='text/css'>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>Michael Perrotti</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="style/styles.css">
         <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     </head>
-    <body class="show-page-none">
-        <!--[if lte IE 8]>
+    <body>
+        <!--[if lte IE 9]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
-            <a href="#aboutme" class="toggler" title="About">About and Contact</a>
+        <!-- INTRO -->
+        <section class="wide-intro">
 
-            <section class="aboutme">
-                <p><strong>My name is Michael Perrotti</strong>, I'm a designer/develolper living in Brooklyn, NY. 
-                Design is my passion, but I also enjoy printmaking, sound synthesis, listening to podcasts, bike rides, digital photography and traveling.</p>
-
-                <p><a href="img/Michael-Perrotti-Resume.pdf">View my Resume</a></p>
-                
-                <ul class="aboutme--social">
-                    <li><a href="http://dribbble.com/mperrotti" alt="mperrotti Dribbble">Dribbble</a></li>
-                    <li><a href="https://github.com/mperrotti" alt="mperrotti GitHub">Github</a></li>
-                    <li><a href="https://twitter.com/mperrotti" alt="mperrotti Twitter">Twitter</a></li>
-                    <li><a href="https://last.fm/mperrotti_" alt="mperrotti Last.fm">Last.fm</a></li>
-                </ul>
-                <!--     WUFOO CODE     -->
-                <div id="wufoo-q7x3s5">
-                Fill out my <a href="http://mperrotti.wufoo.com/forms/q7x3s5">online form</a>.
-                </div>
-                <script type="text/javascript">var q7x3s5;(function(d, t) {
-                var s = d.createElement(t), options = {
-                'userName':'mperrotti', 
-                'formHash':'q7x3s5', 
-                'autoResize':true,
-                'height':'438',
-                'async':true,
-                'header':'show'};
-                s.src = ('https:' == d.location.protocol ? 'https://' : 'http://') + 'wufoo.com/scripts/embed/form.js';
-                s.onload = s.onreadystatechange = function() {
-                var rs = this.readyState; if (rs) if (rs != 'complete') if (rs != 'loaded') return;
-                try { q7x3s5 = new WufooForm();q7x3s5.initialize(options);q7x3s5.display(); } catch (e) {}};
-                var scr = d.getElementsByTagName(t)[0], par = scr.parentNode; par.insertBefore(s, scr);
-                })(document, 'script');</script>
-                <!--     END WUFOO CODE     -->
-            </section>
-            <!-- INTRO -->
-            <section id="home" class="page home" data-pulled="no">
-                <section class="wide-intro">
-
-                    <div class="logo">
-                        <span class="stroke"></span>
-                        <span class="stroke stroke-chop"></span>
-                        <span class="stroke"></span>
-                        <header>
-                            <h1>Designer and <br/> front-end developer</h1>
-                        </header>
+            <div class="container">
+                <header>
+                    <h1>Mike Perrotti is a designer based in New York</h1>
+                </header>
+                <div class="more-bio-container"><a href="#" class="unlink more-bio" id="show-more-bio">about me</a></div>
+                <div class="bio bio-hidden container">
+                    <div class="bio-block">
+                        <h2 class="bio__basic">I'm a multi-disciplinary designer focusing on designing delightful interfaces for screens of all sizes. I get excited about everything from UX strategy and research to visual design to writing code. My free time is spent drawing, printing, podcast-binging, and blowing out my eardrums at shows.</p>
                     </div>
 
+                    <ul class="bio-block">
+                        <li>2013–current, Experience Designer at Meetup</li>
+                        <li>2012–2013, Front end Developer at Createthe Group</li>
+                        <li>2012, BFA in Graphic Design from University of the Arts</li>
+                    </ul>
+
+                    <div class="bio-block bio__contact">
+                        <p><a class="unlink" href="mailto:mperrotti573@gmail.com">mperrotti573@gmail.com</a></p>
+                        <ul class="inlineBlockList">
+                            <li><a class="unlink" href="https://twitter.com/mperrotti">Twitter</a> &middot; </li>
+                            <li><a class="unlink" href="https://www.linkedin.com/profile/view?id=256845904">LinkedIn</a> &middot; </li>
+                            <li><a class="unlink" href="https://github.com/mperrotti">Github</a> &middot; </li>
+                            <li><a class="unlink" href="https://dribbble.com/mperrotti">Dribbble</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+        <section id="work">
+            <div class="container grid-container">
+
+                <section id="project-detail-container" class="project-detail-container">
+
                 </section>
-            </section>
-            <section id="work" class="page work">             
-            </section>
 
-            <nav class="main-nav show-keyboard-nav">
-                <ul>
-                    <li class="main-nav--new-page"><a href="#home" title="Home" data-nav-type="page"></a></li>
-                    <li class="main-nav--new-page"><a href="#work" title="Work" data-nav-type="page"></a><span>Work</span></li>
+                <section class="grid">
+                    <article class="grid-item is-thumb" id="startlanding">
+                        <a href="#startlanding">
+                            <img src="img/work/startlanding/StartLanding-thumb.jpg" alt="Group Start Landing">
+                            <section class="grid-item__info">
+                                <h4>Group Start Landing</h4>
+                                <p>Mobile Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="mobilestart">
+                        <a href="#mobilestart">
+                            <img src="img/work/mobilestart/mobilestart-thumb.jpg" alt="Mobile Group Start">
+                            <section class="grid-item__info">
+                                <h4>Mobile Group Start</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="microtarget">
+                        <a href="#microtarget">
+                            <img src="img/work/microtarget/microtarget-thumb.jpg" alt="Microtarget">
+                            <section class="grid-item__info">
+                                <h4>Microtarget</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="memberlist">
+                        <a href="#memberlist">
+                            <img src="img/work/memberlist/memberlist-thumb.jpg" alt="Member List">
+                            <section class="grid-item__info">
+                                <h4>Mobile Member Listing</h4>
+                                <p>Mobile Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="groupsettings">
+                        <a href="#groupsettings">
+                            <img src="img/work/groupsettings/settingsmweb-thumb.jpg" alt="Group Settings">
+                            <section class="grid-item__info">
+                                <h4>Mobile Group Settings</h4>
+                                <p>Mobile Web, iOS, Android</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <!--<article class="grid-item is-thumb" id="industry-to-indiv">
+                        <a href="#industry-to-indiv">
+                            <img src="img/work/industrytoindiv/IndustryToIndiv-thumb.jpg" alt="Industry to Individual">
+                            <section class="grid-item__info">
+                                <h4>Industry to Individual</h4>
+                                <p>Website</p>
+                            </section>
+                        </a>
+                    </article>-->
+
+                    <article class="grid-item is-thumb" id="mj">
+                        <a href="#mj">
+                            <img src="img/work/mj/mj-thumb.jpg" alt="Marc Jacobs">
+                            <section class="grid-item__info">
+                                <h4>Marc Jacobs Redesign</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="mono">
+                        <a href="#mono">
+                            <img src="img/work/mono/mono-thumb.jpg" alt="Mono">
+                            <section class="grid-item__info">
+                                <h4>Mono Theme</h4>
+                                <p>Apostrophe template</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="dadagoblet">
+                        <a href="#dadagoblet">
+                            <img src="img/work/dadagoblet/dada-thumb.jpg" alt="Crystal Goblet/Dada Manifesto">
+                            <section class="grid-item__info">
+                                <h4>Crystal Goblet/Dada Manifesto</h4>
+                                <p>Book</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="markmakers">
+                        <a href="#markmakers">
+                            <img src="img/work/markmakers/MarkMakers-thumb.jpg" alt="Mark Makers">
+                            <section class="grid-item__info">
+                                <h4>Mark Makers</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <!--<article class="grid-item is-thumb" id="narrative">
+                        <a href="#narrative">
+                            <img src="img/work/narrative/narrative-thumb.jpg" alt="Personal Narrative">
+                            <section class="grid-item__info">
+                                <h4>Personal Narrative</h4>
+                                <p>Book</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="purtyy">
+                        <a href="#purtyy">
+                            <img src="img/work/purtyy/purtyy-thumb.jpg" alt="Purtyy">
+                            <section class="grid-item__info">
+                                <h4>Purtyy</h4>
+                                <p>Website</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="veg-diet-info">
+                        <a href="#purtyy">
+                            <img src="img/work/vegdietinfo/veginfo-thumb.jpg" alt="Sex">
+                            <section class="grid-item__info">
+                                <h4>Veg Diet Comparison</h4>
+                                <p>Infographic</p>
+                            </section>
+                        </a>
+                    </article>
+
+                   <article class="grid-item is-thumb" id="sex">
+                        <a href="#sex">
+                            <img src="img/work/sexbook/sex-thumb.jpg" alt="Sex">
+                            <section class="grid-item__info">
+                                <h4>Sex and Its Impact on Youth</h4>
+                                <p>Pamphlet Book</p>
+                            </section>
+                        </a>
+                    </article>-->
+
+                    <article class="grid-item is-thumb" id="wiretype">
+                        <a href="#wiretype">
+                            <img src="img/work/wiretype/wiretype-thumb.jpg" alt="Sex">
+                            <section class="grid-item__info">
+                                <h4>Wire Lettering</h4>
+                                <p>3D Lettering</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="odlr">
+                        <a href="#odlr">
+                            <img src="img/work/odlr/odlr-thumb.jpg" alt="Oscar de la Renta">
+                            <section class="grid-item__info">
+                                <h4>Oscar de la Renta Redesign</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                </section>
+            </div>
+        </section>
+
+        <footer>
+            <div class="bio-block bio__contact">
+                <p><a href="mailto:mperrotti573@gmail.com">mperrotti573@gmail.com</a></p>
+                <ul class="inlineBlockList">
+                    <li><a href="https://twitter.com/mperrotti">Twitter</a> &middot; </li>
+                    <li><a href="https://www.linkedin.com/profile/view?id=256845904">LinkedIn</a> &middot; </li>
+                    <li><a href="https://github.com/mperrotti">Github</a> &middot; </li>
+                    <li><a href="https://dribbble.com/mperrotti">Dribbble</a></li>
                 </ul>
-            </nav>
-
-        <script>if ( typeof window.JSON === 'undefined' ) { document.write('<script src="js/vendor/historyAPI/json2.js"><\/script>'); }</script>
+            </div>
+        </footer>
 
         <!-- Vendor JavaScript Plugins -->
-        <script type="text/javascript" src="js/vendor/klass.min.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 
-        <!-- Vendor jQuery Plugins -->
-        <script src="js/vendor/jquery.ba-dotimeout.min.js"></script>
-        <script src="js/vendor/historyAPI/jquery.history.js"></script>
+        <script src="js/scripts.min.js"></script>
 
-        <!-- Site JavaScript/jQuery -->
-        <script src="js/site.min.js"></script>
-       
         <!-- Google Analytics -->
         <script>
             var _gaq=[['_setAccount','UA-41107362-1'],['_trackPageview']];

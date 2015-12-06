@@ -48,12 +48,12 @@
         // });
     //-------------------------
 
-    $('a[href="#home"]').on('click', function(){
-        History.pushState({state:1}, "home", "?page=home"); //TODO: Move this to the pagechange function
-    });
+    // $('a[href="#home"]').on('click', function(){
+    //     History.pushState({state:1}, "home", "?page=home"); //TODO: Move this to the pagechange function
+    // });
 
-    $('a[href="#work"]').on('click', function(){
-        History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
-    });
+    // $('a[href="#work"]').on('click', function(){
+    //     History.pushState({state:2}, "work", "?page=work"); //TODO: Move this to the pagechange function
+    // });
 
 })(window);

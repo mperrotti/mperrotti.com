@@ -1,0 +1,148 @@
+/*------------------------------------*\
+  JUST THE LOGO. TO BE REPLACED WITH SVG
+\*------------------------------------*/
+// @import 'modules/home';
+
+/*------------------------------------*\
+  GLOBAL STYLES
+\*------------------------------------*/
+body {
+  @include transition(opacity .5s ease-out, background .5s ease-in);
+  background: white;
+  margin: 0;
+}
+
+img {
+  background: url('../img/hover-pattern2.gif') $accent;
+}
+
+.wide-intro {
+  background: $background;
+  padding: $base-spacing*3 0;
+}
+
+.wide-intro header {
+  background-size: auto 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 144px;
+
+  .flexbox & {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+  }
+
+  .svg & {
+    background-image: url(../img/logo.svg);
+  }
+
+  .no-svg & {
+    background-image: url(../img/logo.png);
+  }
+
+}
+
+.fadeIn {
+  @include animation(fadeIn 250ms ease-in);
+}
+@include keyframes(fadeIn) {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+/*------------------------------------*\
+  ABOUT ME STYLES
+\*------------------------------------*/
+// .aboutme {
+//   background: white;
+//   li a {
+//     border: 0;
+//     color: $dark;
+//     &[href*="dribbble"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -152px; }
+//     &[href*="github"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -188px; }
+//     &[href*="twitter"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -223px; }
+//     &[href*="last.fm"]{ background: url('../img/iconsprite.svg') no-repeat transparent 0 -256px; }
+//   }
+// }
+
+/*------------------------------------*\
+  WORK GRID STYLES
+\*------------------------------------*/
+.grid-item {
+  @include transition(width .35s ease-in-out, height .35s ease-in-out);
+  a {
+    color: $dark;
+  }
+}
+
+.grid-item__expanded-content,
+.toggle {
+  @include transition(width .35s ease-in-out, height .35s ease-in-out);
+  height: 100%;
+}
+
+.is-thumb {
+  overflow: visible;
+  position: relative;
+
+  img {
+    box-shadow: 2px 2px 5px darken($background, 5%);
+    background: $background;
+    border-radius: 2px;
+  }
+
+}
+
+/*--------------------*\
+  WORK GRID - MQ TABLET AND DESKTOP
+\*--------------------*/
+@include atMediaUp(medium) {
+  .is-thumb {
+
+    a {
+      display: block;
+      position: relative;
+      border-radius: 2px;
+
+      &:before, &:after {
+        bottom: 0;
+        content: '';
+        display: block;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+      }
+
+      &:before {
+        background: white;
+        z-index: -1;
+      }
+
+      &:after {
+        @include transform(translateX(0) translateY(0));
+        background: url('../img/hover-pattern6.gif');
+        z-index: -2;
+      }
+
+      &:hover {
+        @include transform(translateX(-6px) translateY(-6px));
+        img {
+          box-shadow: none;
+        }
+        &:before {
+          background: white;
+        }
+        &:after {
+          @include transform(translateX(6px) translateY(6px));
+        }
+      }
+    }
+
+  }
+}

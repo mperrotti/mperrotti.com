@@ -1,0 +1,150 @@
+/*------------------------------------*\
+    GLOBAL
+\*------------------------------------*/
+html {
+	font-size: #{$root-font-px}px;
+	@include atMediaUp(medium) {
+		font-size: 20px;
+	}
+}
+
+body {
+	@include rem-fallback(font-size, 1);
+	color: $light;
+	font-family: $site-main-font;
+	line-height: 1.4;
+}
+
+//TODO: write a mixin!
+h1 {
+	@include rem-fallback(font-size, 3);
+	font-size: 12vw;
+	line-height: 1;
+	font-weight: 400;
+}
+@include atMediaUp(medium) {
+	h1 {
+		@include rem-fallback(font-size, 4);
+		font-size: 9vw;
+	}
+}
+
+@include atMediaUp(large) {
+	h1 {
+		@include rem-fallback(font-size, 5);
+		font-size: 6vw;
+	}
+}
+
+h2, h3 {
+	@include rem-fallback(font-size, 1.5);
+	line-height: 1.4;
+}
+
+h4, p {
+	@include rem-fallback(font-size, 1);
+	line-height: 1.4;
+	margin-top: 0;
+}
+
+p, .bio__basic {
+	max-width: 32em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	color: $dark;
+}
+
+h1, h2, h3, h4 {
+	letter-spacing: -0.04em;
+}
+
+h2, h3, h4, h5, h6 { font-weight: 400; }
+
+h3, h4, strong {
+	font-weight: 700;
+}
+
+nav {
+	li a { text-align: center; }
+}
+
+a {
+	color: $accent;
+	text-decoration: none;
+	&:visited {
+		color: $accent;
+	}
+
+	&.unlink {
+		border-bottom: 1px solid $accent;
+		color: $dark;
+		&:visited {
+			color: $dark;
+		}
+	}
+}
+
+/*------------------------------------*\
+    HOME
+\*------------------------------------*/
+.wide-intro{
+	header {
+		margin: 0;
+		text-align: center;
+	}
+}
+
+.more-bio {
+	display: inline-block;
+	overflow: hidden;
+}
+
+.bio-block {
+	text-align: center;
+	@include atMediaDown(medium) {
+		text-align: left;
+	}
+}
+
+.bio__contact,
+.more-bio-container {
+	text-align: center;
+}
+
+/*------------------------------------*\
+    WORK
+\*------------------------------------*/
+.grid {
+
+	.grid-item {
+
+		h4 {
+			font-weight: normal;
+			margin-bottom: 0;
+		}
+
+		p {
+			color: $light-secondary;
+			margin: 0;
+		}
+
+	}
+
+}
+
+.project-detail-container {
+	color: $dark;
+	line-height: 1.4;
+	@include atMediaDown(medium) {
+		h3 {
+			margin: 0;
+		}
+	}
+}
+
+::selection,
+::-moz-selection {
+	background-color: $accent;
+	color: $dark;
+}

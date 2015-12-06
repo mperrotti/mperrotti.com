@@ -1,8 +1,8 @@
 $(document).on('ready', function() {
 
 (function() {
-  GlobalModule.init();
-  WorkModule.init();
+  // GlobalModule.init();
+  // WorkModule.init();
 }) ();
 
 });

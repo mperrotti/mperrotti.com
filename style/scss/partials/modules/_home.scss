@@ -1,0 +1,103 @@
+$logoBg: $accent;
+
+.logo {
+  @include rotate(-20deg);
+	height: 12em;
+	margin: 0 auto;
+	position: relative;
+	padding: 6em 5em 8em 6em;
+	top: 10%;
+	width: 15em;
+
+  .stroke{
+    @include skew(-20deg, 0);
+    background: $logoBg;
+    display: inline-block;
+		height: 7em;
+		margin: 2em 0 0 1.25em;
+		padding-top: 3em;
+    position: relative;
+		width: 3em;
+    z-index: -1;
+
+    &:before{
+      @include skew(55deg, 0);
+	    background: $logoBg;
+			border-radius: 0 0 .25em 0;
+			content: ' ';
+			display: inline-block;
+			height: 2.05em;
+			left: -1.4em;
+			position: absolute;
+			top: -1.95em;
+			width: 3.1em;
+    }
+    &:first-child {
+      margin-left: .75em;
+    }
+
+  }
+
+  .stroke-chop{
+    left: .45em;
+    padding-top: 0;
+    top: -3em;
+    z-index: 0;
+  }
+
+	header {
+	  left: 50%;
+	  line-height: .5;
+	  margin-left: -85%;
+	  position: absolute;
+	  text-align: center;
+	  top: 3.25em;
+		width: 170%;
+	  z-index: 0;
+	}
+
+}
+
+@include at-breakpoint($mobile) {
+	@include update-container;
+	.wide-intro {
+		header {
+			display: none;
+		}
+	}
+	.logo {
+	  @include rotate(-20deg);
+		height: 7em;
+		margin: 0 auto;
+		position: relative;
+		padding: 3.25em 4em 4.25em 3em;
+		top: 10%;
+		width: 7.5em;
+
+
+	  .stroke{
+			height: 4em;
+			margin: 1.25em 0 0 0.5em;
+	    padding-top: 2em;
+	    width: 1.75em;
+	    &:before{
+				height: 1em;
+				left: -0.75em;
+				position: absolute;
+				top: -0.9em;
+				width: 1.95em;
+	    }
+	    &:first-child {
+	      margin-left: .75em;
+	    }
+
+	  }
+
+	  .stroke-chop{
+	    left: .45em;
+	    padding-top: 0;
+	    top: -2em;
+	  }
+
+	}
+}
