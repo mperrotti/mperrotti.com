@@ -88,6 +88,7 @@ footer {
 
 .project-basics {
   margin-bottom: $base-spacing;
+  a { display: block; }
 }
 
 /*------------------------------------*\
@@ -152,11 +153,17 @@ footer {
 /*------------------------------------*\
     PROJECT
 \*------------------------------------*/
+.grid-item__images {
+  text-align: center;
 
-.grid-item__images img {
-  margin-bottom: $base-spacing;
-  width: 100%;
+  img {
+    display: inline-block;
+    margin-bottom: $base-spacing;
+    max-width: 100%;
+  }
+
 }
+
 /*--------------------*\
     PROJECT - MQ DESKTOP
 \*--------------------*/

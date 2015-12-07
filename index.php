@@ -61,12 +61,52 @@
                 </section>
 
                 <section class="grid">
+                    <article class="grid-item is-thumb" id="grouphome">
+                        <a href="#grouphome">
+                            <img src="img/work/grouphome/ghome_mobile-thumb.jpg" alt="Group Home">
+                            <section class="grid-item__info">
+                                <h4>Mobile Group Home</h4>
+                                <p>Mobile Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="sassquatch2">
+                        <a href="#sassquatch2">
+                            <img src="img/work/sassquatch2/sq2-thumbnail.jpg" alt="Sassquatch 2">
+                            <section class="grid-item__info">
+                                <h4>Sassquatch 2</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="photos">
+                        <a href="#photos">
+                            <img src="img/work/photos/photos-thumbnail.jpg" alt="Photos">
+                            <section class="grid-item__info">
+                                <h4>Meetup Group Photos</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
+                    <article class="grid-item is-thumb" id="ricochet">
+                        <a href="#ricochet">
+                            <img src="img/work/ricochet/ricochet-thumb.jpg" alt="Salon Ricochet">
+                            <section class="grid-item__info">
+                                <h4>Salon Ricochet</h4>
+                                <p>Web</p>
+                            </section>
+                        </a>
+                    </article>
+
                     <article class="grid-item is-thumb" id="startlanding">
                         <a href="#startlanding">
                             <img src="img/work/startlanding/StartLanding-thumb.jpg" alt="Group Start Landing">
                             <section class="grid-item__info">
                                 <h4>Group Start Landing</h4>
-                                <p>Mobile Web</p>
+                                <p>Web</p>
                             </section>
                         </a>
                     </article>
@@ -76,17 +116,7 @@
                             <img src="img/work/mobilestart/mobilestart-thumb.jpg" alt="Mobile Group Start">
                             <section class="grid-item__info">
                                 <h4>Mobile Group Start</h4>
-                                <p>Web</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="microtarget">
-                        <a href="#microtarget">
-                            <img src="img/work/microtarget/microtarget-thumb.jpg" alt="Microtarget">
-                            <section class="grid-item__info">
-                                <h4>Microtarget</h4>
-                                <p>Web</p>
+                                <p>Mobile Web</p>
                             </section>
                         </a>
                     </article>
@@ -111,112 +141,22 @@
                         </a>
                     </article>
 
-                    <!--<article class="grid-item is-thumb" id="industry-to-indiv">
-                        <a href="#industry-to-indiv">
-                            <img src="img/work/industrytoindiv/IndustryToIndiv-thumb.jpg" alt="Industry to Individual">
+                    <article class="grid-item is-thumb" id="stepdown">
+                        <a href="#stepdown">
+                            <img src="img/work/stepdown/stepdown-thumb.jpg" alt="Stepdown">
                             <section class="grid-item__info">
-                                <h4>Industry to Individual</h4>
-                                <p>Website</p>
-                            </section>
-                        </a>
-                    </article>-->
-
-                    <article class="grid-item is-thumb" id="mj">
-                        <a href="#mj">
-                            <img src="img/work/mj/mj-thumb.jpg" alt="Marc Jacobs">
-                            <section class="grid-item__info">
-                                <h4>Marc Jacobs Redesign</h4>
+                                <h4>Organizer Stepdown</h4>
                                 <p>Web</p>
                             </section>
                         </a>
                     </article>
 
-                    <article class="grid-item is-thumb" id="mono">
-                        <a href="#mono">
-                            <img src="img/work/mono/mono-thumb.jpg" alt="Mono">
+                    <article class="grid-item is-thumb" id="funstuff">
+                        <a href="#funstuff">
+                            <img src="img/work/funstuff/funstuff-thumb.jpg" alt="Just for fun">
                             <section class="grid-item__info">
-                                <h4>Mono Theme</h4>
-                                <p>Apostrophe template</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="dadagoblet">
-                        <a href="#dadagoblet">
-                            <img src="img/work/dadagoblet/dada-thumb.jpg" alt="Crystal Goblet/Dada Manifesto">
-                            <section class="grid-item__info">
-                                <h4>Crystal Goblet/Dada Manifesto</h4>
-                                <p>Book</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="markmakers">
-                        <a href="#markmakers">
-                            <img src="img/work/markmakers/MarkMakers-thumb.jpg" alt="Mark Makers">
-                            <section class="grid-item__info">
-                                <h4>Mark Makers</h4>
-                                <p>Web</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <!--<article class="grid-item is-thumb" id="narrative">
-                        <a href="#narrative">
-                            <img src="img/work/narrative/narrative-thumb.jpg" alt="Personal Narrative">
-                            <section class="grid-item__info">
-                                <h4>Personal Narrative</h4>
-                                <p>Book</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="purtyy">
-                        <a href="#purtyy">
-                            <img src="img/work/purtyy/purtyy-thumb.jpg" alt="Purtyy">
-                            <section class="grid-item__info">
-                                <h4>Purtyy</h4>
-                                <p>Website</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="veg-diet-info">
-                        <a href="#purtyy">
-                            <img src="img/work/vegdietinfo/veginfo-thumb.jpg" alt="Sex">
-                            <section class="grid-item__info">
-                                <h4>Veg Diet Comparison</h4>
-                                <p>Infographic</p>
-                            </section>
-                        </a>
-                    </article>
-
-                   <article class="grid-item is-thumb" id="sex">
-                        <a href="#sex">
-                            <img src="img/work/sexbook/sex-thumb.jpg" alt="Sex">
-                            <section class="grid-item__info">
-                                <h4>Sex and Its Impact on Youth</h4>
-                                <p>Pamphlet Book</p>
-                            </section>
-                        </a>
-                    </article>-->
-
-                    <article class="grid-item is-thumb" id="wiretype">
-                        <a href="#wiretype">
-                            <img src="img/work/wiretype/wiretype-thumb.jpg" alt="Sex">
-                            <section class="grid-item__info">
-                                <h4>Wire Lettering</h4>
-                                <p>3D Lettering</p>
-                            </section>
-                        </a>
-                    </article>
-
-                    <article class="grid-item is-thumb" id="odlr">
-                        <a href="#odlr">
-                            <img src="img/work/odlr/odlr-thumb.jpg" alt="Oscar de la Renta">
-                            <section class="grid-item__info">
-                                <h4>Oscar de la Renta Redesign</h4>
-                                <p>Web</p>
+                                <h4>Just for fun</h4>
+                                <p>Misc</p>
                             </section>
                         </a>
                     </article>

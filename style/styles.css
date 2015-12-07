@@ -313,6 +313,8 @@ footer {
 
 .project-basics {
   margin-bottom: 1em; }
+  .project-basics a {
+    display: block; }
 
 /*------------------------------------*\
     WORK THUMBNAIL GRID
@@ -395,9 +397,12 @@ footer {
 /*------------------------------------*\
     PROJECT
 \*------------------------------------*/
-.grid-item__images img {
-  margin-bottom: 1em;
-  width: 100%; }
+.grid-item__images {
+  text-align: center; }
+  .grid-item__images img {
+    display: inline-block;
+    margin-bottom: 1em;
+    max-width: 100%; }
 
 /*--------------------*\
     PROJECT - MQ DESKTOP
@@ -446,6 +451,8 @@ body {
 
 img {
   background: url("../img/hover-pattern2.gif") #2AF2C6; }
+  .grid-item__images img {
+    background: transparent; }
 
 .wide-intro {
   background: #efeff4;

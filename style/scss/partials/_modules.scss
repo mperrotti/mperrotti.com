@@ -14,6 +14,9 @@ body {
 
 img {
   background: url('../img/hover-pattern2.gif') $accent;
+  .grid-item__images & {
+    background: transparent;
+  }
 }
 
 .wide-intro {
