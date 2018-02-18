@@ -19,6 +19,19 @@
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
 
+        <div class="overlayShim js-closeOnTrigger js-triggerModalClose"></div>
+        <div class="view view--modal view--modalSnap js-closeOnTrigger">
+            <div class="modalInner modalInner-header">
+                <button class="modal-close button--reset js-triggerModalClose">
+                    <span>×</span>
+                    <span class="modal-close-text">close and browse old site</span>
+                </button>
+            </div>
+            <div class="modalInner">
+                <p>You've found my old website. Feel free to browse around my older work, but my new site, <a href="http://mikeperrotti.com">mikeperrotti.com</a>, is still maintained and updated.</p>
+                <a href="http://mikeperrotti.com" class="text--big">Continue to mikeperrotti.com →</a>
+            </div>
+        </div>
         <!-- INTRO -->
         <section class="wide-intro">
 
