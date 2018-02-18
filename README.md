@@ -1,3 +1,1 @@
-# [mperrotti.com](http://mperrotti.com)
-
-My personal site
+This site is no longer maintained. See [mikeperrotti.com](http://mikeperrotti.com) instead

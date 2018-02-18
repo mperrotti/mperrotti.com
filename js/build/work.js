@@ -8,6 +8,16 @@
 var projects = [],
     projectData = {};
 
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, "\\$&");
+    var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, " "));
+}
+
 var WorkModule = {
   init: function() {
     this.collapseAllProjects();
@@ -122,6 +132,15 @@ $('#show-more-bio').on('click', function(e){
   $(this).toggleClass('more-bio--bio-hidden');
   $('.bio').toggleClass('bio-hidden');
 });
+
+$('.js-triggerModalClose').on('click', function(e){
+  e.preventDefault();
+  $('.js-closeOnTrigger').addClass('display--none');
+});
+
+if (getParameterByName('suppressModal')) {
+  $('.js-closeOnTrigger').addClass('display--none');
+}
 
 WorkModule.init();
 

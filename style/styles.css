@@ -687,6 +687,10 @@ a {
     a.unlink:visited {
       color: #141826; }
 
+.text--big {
+  font-size: 20px;
+  font-size: 1.25rem; }
+
 /*------------------------------------*\
     HOME
 \*------------------------------------*/
@@ -729,5 +733,104 @@ a {
 ::-moz-selection {
   background-color: #2AF2C6;
   color: #141826; }
+
+.overlayShim {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 20; }
+
+.view {
+  display: -webkit-box;
+  display: -moz-box;
+  display: box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: start;
+  box-pack: start;
+  -webkit-justify-content: flex-start;
+  -ms-justify-content: flex-start;
+  justify-content: flex-start;
+  -ms-flex-pack: start;
+  -webkit-box-align: flex;
+  box-align: flex;
+  -webkit-align-items: flex;
+  -ms-align-items: flex;
+  align-items: flex;
+  -ms-flex-align: flex;
+  box-sizing: border-box;
+  -webkit-box-orient: vertical;
+  box-orient: vertical;
+  -webkit-box-direction: normal;
+  box-direction: normal;
+  -webkit-flex-direction: column;
+  flex-direction: column;
+  -ms-flex-direction: column;
+  box-sizing: border-box;
+  background: white;
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden; }
+
+.view--modalSnap {
+  -webkit-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0);
+  -webkit-transition: -webkit-transform 0.3s;
+  -moz-transition: -moz-transform 0.3s;
+  transition: transform 0.3s;
+  left: 0;
+  margin: 0;
+  min-height: 100vh;
+  position: absolute;
+  top: 0;
+  transform: translateY(0);
+  width: 100%;
+  z-index: 30; }
+
+@media (min-width: 440px) {
+  .view--modalSnap {
+    -webkit-transform: translate3d(0, 0, 0);
+    -ms-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transition: -webkit-transform 0.2s ease;
+    -moz-transition: -moz-transform 0.2s ease;
+    transition: transform 0.2s ease;
+    position: absolute;
+    left: 50%;
+    margin-left: -220px;
+    border-radius: 4px;
+    min-height: 0;
+    width: 440px !important;
+    top: 50%;
+    transform: translateY(-50%); } }
+.modalInner {
+  padding: 1rem; }
+
+.modalInner-header {
+  border-bottom: 1px solid rgba(20, 24, 38, 0.18); }
+
+.button--reset {
+  border: 0;
+  background: transparent;
+  border-radius: 0;
+  font-size: 1rem;
+  padding: 0; }
+  .button--reset span {
+    vertical-align: middle; }
+
+.modal-close-text {
+  color: rgba(20, 24, 38, 0.55);
+  font-size: .75rem; }
+
+.display--none {
+  display: none !important; }
 
 /*# sourceMappingURL=styles.css.map */
